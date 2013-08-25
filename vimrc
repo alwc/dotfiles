@@ -50,7 +50,7 @@ filetype plugin indent on     " required!
 
 syntax on                               " for syntax highlighting
 let mapleader=";"                       " use ";" as the <leader> key
-"set colorcolumn=80                      " hightlight 80 character limit
+set colorcolumn=80                      " hightlight 80 character limit
 set hidden                              " allow buffers to be backgrounded wihtout being safe
 set t_Co=256                            " use 256 colors
 set nu                                  " for displaying line numbers

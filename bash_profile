@@ -8,7 +8,9 @@ export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 export GREP_OPTIONS='--color=auto'
 
 # Custom bash prompt by me
-export PS1='\[\e[0;37m\]\u\[\e[0;33m\]@\[\e[1;31m\]\h\[\e[0;37m\]:\[\e[0;32m\]\w\[\e[0;32m\]\n\$\[\e[0;37m\] '
+#export PS1='\[\e[0;37m\]\u\[\e[0;33m\]@\[\e[1;31m\]\h\[\e[0;37m\]:\[\e[0;32m\]\w\[\e[0;32m\]\n\$\[\e[0;37m\] '
+export PS1='\[\e[0;37m\]\u\[\e[0;33m\]@\[\e[1;31m\]$(scutil --get ComputerName)\[\e[0;37m\]:\[\e[0;32m\]\w\[\e[0;32m\]\n\$\[\e[0;37m\] '
+
 
 # Setting PATH for Python 2.7 (Alex's note: For Enthought Python, 6.00x)
 # The orginal version is saved in .bash_profile.pysave
@@ -20,7 +22,8 @@ export ARCHFLAGS="-arch x86_64"
 
 # Ensure user-installed binaries take precedence
 # export PATH=/usr/local/share/python:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
-# export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+#export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
 export PATH=$PATH
 export PATH=$HOME/bin:$PATH
 export PATH=/usr/bin:$PATH
