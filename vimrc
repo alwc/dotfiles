@@ -1,4 +1,4 @@
-set nocompatible               " get rid of Vi compatibility mode 
+set nocompatible               " get rid of Vi compatibility mode
 set encoding=utf-8
 
 "-------------------------------------------------------------------------------
@@ -7,8 +7,15 @@ set encoding=utf-8
 
 filetype off                   " required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+if has('win32') || has('win64')
+    " Windows settings
+    set rtp+=~/vimfiles/bundle/vundle
+    call vundle#rc('$HOME/vimfiles/bundle')
+else
+    " Usual settings
+    set rtp+=~/.vim/bundle/vundle/
+    call vundle#rc()
+endif
 
 " let Vundle manage Vundle
 " required!
@@ -45,18 +52,37 @@ Bundle 'altercation/vim-colors-solarized'
 filetype plugin indent on     " required!
 
 "-------------------------------------------------------------------------------
+" OS Settings
+"-------------------------------------------------------------------------------
+
+if has("gui_running")
+    colorscheme solarized
+    set guioptions=egmt
+
+    if has("gui_gtk2")
+        set guifont=Inconsolata\ 12
+    elseif has("gui_win32") || has("gui_win32s")
+        set guifont=Consolas:h11:cANSI
+    endif
+endif
+
+"-------------------------------------------------------------------------------
 " Basic Options
 "-------------------------------------------------------------------------------
 
+" General settings
 syntax on                               " for syntax highlighting
 let mapleader=";"                       " use ";" as the <leader> key
 set colorcolumn=80                      " hightlight 80 character limit
-set hidden                              " allow buffers to be backgrounded wihtout being safe
+set hidden                              " allow buffers to be backgrounded wihtout being save
 set t_Co=256                            " use 256 colors
-set nu                                  " for displaying line numbers
+set number                              " for displaying line numbers
 set cursorline                          " hightlight the line the cursor is on
 set scrolloff=10                        " for displaying at least 10 lines below the cursor
 set relativenumber                      " show relative line numbers
+set clipboard=unnamed                   " yank and paste with system clipboard
+set wildmenu                            " show a navigable menu for tab completion
+set wildmode=longest,list,full          " wildcard matches completion
 
 " Text fomatting
 set nowrap                              " don't wrap text
@@ -90,8 +116,6 @@ colorscheme solarized
 " Key Mappings
 "-------------------------------------------------------------------------------
 
-"iabbrev </ </<C-X><C-O>
-
 " move by rows rather than lines
 nnoremap j gj
 nnoremap k gk
@@ -113,6 +137,12 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 "-------------------------------------------------------------------------------
 " Plugin Settings
 "-------------------------------------------------------------------------------
+
+" netrw
+let g:netrw_liststyle=3                 "use tree-mode as default view
+let g:netrw_browse_split=4              "open file in previous buffer
+let g:netrw_preview=1                   "preview window shown in vertical split
+let g:netrw_winsize=20                  "netrw takes up 20% of screen space
 
 " CtrlP
 let g:ctrlp_max_files = 10000
