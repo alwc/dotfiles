@@ -12,24 +12,17 @@ set -o noclobber
 alias ll="ls -alrtF"
 alias la="ls -A"
 alias l="ls -CF"
-alias dir="ls --color=auto --format=vertical"
-alias vdir="ls --color=auto --fotmat=long"
 alias m='less'
 alias ..="cd .."
 alias ...="cd ..; cd .."
 alias md="mkdir"
 alias cl="clear"
-alias du="du -ch --max-depth=1"
+alias du="du -ch" 
 alias treeacl="tree -A -C -L 2"
 
 ## grep options
 export GREP_OPTIONS="--color=auto"
 export GREP_COLOR="1;31"
-
-## sort options
-## Read: http://www.gnu.org/software/coreutils/faq/coreutils-faq.html#Sort-does-not-sort-in-normal-order_0021
-unset LANG
-export LC_ALL=POSIX
 
 #------------------------------------------------------------------------------
 # Personal setup
