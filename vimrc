@@ -10,45 +10,52 @@ filetype off                   " required!
 if has('win32') || has('win64')
     " Windows settings
     set rtp+=~/vimfiles/bundle/vundle
-    call vundle#rc('$HOME/vimfiles/bundle')
+    call vundle#begin('$HOME/vimfiles/bundle')
 else
     " Usual settings
-    set rtp+=~/.vim/bundle/vundle/
-    call vundle#rc()
+    set rtp+=~/.vim/bundle/Vundle.vim
+    call vundle#begin()
 endif
 
-" let Vundle manage Vundle
-" required!
-Bundle 'gmarik/vundle'
+" let Vundle manage Vundle (required!)
+Plugin 'gmarik/vundle'
 
-" My Bundles here:
+" My Plugins here:
 "
 " original repos on github
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'scrooloose/syntastic'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-eunuch'
-Bundle 'kien/ctrlp.vim'
-Bundle 'godlygeek/tabular'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'mattn/emmet-vim'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-eunuch'
+Plugin 'kien/ctrlp.vim'
+Plugin 'godlygeek/tabular'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'mattn/emmet-vim'
+Plugin 'tpope/vim-markdown'
+Plugin 'mikewest/vimroom'
+Plugin 'vim-pandoc/vim-pandoc-syntax'
+Plugin 'vim-pandoc/vim-pantondoc'
 
 " python
-Bundle 'klen/python-mode'
+Plugin 'klen/python-mode'
 
 " javascript
 "Better JS color scheme
 "Provide syntax and indent plugins
 "TextMate's snippets features
-Bundle 'jelera/vim-javascript-syntax'
-Bundle 'pangloss/vim-javascript'
-Bundle 'Raimondi/delimitMate'
-Bundle 'othree/javascript-libraries-syntax.vim'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'pangloss/vim-javascript'
+Plugin 'Raimondi/delimitMate'
+Plugin 'othree/javascript-libraries-syntax.vim'
 
 " colortheme
-Bundle 'altercation/vim-colors-solarized'
+Plugin 'altercation/vim-colors-solarized'
 
+" tmux
+Plugin 'benmills/vimux'
+
+call vundle#end()
 filetype plugin indent on     " required!
 
 "-------------------------------------------------------------------------------
@@ -78,14 +85,15 @@ set hidden                              " allow buffers to be backgrounded wihto
 set t_Co=256                            " use 256 colors
 set number                              " for displaying line numbers
 set cursorline                          " hightlight the line the cursor is on
-set scrolloff=10                        " for displaying at least 10 lines below the cursor
+set scrolloff=999                       " for displaying at least 10 lines below the cursor
 set relativenumber                      " show relative line numbers
 set clipboard=unnamed                   " yank and paste with system clipboard
 set wildmenu                            " show a navigable menu for tab completion
 set wildmode=longest,list,full          " wildcard matches completion
+set nofoldenable                        " temporarily disables folding (restore with zc)
 
 " Text fomatting
-set nowrap                              " don't wrap text
+" set nowrap                              " don't wrap text
 set showmatch                           " highlight matching braces
 set matchtime=3                         " how many tenths of a second to wait before showing matching braces
 set list                                " show inivisble characters
@@ -120,19 +128,23 @@ colorscheme solarized
 nnoremap j gj
 nnoremap k gk
 
+" vimux"
+map <Leader>vp :VimuxPromptCommand<CR>
+map <Leader>vl :VimuxRunLastCommand<CR>
+map <Leader>vq :VimuxCloseRunner<CR>
+map <Leader>vx :VimuxInterruptRunner<CR>
+
 "-------------------------------------------------------------------------------
 " Filetype Options
 "-------------------------------------------------------------------------------
 
-" X?HTML & XML
 autocmd FileType html,xhtml,xml setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
-
-" CSS
 autocmd FileType css setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
-
-" JavaScript
 autocmd FileType javascript setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+augroup latexsettings
+    autocmd FileType tex set spell
+augroup END
 
 "-------------------------------------------------------------------------------
 " Plugin Settings
@@ -151,7 +163,10 @@ let g:ctrlp_max_files = 10000
 let g:EasyMotion_leader_ley = '<leader><leader>'
 
 " YouCompleteMe
+set completeopt-=preview
 let g:ycm_min_num_identifier_candidate_chars = 2
+let g:ycm_add_preview_to_completeopt = 0
+"let g:ycm_autoclose_preview_window_after_completion = 1
 
 " vim-javascript
 "let javascript_enable_domhtmlcss=1
