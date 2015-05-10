@@ -1,11 +1,11 @@
 set nocompatible               " get rid of Vi compatibility mode
+filetype off                   " required!
 set encoding=utf-8
 
 "-------------------------------------------------------------------------------
 " Vundle Settings
 "-------------------------------------------------------------------------------
 
-filetype off                   " required!
 
 if has('win32') || has('win64')
     " Windows settings
@@ -17,8 +17,8 @@ else
     call vundle#begin()
 endif
 
-" let Vundle manage Vundle (required!)
-Plugin 'gmarik/vundle'
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
 
 " My Plugins here:
 "
@@ -36,6 +36,10 @@ Plugin 'tpope/vim-markdown'
 Plugin 'mikewest/vimroom'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
 Plugin 'vim-pandoc/vim-pantondoc'
+Plugin 'chase/vim-ansible-yaml'
+
+" golang
+Plugin 'fatih/vim-go'
 
 " python
 Plugin 'klen/python-mode'
@@ -54,6 +58,9 @@ Plugin 'altercation/vim-colors-solarized'
 
 " tmux
 Plugin 'benmills/vimux'
+
+" latex
+Plugin 'LaTeX-Box-Team/LaTeX-Box'
 
 call vundle#end()
 filetype plugin indent on     " required!
@@ -138,10 +145,12 @@ map <Leader>vx :VimuxInterruptRunner<CR>
 " Filetype Options
 "-------------------------------------------------------------------------------
 
-autocmd FileType html,xhtml,xml setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType html,xhtml,xml setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
 autocmd FileType css setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
 autocmd FileType javascript setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+"autocmd FileType go setlocal listchars=tab:\ \  noexpandtab
+autocmd FileType go setlocal nolist noexpandtab
 augroup latexsettings
     autocmd FileType tex set spell
 augroup END
@@ -201,3 +210,7 @@ let delimitMate_expand_cr = 1
 
 " javascript-libraries-synthax
 let g:used_javascript_libs = 'jquery,angularjs'
+"
+" LatexBox options
+" let g:LatexBox_latexmk_async=1
+" let g:LatexBox_latexmk_options = "-pvc -pdfps"

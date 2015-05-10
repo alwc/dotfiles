@@ -16,7 +16,7 @@ if [ ! -z $VENVWRAP ]; then
 
     # pip ---------------------------------------------------------------
     # centralized location for new virtual environments
-    export PIP_VIRTUALENV_BASE=$HOME/Virtualenvs
+    export PIP_VIRTUALENV_BASE=$WORKON_HOME
     # pip should only run if there is a virtualenv currently activated
     export PIP_REQUIRE_VIRTUALENV=true
     # cache pip-installed packages to avoid re-downloading
@@ -26,3 +26,10 @@ fi
 syspip(){
    PIP_REQUIRE_VIRTUALENV="" pip "$@"
 }
+
+syspip3(){
+   PIP_REQUIRE_VIRTUALENV="" pip3 "$@"
+}
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
