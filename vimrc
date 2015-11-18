@@ -213,4 +213,4 @@ let g:used_javascript_libs = 'jquery,angularjs'
 "
 " LatexBox options
 let g:LatexBox_latexmk_async=1
-let g:LatexBox_latexmk_options = "-pvc -pdfps"
+" let g:LatexBox_latexmk_options = "-pvc"

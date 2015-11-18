@@ -50,8 +50,11 @@ alias restart-pg='pg_ctl reload'
 export CLICOLOR=1
 export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 
+# Load in the git branch prompt script.
+source ~/.git-prompt.sh
+
 # Custom bash prompt
-export PS1='\[\e[0;37m\]\u\[\e[0;33m\]@\[\e[1;31m\]$(scutil --get ComputerName)\[\e[0;37m\]:\[\e[0;32m\]\w\[\e[0;32m\]\n\$\[\e[0;37m\] '
+export PS1='\[\e[0;37m\]\u\[\e[0;33m\]@\[\e[1;31m\]$(scutil --get ComputerName)\[\e[0;37m\]:\[\e[0;32m\]\w\[\e[0;32m\]\[\e[0;38m\]$(__git_ps1 " (%s)")\n\[\e[0;32m\]\$\[\e[0;37m\] '
 
 # Ensure user-installed binaries take precedence
 export GOPATH=$HOME/go
@@ -72,6 +75,7 @@ export ARCHFLAGS="-arch x86_64"
 test -f ~/.bashrc && source ~/.bashrc
 
 #locale
+export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
 
 # vi editing mode in bash
@@ -82,3 +86,9 @@ source "`brew --prefix grc`/etc/grc.bashrc"
 # For Udacity's Android class
 export JAVA_HOME=$(/usr/libexec/java_home)
 export JDK_HOME=$(/usr/libexec/java_home)
+
+# The next line updates PATH for the Google Cloud SDK.
+source '/Users/alexlee/google-cloud-sdk/path.bash.inc'
+
+# The next line enables shell command completion for gcloud.
+source '/Users/alexlee/google-cloud-sdk/completion.bash.inc'
