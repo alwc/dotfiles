@@ -25,10 +25,16 @@ alias treeacl="tree -A -C -L 2"
 
 ## Folder direct access
 alias study="cd ~/Dropbox/_study_materials"
+alias redso="cd ~/Dropbox/redso"
 alias note="cd ~/Dropbox/notes"
+alias note-m="cd ~/Dropbox/notes/misc"
+alias note-p="cd ~/Dropbox/notes/programming"
 alias todo="vim ~/Dropbox/notes/to_do.txt"
 alias roadmap="cd ~/Dropbox/_study_materials; vim roadmap.txt"
 alias scratch="cd ~/Dropbox/notes/scratch_pad/; vim"
+
+## Network
+alias lsp="lsof -i -n -P | grep LISTEN"
 
 ## grep options
 export GREP_OPTIONS="--color=auto"
@@ -54,14 +60,16 @@ export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 source ~/.git-prompt.sh
 
 # Custom bash prompt
-export PS1='\[\e[0;37m\]\u\[\e[0;33m\]@\[\e[1;31m\]$(scutil --get ComputerName)\[\e[0;37m\]:\[\e[0;32m\]\w\[\e[0;32m\]\[\e[0;38m\]$(__git_ps1 " (%s)")\n\[\e[0;32m\]\$\[\e[0;37m\] '
+export PS1='\[\e[0;37m\]\u\[\e[0;33m\]@\[\e[1;31m\]$(scutil --get ComputerName)\[\e[0;37m\]:\[\e[0;32m\]\w\[\e[0;32m\]\[\e[0;38m\]$(__git_ps1 " git:(%s)")\n\[\e[0;32m\]\$\[\e[0;37m\] '
 
 # Ensure user-installed binaries take precedence
 export GOPATH=$HOME/go
+export PIOPATH=$HOME/PredictionIO/
 
 export PATH=$PATH
 export PATH=$HOME/bin:$PATH
 export PATH=$GOPATH/bin:$PATH
+export PATH=$PIOPATH/bin:$PATH
 export PATH=/usr/bin:$PATH
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH

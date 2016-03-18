@@ -7,15 +7,11 @@ set encoding=utf-8
 "-------------------------------------------------------------------------------
 
 
-if has('win32') || has('win64')
-    " Windows settings
-    set rtp+=~/vimfiles/bundle/vundle
-    call vundle#begin('$HOME/vimfiles/bundle')
-else
-    " Usual settings
-    set rtp+=~/.vim/bundle/Vundle.vim
-    call vundle#begin()
-endif
+" Windows settings TODO: look at mitchell/dotfiles
+
+" Usual settings
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
@@ -50,6 +46,7 @@ Plugin 'klen/python-mode'
 "TextMate's snippets features
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 Plugin 'Raimondi/delimitMate'
 Plugin 'othree/javascript-libraries-syntax.vim'
 
@@ -116,8 +113,8 @@ set smartcase                           " be smart about case sensitivity when s
 " Tab settings
 set expandtab                           " use spaces instead of tabs
 set tabstop=4                           " tab spacing
-set shiftwidth=4                        " indent/outdent by 4 columns
-set softtabstop=4                       " soft tab width in spaces
+set shiftwidth=2                        " indent/outdent by 4 columns
+set softtabstop=2                       " soft tab width in spaces
 set shiftround                          " alwyas indent/outdent to the nearest tabstop 
 set smartindent                         " does the right thing (mostly) in programs
 set autoindent                          " auto-indent
@@ -147,7 +144,7 @@ map <Leader>vx :VimuxInterruptRunner<CR>
 
 autocmd FileType html,xhtml,xml setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
 autocmd FileType css setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
-autocmd FileType javascript setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
+autocmd FileType javascript setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 "autocmd FileType go setlocal listchars=tab:\ \  noexpandtab
 autocmd FileType go setlocal nolist noexpandtab
@@ -167,6 +164,7 @@ let g:netrw_winsize=20                  "netrw takes up 20% of screen space
 
 " CtrlP
 let g:ctrlp_max_files = 10000
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|bower_components|target|dist)|(\.(swp|ico|git|svn))$'
 
 " EasyMotion
 let g:EasyMotion_leader_ley = '<leader><leader>'
@@ -184,15 +182,28 @@ let g:ycm_add_preview_to_completeopt = 0
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
 let g:syntastic_enable_signs = 1  " Show sidebar signs.
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 2  " Close error window automatically when there are no errors.
+let g:syntastic_auto_loc_list = 1
+"let g:syntastic_auto_loc_list = 2  " Close error window automatically when there are no errors.
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 let g:syntastic_mode_map = { 'mode': 'active',
                             \'active_filetypes': [],
                             \'passive_filetypes': ['html'] }
-" let g:syntastic_python_checkers = ['flake8']
-" let g:syntastic_python_flake8_args =
-" '--ignore="E501,E302,E261,E701,E241,E126,E127,E128W801"'
-let g:synastic_javascript_checkers = ['jshint']
+"let g:syntastic_python_checkers = ['flake8']
+"let g:syntastic_python_flake8_args =
+"'--ignore="E501,E302,E261,E701,E241,E126,E127,E128W801"'
+"
+let g:syntastic_javascript_checkers = ['eslint']
+" use local eslint
+let s:eslint_path = system('PATH=$(npm bin):$PATH && which eslint')
+let g:syntastic_javascript_eslint_exec = substitute(s:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
 
 " Powerline settings
 set laststatus=2   " Always show the statusline
@@ -214,3 +225,7 @@ let g:used_javascript_libs = 'jquery,angularjs'
 " LatexBox options
 let g:LatexBox_latexmk_async=1
 " let g:LatexBox_latexmk_options = "-pvc"
+"
+"
+" mxw's JSX highlighting
+" let g:jsx_ext_required = 0 " Allow JSX in normal JS files
