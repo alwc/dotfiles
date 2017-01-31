@@ -31,7 +31,7 @@ Plugin 'mattn/emmet-vim'
 Plugin 'tpope/vim-markdown'
 Plugin 'mikewest/vimroom'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
-Plugin 'vim-pandoc/vim-pantondoc'
+Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'chase/vim-ansible-yaml'
 
 " golang
@@ -51,7 +51,7 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'othree/javascript-libraries-syntax.vim'
 
 " colortheme
-Plugin 'altercation/vim-colors-solarized'
+Plugin 'romainl/Apprentice'
 
 " tmux
 Plugin 'benmills/vimux'
@@ -67,19 +67,20 @@ filetype plugin indent on     " required!
 "-------------------------------------------------------------------------------
 
 if has("gui_running")
-    colorscheme solarized
-    set guioptions=egmt
+    set guioptions=cegmt
 
-    if has("gui_gtk2")
-        set guifont=Inconsolata\ 12
-    elseif has("gui_win32") || has("gui_win32s")
-        set guifont=Consolas:h11:cANSI
+    if has("win32")
+      set guifont=Inconsolata:h11
+    else
+      set guifont=Inconsolata\ 12
     endif
 endif
 
 "-------------------------------------------------------------------------------
 " Basic Options
 "-------------------------------------------------------------------------------
+
+colorscheme apprentice
 
 " General settings
 syntax on                               " for syntax highlighting
@@ -120,9 +121,9 @@ set smartindent                         " does the right thing (mostly) in progr
 set autoindent                          " auto-indent
 
 " Color scheme
-syntax enable
-set background=dark
-colorscheme solarized
+" syntax enable
+" set background=dark
+" colorscheme solarized
 
 "-------------------------------------------------------------------------------
 " Key Mappings
@@ -164,7 +165,7 @@ let g:netrw_winsize=20                  "netrw takes up 20% of screen space
 
 " CtrlP
 let g:ctrlp_max_files = 10000
-let g:ctrlp_custom_ignore = '\v[\/](node_modules|bower_components|target|dist)|(\.(swp|ico|git|svn))$'
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|bower_components|target)|(\.(swp|ico|git|svn))$'
 
 " EasyMotion
 let g:EasyMotion_leader_ley = '<leader><leader>'
@@ -207,6 +208,7 @@ let g:syntastic_javascript_eslint_exec = substitute(s:eslint_path, '^\n*\s*\(.\{
 
 " Powerline settings
 set laststatus=2   " Always show the statusline
+" let g:Powerline_symbols="fancy" " Fancy styling
 
 " make Esc happen without waiting for timeoutlen
 " fixes Powerline delay

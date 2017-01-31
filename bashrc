@@ -18,7 +18,7 @@ if [ ! -z $VENVWRAP ]; then
     # centralized location for new virtual environments
     export PIP_VIRTUALENV_BASE=$WORKON_HOME
     # pip should only run if there is a virtualenv currently activated
-    export PIP_REQUIRE_VIRTUALENV=true
+    # export PIP_REQUIRE_VIRTUALENV=true
     # cache pip-installed packages to avoid re-downloading
     export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 fi
@@ -34,5 +34,5 @@ syspip3(){
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-export NVM_DIR="/Users/alexlee/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+### tmc-cli for University of Helsinki's Test My Code framework
+# source /Users/alexlee/.tmc-autocomplete.sh
