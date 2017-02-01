@@ -6,6 +6,11 @@
 
 scriptencoding utf-8
 set encoding=utf-8
+
+"" Setup python3 environment
+let g:python3_host_prog='/usr/local/bin/python3'
+let g:python3_host_skip_check=1
+
 "----------------------------------------------------------------------
 " Plugins
 "----------------------------------------------------------------------
@@ -22,12 +27,15 @@ Plug 'tpope/vim-eunuch'
 "Plug 'tpope/vim-fugitive'
 
 " New
-Plug 'vim-pandoc/vim-pandoc', { 'for': [ 'pandoc', 'markdown' ] }
-Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': [ 'pandoc', 'markdown' ] }
+"Plug 'vim-pandoc/vim-pandoc', { 'for': [ 'pandoc', 'markdown' ] }
+"Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': [ 'pandoc', 'markdown' ] }
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'lervag/vimtex'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neosnippet'
-" Plug 'Shougo/neosnippet-snippets'
+Plug 'jiangmiao/auto-pairs'
+Plug 'Shougo/neosnippet-snippets'
 "Plug 'w0rp/ale'
 call plug#end()
 
@@ -223,5 +231,29 @@ autocmd BufNewFile,BufRead *.pp call Pl#Load()"
 " Plugins
 "----------------------------------------------------------------------
 
-" [deoplete]
+" [vimtex]
+let g:tex_flavor = 'latex'
+augroup latexsettings
+    autocmd FileType tex set spell
+augroup END
+
+" [jiangmiao/auto-pairs]
+let g:AutoPairsMapCR=0
+
+" [Shougo/neosnippet]
+let g:neosnippet#disable_runtime_snippets={ '_' : 1 }
+let g:neosnippet#snippets_directory='~/dotfiles/nvim/snippets'
+let g:neosnippet#enable_snipmate_compatibility=1
+
+" [Shougo/deoplete]
+smap <silent><expr><tab> neosnippet#jumpable() ? "\<plug>(neosnippet_jump)"      : "\<tab>"
+imap <silent><expr><tab> pumvisible()          ? "\<c-n>"                        : (neosnippet#jumpable()   ? "\<plug>(neosnippet_jump)"   : "\<tab>")
+imap <silent><expr><cr>  !pumvisible()         ? "\<cr>\<plug>AutoPairsReturn"   : (neosnippet#expandable() ? "\<plug>(neosnippet_expand)" : deoplete#mappings#close_popup())
+imap <silent><expr><esc> pumvisible()          ? deoplete#mappings#close_popup() : "\<esc>"
+imap <silent><expr><bs>  deoplete#mappings#smart_close_popup()."\<bs>"
 let g:deoplete#enable_at_startup=1
+let g:deoplete#auto_completion_start_length=1
+let g:deoplete#enable_camel_case=1
+let g:deoplete#max_list=100
+" let g:deoplete#ignore_sources={}
+" let g:deoplete#ignore_sources._=['buffer']
