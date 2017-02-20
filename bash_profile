@@ -25,11 +25,12 @@ alias treeacl="tree -A -C -L 2"
 
 ## Folder direct access
 alias study="cd ~/Dropbox/_study_materials"
-alias redso="cd ~/Redso"
 alias note="cd ~/Dropbox/notes"
 alias note-m="cd ~/Dropbox/notes/misc"
 alias note-p="cd ~/Dropbox/notes/programming"
 alias course="cd ~/Courses"
+alias ml="cd ~/Dropbox/_ml_notes"
+alias sn="cd ~/Dropbox/_study_notes"
 alias todo="vim ~/Dropbox/notes/todo.md"
 alias roadmap="cd ~/Dropbox/_study_materials; vim roadmap.txt"
 alias scratch="cd ~/Dropbox/notes/scratch_pad/; vim"

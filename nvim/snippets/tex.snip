@@ -7,6 +7,44 @@ alias   $
 abbr    $ expression $
     $${1:#:expression}$${2}
 
+# ========== THEOREM ==========
+
+snippet def
+alias   \begin{df}
+    \begin{df}
+        ${1}
+    \end{df}
+
+snippet dft
+alias   \begin{df}[term]
+    \begin{df}[${1}]
+        ${2}
+    \end{df}
+
+snippet alg
+alias   \begin{alg}[term]
+    \begin{alg}[${1}]
+        ${2}
+    \end{alg}
+
+snippet rem
+alias   \begin{rem}
+    \begin{rem}
+        ${1}
+    \end{rem}
+
+snippet prf
+alias   \begin{proof}
+    \begin{proof}
+        ${1}
+    \end{proof}
+
+snippet exp
+alias   \begin{ex}
+    \begin{ex}
+        ${1}
+    \end{ex}
+
 # ========== ENVIRONMENT ==========
 
 snippet begin
@@ -144,8 +182,8 @@ alias   \begin{array} \array
 
 snippet cases
 alias   \begin{cases} \cases
-    \begin{cases}{${1}}
-        ${2:TARGET}
+    \begin{cases}
+        ${1:TARGET}
     \end{cases}
 
 snippet slide

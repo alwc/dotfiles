@@ -158,6 +158,9 @@ else
     nmap <silent> <leader>vimrc :e ~/.vimrc<CR>
 endif
 
+" Shortcut to edit the snippets
+nmap <silent> <leader>snipt :e ~/dotfiles/nvim/snippets/tex.snip<CR>
+
 " Make navigating around splits easier
 " nnoremap <C-j> <C-w>j
 " nnoremap <C-k> <C-w>k
@@ -257,3 +260,6 @@ let g:deoplete#enable_camel_case=1
 let g:deoplete#max_list=100
 " let g:deoplete#ignore_sources={}
 " let g:deoplete#ignore_sources._=['buffer']
+
+set t_ZH=[3m
+set t_ZR=[23m

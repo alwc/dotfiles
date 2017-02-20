@@ -1,0 +1,28 @@
+\def\filepath{/Users/alexlee/dotfiles/latex_templates}
+
+\input{\filepath/packages_article.tex}
+\input{\filepath/theorems_with_boxes.tex}
+\input{\filepath/macros.tex}
+\input{\filepath/formatting.tex}
+
+\pagestyle{fancy}
+\lhead{Linear Algebra}
+\chead{}
+\rhead{Alex Lee}
+\lfoot{}
+\cfoot{\thepage}
+\rfoot{}
+\renewcommand{\headrulewidth}{.3pt}
+\setlength\voffset{0in}
+\setlength\textheight{648pt}
+
+\addbibresource{linear_algebra.bib}
+
+\begin{document}
+\tableofcontents
+
+\input{test.tex}
+%INSERT_HERE
+
+\printbibliography
+\end{document}
