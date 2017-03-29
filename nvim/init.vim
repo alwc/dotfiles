@@ -181,7 +181,7 @@ nmap <silent> <leader>snipt :e ~/dotfiles/nvim/snippets/tex.snip<CR>
 " map <leader>p "*p
 
 " Get rid of search highlights
-" noremap <silent><leader>/ :nohlsearch<cr>
+noremap <silent><leader>/ :nohlsearch<cr>
 
 " Command to write as root if we dont' have permission
 " cmap w!! %!sudo tee > /dev/null %

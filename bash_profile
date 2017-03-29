@@ -29,13 +29,16 @@ alias note="cd ~/Dropbox/notes"
 alias note-m="cd ~/Dropbox/notes/misc"
 alias note-p="cd ~/Dropbox/notes/programming"
 alias course="cd ~/Courses"
-alias ml="cd ~/Dropbox/_ml_notes"
+alias mln="cd ~/Dropbox/_ml_notes"
+alias mlc="cd ~/DataScience/ml_codebooks"
 alias sn="cd ~/Dropbox/_study_notes"
 alias todo="vim ~/Dropbox/notes/todo.md"
 alias roadmap="cd ~/Dropbox/_study_materials; vim roadmap.txt"
 alias scratch="cd ~/Dropbox/notes/scratch_pad/; vim"
 
 alias brew-all="brew update && brew upgrade && brew cleanup && brew cask cleanup"
+# `brew cu` command comes from 'https://github.com/buo/homebrew-cask-upgrade'
+alias brew-cask-all="brew cu -a -y --cleanup"
 alias docker-eval='eval "$(docker-machine env default)"'
 
 ## Network
@@ -105,8 +108,6 @@ export LANG="en_US.UTF-8"
 # vi editing mode in bash
 set -o vi
 
-source "`brew --prefix grc`/etc/grc.bashrc"
-
 # For Udacity's Android class
 export JAVA_HOME=$(/usr/libexec/java_home)
 export JDK_HOME=$(/usr/libexec/java_home)
@@ -117,3 +118,9 @@ source '/Users/alexlee/google-cloud-sdk/path.bash.inc'
 # The next line enables shell command completion for gcloud.
 source '/Users/alexlee/google-cloud-sdk/completion.bash.inc'
 
+# Homebrew: "New shell sessions will start using GRC after you add this to your profile"
+source '/usr/local/etc/grc.bashrc'
+#source "`brew --prefix grc`/etc/grc.bashrc"
+
+# For Homebrew's openssl
+export PATH="/usr/local/opt/openssl/bin:$PATH"
