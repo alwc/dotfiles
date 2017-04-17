@@ -1,22 +1,45 @@
+%%% Letters
+
 \newcommand{\px}[1]{\bm{x}^{(#1)}} % maybe change px to ix
 \newcommand{\py}[1]{\bm{y}^{(#1)}}
 
 \newcommand{\mA}[0]{\bm{A}}
 \newcommand{\mB}[0]{\bm{B}}
+\newcommand{\mC}[0]{\bm{C}}
 \newcommand{\mE}[0]{\bm{E}}
 \newcommand{\mI}[0]{\bm{I}}
 \newcommand{\mP}[0]{\bm{P}}
 \newcommand{\mL}[0]{\bm{L}}
 \newcommand{\mU}[0]{\bm{U}}
 
-\newcommand{\vx}[0]{\bm{x}}
+\newcommand{\cR}[0]{\mathcal{R}}
+\newcommand{\cN}[0]{\mathcal{N}}
+
 \newcommand{\vb}[0]{\bm{b}}
 \newcommand{\vc}[0]{\bm{c}}
 \newcommand{\vd}[0]{\bm{d}}
+\newcommand{\vv}[0]{\bm{v}}
+\newcommand{\vx}[0]{\bm{x}}
+\newcommand{\vy}[0]{\bm{y}}
 
+%%% Vectors and Matrices
 
+\newcommand{\bvtwo}[2]{
+    \begin{bmatrix}
+        {#1} \\
+        {#2} \\
+    \end{bmatrix}
+}
 
-%%% Below are old commands
+\newcommand{\bvthree}[3]{
+    \begin{bmatrix}
+        {#1} \\
+        {#2} \\
+        {#3} \\
+    \end{bmatrix}
+}
+
+%%%%%%%%%%%%%%%% Below are old commands
 
 %LETTERS
 
@@ -30,7 +53,6 @@
 \newcommand{\cC}[0]{\mathcal{C}}
 \newcommand{\cX}[0]{\mathcal{X}}
 \newcommand{\cY}[0]{\mathcal{Y}}
-\newcommand{\cN}[0]{\mathcal{N}}
 \newcommand{\sD}[0]{\mathscr{D}}
 %\newcommand{\mD}[0]{\mathfrak D}
 \newcommand{\cE}[0]{\mathscr{E}}%deprecated
@@ -574,6 +596,7 @@
 \text{#2}
 \end{matrix}
 \right\}}
+
 \newcommand{\bth}[3]{
 \left\{\begin{matrix}
 \text{#1}\\
