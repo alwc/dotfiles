@@ -18,7 +18,13 @@
 \usepackage{cmap}
 \usepackage{csquotes}
 \usepackage{enumerate}
+
 \usepackage{enumitem}%resume lists
+% Remove itemize natural indent
+% https://tex.stackexchange.com/questions/91124/itemize-removing-natural-indent
+\setlist[itemize]{leftmargin=*}
+\setlist[itemize,2]{label={$\triangleright$}}
+
 \usepackage{esint}%allows \ointclockwise, \ointctrclockwise, \var...
 \usepackage{fancyhdr}
 \usepackage{listings}
@@ -96,6 +102,3 @@
 %exclude subsubsections
 \setcounter{tocdepth}{2}
 
-% Remove itemize natural indent
-% https://tex.stackexchange.com/questions/91124/itemize-removing-natural-indent
-\setlist[itemize]{leftmargin=*}
