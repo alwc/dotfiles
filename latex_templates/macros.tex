@@ -1,28 +1,83 @@
 %%% Letters
 
+
+\newcommand{\C}[0]{\mathbb{C}}
+\newcommand{\I}[0]{\mathbb{I}}
+\newcommand{\R}[0]{\mathbb{R}}
+
 \newcommand{\px}[1]{\bm{x}^{(#1)}} % maybe change px to ix
 \newcommand{\py}[1]{\bm{y}^{(#1)}}
 
 \newcommand{\mA}[0]{\bm{A}}
 \newcommand{\mB}[0]{\bm{B}}
 \newcommand{\mC}[0]{\bm{C}}
+\newcommand{\mD}[0]{\bm{D}}
 \newcommand{\mE}[0]{\bm{E}}
+\newcommand{\mG}[0]{\bm{G}}
 \newcommand{\mI}[0]{\bm{I}}
+\newcommand{\mJ}[0]{\bm{J}}
 \newcommand{\mP}[0]{\bm{P}}
+\newcommand{\mQ}[0]{\bm{Q}}
 \newcommand{\mL}[0]{\bm{L}}
+\newcommand{\mM}[0]{\bm{M}}
+\newcommand{\mN}[0]{\bm{N}}
+\newcommand{\mR}[0]{\bm{R}}
 \newcommand{\mU}[0]{\bm{U}}
+\newcommand{\mV}[0]{\bm{V}}
+\newcommand{\mW}[0]{\bm{W}}
+\newcommand{\mX}[0]{\bm{X}}
 
-\newcommand{\cR}[0]{\mathcal{R}}
+\newcommand{\mSigma}[0]{\bm{\Sigma}}
+\newcommand{\mLambda}[0]{\bm{\Lambda}}
+
+\newcommand{\cD}[0]{\mathcal{D}}
+\newcommand{\cL}[0]{\mathcal{L}}
 \newcommand{\cN}[0]{\mathcal{N}}
+\newcommand{\cR}[0]{\mathcal{R}}
+\newcommand{\cX}[0]{\mathcal{X}}
 
+\newcommand{\va}[0]{\bm{a}}
 \newcommand{\vb}[0]{\bm{b}}
 \newcommand{\vc}[0]{\bm{c}}
 \newcommand{\vd}[0]{\bm{d}}
+\newcommand{\ve}[0]{\bm{e}}
+\newcommand{\vg}[0]{\bm{g}}
+\newcommand{\vh}[0]{\bm{h}}
+\newcommand{\vi}[0]{\bm{i}}
+\newcommand{\vj}[0]{\bm{j}}
+\newcommand{\vk}[0]{\bm{k}}
+\newcommand{\vn}[0]{\bm{n}}
+\newcommand{\vp}[0]{\bm{p}}
+\newcommand{\vq}[0]{\bm{q}}
+\newcommand{\vr}[0]{\bm{r}}
+\newcommand{\vu}[0]{\bm{u}}
 \newcommand{\vv}[0]{\bm{v}}
+\newcommand{\vw}[0]{\bm{w}}
 \newcommand{\vx}[0]{\bm{x}}
 \newcommand{\vy}[0]{\bm{y}}
+\newcommand{\vz}[0]{\bm{z}}
+
+\newcommand{\vmu}[0]{\bm{\mu}}
+\newcommand{\vsigma}[0]{\bm{\sigma}}
+\newcommand{\vtheta}[0]{\bm{\theta}}
+
+%%% Symbols
+\newcommand{\ot}[0]{\otimes}
+\newcommand{\bigot}[0]{\bigotimes}
 
 %%% Vectors and Matrices
+
+\newcommand{\bmat}[1]{
+    \begin{bmatrix}
+        {#1}
+    \end{bmatrix}
+}
+
+\newcommand{\bhrow}[1]{
+    \begin{bmatrix}
+        {#1}
+    \end{bmatrix}
+}
 
 \newcommand{\bvtwo}[2]{
     \begin{bmatrix}
@@ -39,6 +94,95 @@
     \end{bmatrix}
 }
 
+\newcommand{\bvfour}[4]{
+    \begin{bmatrix}
+        {#1} \\
+        {#2} \\
+        {#3} \\
+        {#4} \\
+    \end{bmatrix}
+}
+
+\newcommand{\diagm}[2]{
+    \begin{bmatrix}
+        {#1}_1 \\
+        &\ddots \\
+        &&{#1}_{#2} \\
+    \end{bmatrix}
+}
+
+%%% Functions and Operators
+\newcommand{\maxr}[2]{
+\max_{\scriptsize \begin{array}{c}{#1}\\{#2}\end{array}}
+} % max with 2 rows
+\newcommand{\minr}[2]{
+\min_{\scriptsize \begin{array}{c}{#1}\\{#2}\end{array}}
+} % min with 2 rows
+\newcommand{\amaxr}[2]{
+\amax_{\scriptsize \begin{array}{c}{#1}\\{#2}\end{array}}
+} % max with 2 rows
+\newcommand{\amax}{\mathop{\mathrm{argmax}}}
+\newcommand{\amin}{\mathop{\mathrm{argmin}}}
+\newcommand{\det}{\operatorname{det}}
+\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\dim}{\operatorname{dim}}
+\newcommand{\proj}{\operatorname{proj}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\spn}{\operatorname{span}}
+\newcommand{\sign}{\operatorname{sign}}
+\newcommand{\Tr}[0]{\operatorname{Tr}}
+\newcommand{\vect}{\operatorname{vec}}
+\newcommand{\Beta}{\operatorname{Beta}}
+
+%%% Colors
+\newcommand{\blu}[1]{{\color{blue}#1}}
+\newcommand{\grn}[1]{{\color{green}#1}}
+\newcommand{\redd}[1]{{\color{red}#1}}
+\newcommand{\pur}[1]{{\color{purple}#1}}
+\newcommand{\oge}[1]{{\color{orange}#1}}
+
+%%% Symbols
+\newcommand{\qeq}[0]{\stackrel{?}{=}}
+
+%%% Fractions
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}%Partial derivatives
+\newcommand{\dd}[2]{\frac{d #1}{d #2}}
+\newcommand{\pdd}[1]{\frac{\partial}{\partial #1}}
+\newcommand{\ddd}[1]{\frac{d}{d #1}}
+
+%%% Summations and Products
+\newcommand{\sumin}[0]{\sum_{i=1}^{n}}
+\newcommand{\sumim}[0]{\sum_{i=1}^{m}}
+\newcommand{\sumjn}[0]{\sum_{j=1}^{n}}
+\newcommand{\prodin}[0]{\prod_{i=1}^{n}}
+
+%%% Arrows
+\newcommand{\larw}[0]{\leftarrow}
+\newcommand{\rarw}[0]{\rightarrow}
+\newcommand{\xra}[1]{\xrightarrow{#1}}
+\newcommand{\xla}[1]{\xleftarrow{#1}}
+\newcommand{\lra}[0]{\leftrightarrow}
+\newcommand{\Lra}[0]{\Leftrightarrow}
+
+%%% Sets, Seqs, etc.
+\newcommand{\set}[2]{\left\{ {#1}\ \middle|\ {#2} \right\}}
+\newcommand{\sett}[2]{\left\{ {#1}\ :\ {#2} \right\}}
+\newcommand{\bcset}[3]{\left\{ {#1}_{#2}, \ldots, {#1}_{#3} \right\}}
+\newcommand{\seq}[2]{{#1}_1, {#1}_2, \ldots, {#1}_{#2}}
+
+%%% Brackets and Parentheses
+%%% TODO: https://tex.stackexchange.com/questions/2607/spacing-around-left-and-right/
+\newcommand{\norm}[1]{\left\| #1 \right\|}
+\newcommand{\ab}[1]{\left| {#1} \right|}
+\newcommand{\bc}[1]{\left\{ {#1} \right\}}
+\newcommand{\ba}[1]{\left[ {#1} \right]}
+\newcommand{\pa}[1]{\left( {#1} \right)}
+
+%%% Under and overlines
+\newcommand{\ol}[1]{\overline{#1}}
+\newcommand{\ul}[1]{\underline{#1}}
+\newcommand{\ub}[2]{\underbrace{#1}_{#2}}
+
 %%%%%%%%%%%%%%%% Below are old commands
 
 %LETTERS
@@ -48,7 +192,7 @@
 \newcommand{\cA}[0]{\mathcal{A}}
 \newcommand{\A}[0]{\mathbb{A}}
 \newcommand{\cB}[0]{\mathcal{B}}
-\newcommand{\C}[0]{\mathbb{C}}
+%\newcommand{\C}[0]{\mathbb{C}}
 \newcommand{\sC}[0]{\mathcal{C}}%deprecated
 \newcommand{\cC}[0]{\mathcal{C}}
 \newcommand{\cX}[0]{\mathcal{X}}
@@ -82,7 +226,7 @@
 \newcommand{\cO}[0]{\mathcal{O}}
 \newcommand{\sO}[0]{\mathscr{O}}
 \newcommand{\Q}[0]{\mathbb{Q}}
-\newcommand{\R}[0]{\mathbb{R}}
+%\newcommand{\R}[0]{\mathbb{R}}
 \newcommand{\bS}[0]{\mathbb{bS}}
 \newcommand{\T}[0]{\mathbb{T}}
 \newcommand{\X}[0]{\mathfrak{X}}
@@ -157,8 +301,8 @@
 \newcommand{\nin}[0]{\not\in}
 \newcommand{\opl}[0]{\oplus}
 \newcommand{\bigopl}[0]{\bigoplus}
-\newcommand{\ot}[0]{\otimes}
-\newcommand{\bigot}[0]{\bigotimes}
+%\newcommand{\ot}[0]{\otimes}
+%\newcommand{\bigot}[0]{\bigotimes}
 \newcommand{\sub}[0]{\subset}
 \newcommand{\subeq}[0]{\subseteq}
 \newcommand{\supeq}[0]{\supseteq}
@@ -168,7 +312,7 @@
 \newcommand{\bs}[0]{\backslash}
 \newcommand{\iy}[0]{\infty}
 \newcommand{\no}[0]{\trianglelefteq}%normal subgroup
-\newcommand{\qeq}[0]{\stackrel?=}
+%\newcommand{\qeq}[0]{\stackrel?=}
 \newcommand{\subsim}[0]{\stackrel{\sub}{\sim}}
 \newcommand{\supsim}[0]{\stackrel{\supset}{\sim}}
 \newcommand{\na}[0]{\nabla}
@@ -197,10 +341,10 @@
 \newcommand{\pf}[2]{\pa{\frac{#1}{#2}}}%Shortcut for fraction with parentheses
 \DeclareRobustCommand{\stl}{\genfrac\{\}{0pt}{}}
 
-\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}%Partial derivatives
-\newcommand{\dd}[2]{\frac{d #1}{d #2}}
-\newcommand{\pdd}[1]{\frac{\partial}{\partial #1}}
-\newcommand{\ddd}[1]{\frac{d}{d #1}}
+% \newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}%Partial derivatives
+% \newcommand{\dd}[2]{\frac{d #1}{d #2}}
+% \newcommand{\pdd}[1]{\frac{\partial}{\partial #1}}
+% \newcommand{\ddd}[1]{\frac{d}{d #1}}
 \newcommand{\af}[2]{\ab{\fc{#1}{#2}}}
 \newcommand{\ddt}[2]{\frac{d^2 #1}{d {#2}^2}}
 \newcommand{\pdt}[2]{\frac{\partial^2 #1}{\partial {#2}^2}}
@@ -212,16 +356,16 @@
 \newcommand{\dx}{\,dx}
 
 %Arrows
-\newcommand{\lar}[0]{\leftarrow}
-\newcommand{\ra}[0]{\rightarrow}
+% \newcommand{\lar}[0]{\leftarrow}
+% \newcommand{\ra}[0]{\rightarrow}
 \newcommand{\dra}[0]{\dashrightarrow}
-\newcommand{\lra}[0]{\leftrightarrow}
+%\newcommand{\lra}[0]{\leftrightarrow}
 \newcommand{\rra}[0]{\twoheadrightarrow}
 \newcommand{\hra}[0]{\hookrightarrow}
 \newcommand{\tra}[0]{\twoheadrightarrow}
 \newcommand{\send}[0]{\mapsto}
-\newcommand{\xra}[1]{\xrightarrow{#1}}
-\newcommand{\xla}[1]{\xleftarrow{#1}}
+%\newcommand{\xra}[1]{\xrightarrow{#1}}
+%\newcommand{\xla}[1]{\xleftarrow{#1}}
 \newcommand{\xhra}[1]{\xhookrightarrow{#1}}
 \newcommand{\xlra}[1]{\xleftrightarrow{#1}}
 \newcommand{\xrc}[0]{\xrightarrow{\cong}}
@@ -229,10 +373,10 @@
 \newcommand{\cil}[0]{\circlearrowleft}
 
 %Brackets
-\newcommand{\ab}[1]{\left| {#1} \right|}
+%\newcommand{\ab}[1]{\left| {#1} \right|}
 \newcommand{\an}[1]{\left\langle {#1}\right\rangle}
-\newcommand{\ba}[1]{\left[ {#1} \right]}
-\newcommand{\bc}[1]{\left\{ {#1} \right\}}
+%\newcommand{\ba}[1]{\left[ {#1} \right]}
+%\newcommand{\bc}[1]{\left\{ {#1} \right\}}
 \newcommand{\bra}[1]{\langle{#1}|}
 \newcommand{\braa}[1]{\langle\langle{#1}|}
 \newcommand{\ce}[1]{\left\lceil {#1}\right\rceil}
@@ -245,7 +389,7 @@
 \newcommand{\kbb}[1]{|{#1}\rangle\langle{#1}|}
 \newcommand{\kb}[2]{|{#1}\rangle\langle{#2}|}
 \newcommand{\kettb}[2]{|{#1}\rangle\rangle\langle\langle{#2}|}
-\newcommand{\pa}[1]{\left( {#1} \right)}
+%\newcommand{\pa}[1]{\left( {#1} \right)}
 \newcommand{\pat}[1]{\left( \text{#1} \right)}
 \newcommand{\ve}[1]{\left\Vert {#1}\right\Vert}
 \newcommand{\nv}[1]{\frac{#1}{\left\Vert {#1}\right\Vert}}
@@ -253,16 +397,14 @@
 \newcommand{\nl}[1]{\left\Vert #1 \right\Vert_{L^1}}
 \newcommand{\ad}[0]{|\cdot|}
 \newcommand{\ved}[0]{\ve{\cdot}}
-\newcommand{\set}[2]{\left\{{#1}:{#2}\right\}}
-\newcommand{\sett}[2]{\left\{\left.{#1}\right|{#2}\right\}}
 
 %under and overlines, etc.
 \newcommand{\ch}[1]{\check{#1}}
 \newcommand{\dch}[1]{\check{\check{#1}}}
 \newcommand{\olra}[1]{\overleftrightarrow{#1}}
-\newcommand{\ol}[1]{\overline{#1}}
-\newcommand{\ul}[1]{\underline{#1}}
-\newcommand{\ub}[2]{\underbrace{#1}_{#2}}
+%\newcommand{\ol}[1]{\overline{#1}}
+%\newcommand{\ul}[1]{\underline{#1}}
+%\newcommand{\ub}[2]{\underbrace{#1}_{#2}}
 \newcommand{\ora}[1]{\overrightarrow{#1}}
 \newcommand{\ura}[1]{\underrightarrow{#1}}
 \newcommand{\wt}[1]{\widetilde{#1}}
@@ -296,10 +438,6 @@
 \newcommand{\Alb}{\operatorname{Alb}}
 \newcommand{\Ann}{\operatorname{Ann}}
 \newcommand{\Area}{\operatorname{Area}}
-%\newcommand{\amax}{\operatorname{argmax}}
-%\newcommand{\amin}{\operatorname{argmin}}
-\newcommand{\amax}{\mathop{\mathrm{argmax}}}
-\newcommand{\amin}{\mathop{\mathrm{argmin}}}
 \newcommand{\Ass}{\operatorname{Ass}}
 \newcommand{\Art}{\operatorname{Art}}
 \newcommand{\Aut}{\operatorname{Aut}}
@@ -328,7 +466,7 @@
 \newcommand{\Dec}{\operatorname{Dec}}
 \newcommand{\depth}{\operatorname{depth}}
 \newcommand{\Der}{\operatorname{Der}}
-\newcommand{\diag}{\operatorname{diag}}
+%\newcommand{\diag}{\operatorname{diag}}
 \newcommand{\diam}{\operatorname{diam}}
 \renewcommand{\div}{\operatorname{div}}
 \newcommand{\Dir}{\operatorname{Dir}}
@@ -401,7 +539,7 @@
 \newcommand{\QCoh}{\operatorname{QCoh}}
 \newcommand{\Rad}{\operatorname{Rad}}
 \newcommand{\range}{\operatorname{range}}
-\newcommand{\rank}{\operatorname{rank}}
+%\newcommand{\rank}{\operatorname{rank}}
 \newcommand{\red}{\operatorname{red}}
 \newcommand{\Reg}{\operatorname{Reg}}
 \newcommand{\Res}{\operatorname{Res}}
@@ -417,7 +555,7 @@
 \newcommand{\sens}{\operatorname{sens}}
 \newcommand{\Set}{(\text{Set})}
 \newcommand{\sgn}{\operatorname{sign}}
-\newcommand{\sign}{\operatorname{sign}}
+%\newcommand{\sign}{\operatorname{sign}}
 \newcommand{\SL}{\operatorname{SL}}
 \newcommand{\SO}{\operatorname{SO}}
 \newcommand{\Spec}{\operatorname{Spec}}
@@ -425,7 +563,6 @@
 \newcommand{\rspec}{\ul{\operatorname{Spec}}}
 \newcommand{\Spl}{\operatorname{Spl}}
 \newcommand{\spp}{\operatorname{sp}}
-\newcommand{\spn}{\operatorname{span}}
 \newcommand{\Stab}{\operatorname{Stab}}
 \newcommand{\SU}{\operatorname{SU}}
 \newcommand{\Supp}{\operatorname{Supp}}
@@ -434,7 +571,7 @@
 \newcommand{\Th}{\operatorname{Th}}
 \newcommand{\Tor}{\operatorname{Tor}}
 \newcommand{\tor}{\operatorname{tor}}
-\newcommand{\Tr}[0]{\operatorname{Tr}}
+%\newcommand{\Tr}[0]{\operatorname{Tr}}
 \newcommand{\tr}[0]{\operatorname{tr}}
 \newcommand{\val}[0]{\text{val}}
 \newcommand{\Var}[0]{\operatorname{Var}}
@@ -681,11 +818,11 @@
 
 %EDITING HELP
 %blu: key idea or concept. red: unresolved issue/question.
-\newcommand{\blu}[1]{{\color{blue}#1}}
-\newcommand{\grn}[1]{{\color{green}#1}}
-\newcommand{\redd}[1]{{\color{red}#1}}
-\newcommand{\pur}[1]{{\color{purple}#1}}
-\newcommand{\oge}[1]{{\color{orange}#1}}
+%\newcommand{\blu}[1]{{\color{blue}#1}}
+%\newcommand{\grn}[1]{{\color{green}#1}}
+%\newcommand{\redd}[1]{{\color{red}#1}}
+%\newcommand{\pur}[1]{{\color{purple}#1}}
+%\newcommand{\oge}[1]{{\color{orange}#1}}
 \newcommand{\concept}[1]{#1}
 \newcommand{\fixme}[1]{{\color{red}#1}}
 \newcommand{\cary}[1]{{\color{purple}#1}}%deprecated
@@ -710,6 +847,8 @@
 \newcommand{\vocab}[1]{\textbf{#1}} %also index automatically.
 \newcommand{\summq}[1]{\textbf{Summary Question: }#1}
 \newcommand{\keypt}[1]{{\it #1}}
+
+%%% Summations and Products
 \newcommand{\subprob}[1]{\noindent\textbf{#1}\\}
 \newcommand{\qatable}[1]{\begin{center}
     \begin{longtable}{ | p{5.5cm} | p{10cm} |}
