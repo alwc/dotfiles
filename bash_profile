@@ -77,7 +77,7 @@ export PYTHONPATH=~/DataScience/xgboost/python-package
 export GOPATH=$HOME/go
 
 # export PIOPATH=$HOME/PredictionIO-0.9.6/
-export PIOPATH=$HOME/pio/
+#export PIOPATH=$HOME/pio/
 export ANACONDAPATH=$HOME/anaconda2
 
 export PATH=$PATH

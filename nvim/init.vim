@@ -236,6 +236,8 @@ autocmd BufNewFile,BufRead *.pp call Pl#Load()"
 
 " [vimtex]
 let g:tex_flavor = 'latex'
+let g:vimtex_quickfix_mode = 0
+let g:vimtex_quickfix_open_on_warning = 0
 augroup latexsettings
     autocmd FileType tex set spell
 augroup END
