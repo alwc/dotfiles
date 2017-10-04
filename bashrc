@@ -1,3 +1,57 @@
+#------------------------------------------------------------------------------
+# Aliases setup
+#------------------------------------------------------------------------------
+
+## Safety
+alias rm="rm -i"
+alias mv="mv -i"
+alias cp="cp -i"
+set -o noclobber
+
+## Listing, directories, and motion
+alias ll="ls -alrtF"
+alias la="ls -A"
+alias l="ls -CF"
+alias m='less'
+alias ..="cd .."
+alias ...="cd ..; cd .."
+alias md="mkdir"
+alias cl="clear"
+alias du="du -ch"
+alias treeacl="tree -A -C -L 2"
+
+## Folder direct access
+alias study="cd ~/Dropbox/_study_materials"
+alias note="cd ~/Dropbox/notes"
+alias note-m="cd ~/Dropbox/notes/misc"
+alias note-p="cd ~/Dropbox/notes/programming"
+alias course="cd ~/Courses"
+alias mln="cd ~/Dropbox/_ml_notes"
+alias mlc="cd ~/DataScience/ml_codebooks"
+alias sn="cd ~/Dropbox/_study_notes"
+alias todo="vim ~/Dropbox/notes/todo.md"
+alias roadmap="cd ~/Dropbox/_study_materials; vim roadmap.txt"
+alias scratch="cd ~/Dropbox/notes/scratch_pad/; vim"
+
+alias brew-all="brew update && brew upgrade && brew cleanup && brew cask cleanup"
+# `brew cu` command comes from 'https://github.com/buo/homebrew-cask-upgrade'
+alias brew-cask-all="brew cu -a -y --cleanup"
+
+## Network
+alias lsp="lsof -i -n -P | grep LISTEN"
+
+## grep options
+export GREP_OPTIONS="--color=auto"
+export GREP_COLOR="1;31"
+
+## postgres options
+export PGDATA='/usr/local/var/postgres'
+export PGHOST=localhost
+alias start-pg='pg_ctl -l $PGDATA/server.log start'
+alias stop-pg='pg_ctl stop -m fast'
+alias show-pg-status='pg_ctl status'
+alias restart-pg='pg_ctl reload'
+
 # Locate virtualenvwrapper binary
 #if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
 #    export VENVWRAP=/usr/local/bin/virtualenvwrapper.sh
@@ -33,6 +87,3 @@ syspip3(){
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
-
-### tmc-cli for University of Helsinki's Test My Code framework
-# source /Users/alexlee/.tmc-autocomplete.sh
