@@ -51,5 +51,8 @@ source '/Users/alexlee/google-cloud-sdk/completion.bash.inc'
 source '/usr/local/etc/grc.bashrc'
 #source "`brew --prefix grc`/etc/grc.bashrc"
 
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
 # For Homebrew's openssl
 export PATH="/usr/local/opt/openssl/bin:$PATH"

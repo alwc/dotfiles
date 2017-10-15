@@ -2,6 +2,8 @@
 # Aliases setup
 #------------------------------------------------------------------------------
 
+alias vim="nvim"
+
 ## Safety
 alias rm="rm -i"
 alias mv="mv -i"
@@ -85,5 +87,3 @@ syspip3(){
    PIP_REQUIRE_VIRTUALENV="" pip3 "$@"
 }
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
