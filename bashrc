@@ -89,6 +89,7 @@ syspip3(){
 
 
 ## Kaggle
+# TODO: currently i'm still using default .bashrc on server. Need update.
 kpython() {
     if [ "$(uname)" == "Darwin" ]; then
         echo '[TODO] Do something under Mac OS X platform.'
