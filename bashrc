@@ -87,3 +87,35 @@ syspip3(){
    PIP_REQUIRE_VIRTUALENV="" pip3 "$@"
 }
 
+
+## Kaggle
+kpython() {
+    if [ "$(uname)" == "Darwin" ]; then
+        # Do something under Mac OS X platform
+    elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+        # Do something under GNU/Linux platform
+      nvidia-docker run -v ~/shared_folder:/shared_folder --rm -it \
+          kaggle/python python3 "$@"
+    fi
+}
+
+ikpython() {
+    if [ "$(uname)" == "Darwin" ]; then
+        # Do something under Mac OS X platform
+    elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+        # Do something under GNU/Linux platform
+        nvidia-docker run -v ~/shared_folder:/shared_folder --rm -it \
+            kaggle/python ipython
+    fi
+}
+
+kjupyter() {
+    if [ "$(uname)" == "Darwin" ]; then
+        # Do something under Mac OS X platform
+    elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+        # Do something under GNU/Linux platform
+        nvidia-docker run -v ~/shared_folder:/shared_folder -p 8888:8888 \
+            -p 6006:6006 --rm -it kaggle/python jupyter notebook --no-browser \
+            --ip="0.0.0.0" --notebook-dir=/shared_folder --allow-root
+    fi
+}

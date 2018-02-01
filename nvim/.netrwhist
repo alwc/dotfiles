@@ -1,5 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_cnt =8
 let g:netrw_dirhist_1='/Users/alexlee/dotfiles/nvim'
 let g:netrw_dirhist_2='/Users/alexlee/dotfiles/nvim/spell'
 let g:netrw_dirhist_3='/Users/alexlee/dotfiles/nvim'
+let g:netrw_dirhist_4='/Users/alexlee/DataScience/book.elements-of-programming-interviews/13-sorting'
+let g:netrw_dirhist_5='/Users/alexlee/DataScience/book.elements-of-programming-interviews/11-searching'
+let g:netrw_dirhist_6='/Users/alexlee/DataScience/book.elements-of-programming-interviews/16-dynamic-programming'
+let g:netrw_dirhist_7='/Users/alexlee/DataScience/book.elements-of-programming-interviews/15-recursion'
+let g:netrw_dirhist_8='/Users/alexlee/DataScience/book.elements-of-programming-interviews/16-dynamic-programming'
