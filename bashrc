@@ -113,8 +113,17 @@ kjupyter() {
         echo '[TODO] Do something under Mac OS X platform.'
     elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
         # Do something under GNU/Linux platform
-        nvidia-docker run -v ~/shared_folder:/shared_folder -p 8888:8888 \
+        docker run --runtime=nvidia -v ~/shared_folder:/shared_folder -p 8888:8888 \
             -p 6006:6006 --rm -it kaggle/python jupyter notebook --no-browser \
             --ip="0.0.0.0" --notebook-dir=/shared_folder --allow-root
+    fi
+}
+
+fjupyter() {
+    if [ "$(uname)" == "Darwin" ]; then
+        echo '[TODO] Do something under Mac OS X platform.'
+    elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+        docker run --runtime=nvidia -it --rm -p 8888:8888 -p 6006:6006 \
+            -v ~/shared_folder:/shared_folder floydhub/pytorch:0.3.0-gpu.cuda9cudnn7-py3.22
     fi
 }
