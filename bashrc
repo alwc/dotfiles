@@ -55,6 +55,9 @@ alias stop-pg='pg_ctl stop -m fast'
 alias show-pg-status='pg_ctl status'
 alias restart-pg='pg_ctl reload'
 
+## Git
+export GIT_EDITOR="nvim"
+
 # Locate virtualenvwrapper binary
 #if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
 #    export VENVWRAP=/usr/local/bin/virtualenvwrapper.sh
