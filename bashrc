@@ -8,6 +8,8 @@ if [ "$(uname)" == "Darwin" ]; then
     alias git="hub"
 fi
 
+alias xxx="nvim"
+
 ## Safety
 alias rm="rm -i"
 alias mv="mv -i"
@@ -96,11 +98,12 @@ syspip3(){
 
 
 ## Kaggle
+# TODO: currently i'm still using default .bashrc on server. Need update.
 kpython() {
     if [ "$(uname)" == "Darwin" ]; then
         echo '[TODO] Do something under Mac OS X platform.'
     elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-      nvidia-docker run -v ~/shared_folder:/shared_folder --rm -it \
+        docker run --runtime=nvidia -v ~/shared_folder:/shared_folder --rm -it \
           kaggle/python python3 "$@"
     fi
 }
@@ -109,7 +112,7 @@ ikpython() {
     if [ "$(uname)" == "Darwin" ]; then
         echo '[TODO] Do something under Mac OS X platform.'
     elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-        nvidia-docker run -v ~/shared_folder:/shared_folder --rm -it \
+        docker run --runtime=nvidia -v ~/shared_folder:/shared_folder --rm -it \
             kaggle/python ipython
     fi
 }
