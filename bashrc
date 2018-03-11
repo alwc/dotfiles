@@ -3,7 +3,10 @@
 #------------------------------------------------------------------------------
 
 alias vim="nvim"
-alias git="hub"
+
+if [ "$(uname)" == "Darwin" ]; then
+    alias git="hub"
+fi
 
 ## Safety
 alias rm="rm -i"
@@ -93,7 +96,6 @@ syspip3(){
 
 
 ## Kaggle
-# TODO: currently i'm still using default .bashrc on server. Need update.
 kpython() {
     if [ "$(uname)" == "Darwin" ]; then
         echo '[TODO] Do something under Mac OS X platform.'
@@ -123,11 +125,20 @@ kjupyter() {
     fi
 }
 
-fjupyter() {
+pytjupyter() {
     if [ "$(uname)" == "Darwin" ]; then
         echo '[TODO] Do something under Mac OS X platform.'
     elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
         docker run --runtime=nvidia -it --rm -p 8888:8888 -p 6006:6006 \
             -v ~/shared_folder:/shared_folder floydhub/pytorch:0.3.0-gpu.cuda9cudnn7-py3.22
+    fi
+}
+
+tfjupyter() {
+    if [ "$(uname)" == "Darwin" ]; then
+        echo '[TODO] Do something under Mac OS X platform.'
+    elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+        docker run --runtime=nvidia -it --rm -p 8888:8888 -p 6006:6006 \
+            -v ~/shared_folder:/shared_folder floydhub/tensorflow:1.5.0-gpu.cuda9cudnn7-py3_aws.22
     fi
 }
