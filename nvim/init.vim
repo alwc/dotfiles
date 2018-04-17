@@ -73,7 +73,7 @@ set visualbell            " Use a visual bell to notify us
 set sessionoptions="curdir,folds,help,options,tabpages,winsize"
 
 if !has("win32")
-    set showbreak=↪           " The character to put to show a line has been wrapped
+    set showbreak=↪       " The character to put to show a line has been wrapped
 end
 
 syntax on                 " Enable filetype detection by syntax
@@ -239,8 +239,12 @@ autocmd BufNewFile,BufRead *.pp call Pl#Load()"
 "----------------------------------------------------------------------
 " pyenv
 "----------------------------------------------------------------------
-let g:python_host_prog = '/Users/alexlee/.pyenv/versions/neovim2/bin/python'
-let g:python3_host_prog = '/Users/alexlee/.pyenv/versions/neovim3/bin/python'
+if has("unix")
+    if has('mac')
+        let g:python_host_prog = '/Users/alexlee/.pyenv/versions/neovim2/bin/python'
+        let g:python3_host_prog = '/Users/alexlee/.pyenv/versions/neovim3/bin/python'
+    endif
+endif
 
 "----------------------------------------------------------------------
 " Plugins
