@@ -32,10 +32,16 @@ Plug 'tpope/vim-eunuch'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'lervag/vimtex'
+" Async autocompletion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Python autocompletion
+Plug 'zchee/deoplete-jedi', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neosnippet'
 Plug 'jiangmiao/auto-pairs'
 Plug 'Shougo/neosnippet-snippets'
+" Just to add the python go-to-definition and similar features, autocompletion
+" from this plugin is disabled
+Plug 'davidhalter/jedi-vim'
 "Plug 'w0rp/ale'
 call plug#end()
 
@@ -231,6 +237,12 @@ autocmd BufWinEnter * set foldlevel=999999
 autocmd BufNewFile,BufRead *.pp call Pl#Load()"
 
 "----------------------------------------------------------------------
+" pyenv
+"----------------------------------------------------------------------
+let g:python_host_prog = '/Users/alexlee/.pyenv/versions/neovim2/bin/python'
+let g:python3_host_prog = '/Users/alexlee/.pyenv/versions/neovim3/bin/python'
+
+"----------------------------------------------------------------------
 " Plugins
 "----------------------------------------------------------------------
 
@@ -238,12 +250,16 @@ autocmd BufNewFile,BufRead *.pp call Pl#Load()"
 let g:tex_flavor = 'latex'
 let g:vimtex_quickfix_mode = 0
 let g:vimtex_quickfix_open_on_warning = 0
+let g:vimtex_compiler_progname = 'nvr'
 augroup latexsettings
     autocmd FileType tex set spell
 augroup END
 
 " [jiangmiao/auto-pairs]
 let g:AutoPairsMapCR=0
+
+" [davidhalter/jedi-vim]
+let g:jedi#completions_enabled = 0
 
 " [Shougo/neosnippet]
 let g:neosnippet#disable_runtime_snippets={ '_' : 1 }
