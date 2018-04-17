@@ -65,45 +65,6 @@ alias restart-pg='pg_ctl reload'
 ## Git
 export GIT_EDITOR="nvim"
 
-## pyenv
-# if command -v pyenv 1>/dev/null 2>&1; then
-#   eval "$(pyenv init -)"
-# fi
-
-# Locate virtualenvwrapper binary
-#if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
-#    export VENVWRAP=/usr/local/bin/virtualenvwrapper.sh
-#fi
-
-# if [ ! -z $VENVWRAP ]; then
-#     # virtualenvwrapper -------------------------------------------------
-#     # make sure env directory exists; else create it
-#     [ -d $HOME/Virtualenvs ] || mkdir -p $HOME/Virtualenvs
-#     export WORKON_HOME=$HOME/Virtualenvs
-#     source $VENVWRAP
-#
-#     # virtualenv --------------------------------------------------------
-#     # virtualenv should use Distribute instead of legacy setuptools
-#     export VIRTUALENV_USE_DISTRIBUTE=true
-#
-#     # pip ---------------------------------------------------------------
-#     # centralized location for new virtual environments
-#     export PIP_VIRTUALENV_BASE=$WORKON_HOME
-#     # pip should only run if there is a virtualenv currently activated
-#     # export PIP_REQUIRE_VIRTUALENV=true
-#     # cache pip-installed packages to avoid re-downloading
-#     export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
-# fi
-
-syspip(){
-   PIP_REQUIRE_VIRTUALENV="" pip "$@"
-}
-
-syspip3(){
-   PIP_REQUIRE_VIRTUALENV="" pip3 "$@"
-}
-
-
 ## Kaggle
 # TODO: currently i'm still using default .bashrc on server. Need update.
 kpython() {
@@ -152,3 +113,11 @@ tfjupyter() {
             -v ~/shared_folder:/shared_folder -w=/shared_folder floydhub/tensorflow:1.5.0-gpu.cuda9cudnn7-py3_aws.22
     fi
 }
+
+## pyenv
+# According to DOC, it should be placed toward the end of the shell
+# configuration file since it manipulates PATH during the initialization.
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+fi
