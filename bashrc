@@ -9,6 +9,8 @@ if [ "$(uname)" == "Darwin" ]; then
 fi
 
 alias xxx="nvim"
+alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+export BROWSER=google-chrome
 
 ## Safety
 alias rm="rm -i"
@@ -62,6 +64,11 @@ alias restart-pg='pg_ctl reload'
 
 ## Git
 export GIT_EDITOR="nvim"
+
+## pyenv
+# if command -v pyenv 1>/dev/null 2>&1; then
+#   eval "$(pyenv init -)"
+# fi
 
 # Locate virtualenvwrapper binary
 #if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
