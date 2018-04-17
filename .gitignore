@@ -3,4 +3,6 @@ nvim/plugged
 nvim/swap
 nvim/undo
 nvim/.netrwhist
+.DS_Store
+
 
