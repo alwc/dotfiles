@@ -1,2 +1,7 @@
 % http://tex.stackexchange.com/questions/119667/changing-the-section-format
 \renewcommand{\thesection}{\arabic{section}}
+
+% Code highlight
+\usepackage{minted}
+\definecolor{bg}{rgb}{0.95,0.95,0.95}
+\setminted[python]{bgcolor=bg,linenos,mathescape,autogobble,escapeinside=||,python3}
