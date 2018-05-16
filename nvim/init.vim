@@ -24,7 +24,7 @@ Plug 'plasticboy/vim-markdown'
 "Plug 'gcmt/taboo.vim'
 "Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-eunuch'
-"Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 
 " New
 "Plug 'vim-pandoc/vim-pandoc', { 'for': [ 'pandoc', 'markdown' ] }
