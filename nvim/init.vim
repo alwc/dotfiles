@@ -7,15 +7,29 @@
 scriptencoding utf-8
 set encoding=utf-8
 
+"----------------------------------------------------------------------
+" pyenv
+"----------------------------------------------------------------------
+if has("unix")
+    if has('mac')
+        let g:python_host_prog = '/Users/alexlee/.pyenv/versions/neovim2/bin/python'
+        let g:python3_host_prog = '/Users/alexlee/.pyenv/versions/neovim3/bin/python'
+        let g:python3_host_skip_check=1
+    else
+        let g:python_host_prog = '/home/alex/.pyenv/versions/neovim2/bin/python'
+        let g:python3_host_prog = '/home/alex/.pyenv/versions/neovim3/bin/python'
+        let g:python3_host_skip_check=1
+    endif
+endif
 "" Setup python3 environment
-let g:python3_host_prog='/usr/local/bin/python3'
-let g:python3_host_skip_check=1
+"let g:python3_host_prog='/usr/local/bin/python3'
+"let g:python3_host_skip_check=1
 
 "----------------------------------------------------------------------
 " Plugins
 "----------------------------------------------------------------------
 call plug#begin('~/dotfiles/nvim/plugged')
-"Plug 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -237,27 +251,14 @@ autocmd BufWinEnter * set foldlevel=999999
 autocmd BufNewFile,BufRead *.pp call Pl#Load()"
 
 "----------------------------------------------------------------------
-" pyenv
-"----------------------------------------------------------------------
-if has("unix")
-    if has('mac')
-        let g:python_host_prog = '/Users/alexlee/.pyenv/versions/neovim2/bin/python'
-        let g:python3_host_prog = '/Users/alexlee/.pyenv/versions/neovim3/bin/python'
-    else
-        let g:python_host_prog = '/home/alex/.pyenv/versions/neovim2/bin/python'
-        let g:python3_host_prog = '/home/alex/.pyenv/versions/neovim3/bin/python'
-    endif
-endif
-
-"----------------------------------------------------------------------
 " Plugins
 "----------------------------------------------------------------------
 
 " [vimtex]
-let g:tex_flavor = 'latex'
-let g:vimtex_quickfix_mode = 0
-let g:vimtex_quickfix_open_on_warning = 0
-let g:vimtex_compiler_progname = 'nvr'
+let g:tex_flavor='latex'
+let g:vimtex_quickfix_mode=0
+let g:vimtex_quickfix_open_on_warning=0
+let g:vimtex_compiler_progname='nvr'
 augroup latexsettings
     autocmd FileType tex set spell
 augroup END
@@ -266,7 +267,8 @@ augroup END
 let g:AutoPairsMapCR=0
 
 " [davidhalter/jedi-vim]
-let g:jedi#completions_enabled = 0
+let g:jedi#completions_enabled=0
+let g:jedi#force_py_version=3
 
 " [Shougo/neosnippet]
 let g:neosnippet#disable_runtime_snippets={ '_' : 1 }
