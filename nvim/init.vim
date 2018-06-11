@@ -57,7 +57,11 @@ Plug 'Shougo/neosnippet-snippets'
 " from this plugin is disabled
 Plug 'davidhalter/jedi-vim'
 "Plug 'w0rp/ale'
-Plug '/usr/local/opt/fzf'
+if has('mac')
+    Plug '/usr/local/opt/fzf'
+else
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+endif
 Plug 'junegunn/fzf.vim'
 call plug#end()
 
