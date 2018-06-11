@@ -32,7 +32,7 @@ call plug#begin('~/dotfiles/nvim/plugged')
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'ctrlpvim/ctrlp.vim'
+"Plug 'ctrlpvim/ctrlp.vim'
 "Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 "Plug 'gcmt/taboo.vim'
@@ -57,6 +57,8 @@ Plug 'Shougo/neosnippet-snippets'
 " from this plugin is disabled
 Plug 'davidhalter/jedi-vim'
 "Plug 'w0rp/ale'
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 "----------------------------------------------------------------------
@@ -290,3 +292,18 @@ let g:deoplete#max_list=100
 
 set t_ZH=[3m
 set t_ZR=[23m
+
+" [junegunn/fzf.vim]
+if executable('fzf')
+    nnoremap <silent> <C-t> :Files<CR>
+    nnoremap <silent> <leader>f :BLines<CR>
+    nnoremap <silent> <leader>F :Lines<CR>
+
+    " Use ripgrep
+    command! -bang -nargs=* Rg
+      \ call fzf#vim#grep(
+      \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+      \   <bang>0 ? fzf#vim#with_preview('up:60%')
+      \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+      \   <bang>0)
+end
