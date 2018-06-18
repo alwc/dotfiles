@@ -21,9 +21,6 @@ if has("unix")
         let g:python3_host_skip_check=1
     endif
 endif
-"" Setup python3 environment
-"let g:python3_host_prog='/usr/local/bin/python3'
-"let g:python3_host_skip_check=1
 
 "----------------------------------------------------------------------
 " Plugins
@@ -63,6 +60,12 @@ else
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 endif
 Plug 'junegunn/fzf.vim'
+" After installed yapf, I'll need to run
+"   1. pyenv activate neovim3
+"   2. pip install yapf
+"   3. ln -s `pyenv which yapf` /usr/local/bin/yapf
+Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
+
 call plug#end()
 
 "----------------------------------------------------------------------
@@ -265,7 +268,7 @@ let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
 let g:netrw_altv = 1
-let g:netrw_winsize = 15
+let g:netrw_winsize = 25
 nnoremap <silent> - :Lex<CR>
 
 " [vimtex]
