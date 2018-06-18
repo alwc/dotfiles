@@ -322,3 +322,7 @@ if executable('fzf')
       \           : fzf#vim#with_preview('right:50%:hidden', '?'),
       \   <bang>0)
 end
+
+" [google/yapf]
+map <C-Y> :call yapf#YAPF()<cr>
+imap <C-Y> <c-o>:call yapf#YAPF()<cr>
