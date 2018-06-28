@@ -116,6 +116,9 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# >>>>>>>
+alias vim="nvim"
+
 ## Kaggle
 # TODO: currently i'm still using default .bashrc on server. Need update.
 kdocker() {
