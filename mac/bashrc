@@ -9,7 +9,7 @@ if [ "$(uname)" == "Darwin" ]; then
 fi
 
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
-export BROWSER=chrome
+#export BROWSER=chrome
 
 ## Safety
 alias rm="rm -i"
