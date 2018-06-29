@@ -53,7 +53,7 @@ Plug 'Shougo/neosnippet-snippets'
 " Just to add the python go-to-definition and similar features, autocompletion
 " from this plugin is disabled
 Plug 'davidhalter/jedi-vim'
-"Plug 'w0rp/ale'
+Plug 'w0rp/ale'
 if has('mac')
     Plug '/usr/local/opt/fzf'
 else
