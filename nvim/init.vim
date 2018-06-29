@@ -210,7 +210,7 @@ map <leader>y "*y
 map <leader>p "*p
 
 " Get rid of search highlights
-noremap <silent><leader>/ :nohlsearch<cr>
+noremap <silent><leader>/ :nohlsearch<CR>
 
 " Command to write as root if we dont' have permission
 " cmap w!! %!sudo tee > /dev/null %
@@ -219,7 +219,7 @@ noremap <silent><leader>/ :nohlsearch<cr>
 " cnoremap %% <C-R>=expand('%:h').'/'<CR>
 "
 " " Buffer management
-" nnoremap <leader>d   :bd<cr>
+" nnoremap <leader>d   :bd<CR>
 "
 " " Terminal mode
 " if has("nvim")
@@ -242,9 +242,9 @@ noremap <silent><leader>/ :nohlsearch<cr>
 " map <C-]> :tabnext<CR>
 "
 " " CtrlP
-" nnoremap <leader>t :CtrlP<cr>
-" nnoremap <leader>b :CtrlPBuffer<cr>
-" nnoremap <leader>l :CtrlPLine<cr>
+" nnoremap <leader>t :CtrlP<CR>
+" nnoremap <leader>b :CtrlPBuffer<CR>
+" nnoremap <leader>l :CtrlPLine<CR>
 
 "----------------------------------------------------------------------
 " Autocommands
@@ -295,7 +295,7 @@ let g:neosnippet#enable_snipmate_compatibility=1
 " [Shougo/deoplete]
 smap <silent><expr><tab> neosnippet#jumpable() ? "\<plug>(neosnippet_jump)"      : "\<tab>"
 imap <silent><expr><tab> pumvisible()          ? "\<c-n>"                        : (neosnippet#jumpable()   ? "\<plug>(neosnippet_jump)"   : "\<tab>")
-imap <silent><expr><cr>  !pumvisible()         ? "\<cr>\<plug>AutoPairsReturn"   : (neosnippet#expandable() ? "\<plug>(neosnippet_expand)" : deoplete#mappings#close_popup())
+imap <silent><expr><CR>  !pumvisible()         ? "\<CR>\<plug>AutoPairsReturn"   : (neosnippet#expandable() ? "\<plug>(neosnippet_expand)" : deoplete#mappings#close_popup())
 imap <silent><expr><esc> pumvisible()          ? deoplete#mappings#close_popup() : "\<esc>"
 imap <silent><expr><bs>  deoplete#mappings#smart_close_popup()."\<bs>"
 let g:deoplete#enable_at_startup=1
@@ -307,6 +307,24 @@ let g:deoplete#max_list=100
 
 set t_ZH=[3m
 set t_ZR=[23m
+
+" [w0rp/ale]
+let g:ale_linters = {'python': ['flake8']}
+
+" Only allowed one global window that shows errors
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
+
+" Only run linters on-demand
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_save = 0
+
+" Ctrl+j and Ctrl+k to move between errors
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
+nnoremap <silent> <F4> :ALEToggleBuffer<CR>
 
 " [junegunn/fzf.vim]
 if executable('fzf')
@@ -324,5 +342,5 @@ if executable('fzf')
 end
 
 " [google/yapf]
-map <C-Y> :call yapf#YAPF()<cr>
-imap <C-Y> <c-o>:call yapf#YAPF()<cr>
+map <C-Y> :call yapf#YAPF()<CR>
+imap <C-Y> <c-o>:call yapf#YAPF()<CR>
