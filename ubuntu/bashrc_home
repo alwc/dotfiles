@@ -117,10 +117,11 @@ if ! shopt -oq posix; then
 fi
 
 # >>>>>>>
+alias git="hub"
 alias vim="nvim"
 
-export VISUAL=nvim
-export EDITOR=nvim
+export VISUAL="nvim"
+export EDITOR="nvim"
 
 ## Kaggle
 # TODO: currently i'm still using default .bashrc on server. Need update.

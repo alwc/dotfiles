@@ -117,6 +117,7 @@ if ! shopt -oq posix; then
 fi
 
 # >>>>>>>
+alias git="hub"
 alias vim="nvim"
 
 export VISUAL=nvim
