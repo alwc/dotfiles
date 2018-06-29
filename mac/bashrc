@@ -8,9 +8,8 @@ if [ "$(uname)" == "Darwin" ]; then
     alias git="hub"
 fi
 
-alias xxx="nvim"
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
-export BROWSER=google-chrome
+export BROWSER=chrome
 
 ## Safety
 alias rm="rm -i"
