@@ -8,14 +8,13 @@
 export CLICOLOR=1
 export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 
-# Load in the git branch prompt script.
-source ~/.git-prompt.sh
-
 # Custom bash prompt
-export PS1='\[\e[0;37m\]\u\[\e[0;33m\]@\[\e[1;31m\]$(scutil --get ComputerName)\[\e[0;37m\]:\[\e[0;32m\]\w\[\e[0;32m\]\[\e[0;38m\]$(__git_ps1 " git:(%s)")\n\[\e[0;32m\]\$\[\e[0;37m\] '
+parse_git_branch() {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
 
-# export PIOPATH=$HOME/PredictionIO-0.9.6/
-#export PIOPATH=$HOME/pio/
+export PS1='\[\e[0;37m\]\u\[\e[0;33m\]@\[\e[1;31m\]\h\[\e[0;37m\]:\[\e[0;32m\]\w\[\e[0;32m\]\[\e[0;38m\]$(parse_git_branch)\n\[\e[0;32m\]\$\[\e[0;37m\] '
+
 
 export PATH=$PATH
 export PATH=$HOME/bin:$PATH
@@ -25,9 +24,6 @@ export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/local/share/npm/bin:$PATH
 
-# export PATH=$PATH:/Users/alexlee/PredictionIO/bin
-# export PATH=$PATH:/Users/alexlee/PredictionIO/bin
-# export PATH=$PATH:/Users/alexlee/PredictionIO-0.9.6/bin
 # export PATH=$PATH:$HOME/.local/bin
 
 # export MANPATH=$MANPATH
