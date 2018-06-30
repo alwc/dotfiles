@@ -124,8 +124,8 @@ export VISUAL=nvim
 export EDITOR=nvim
 
 dhw() {
-    echo 'Starting deephandwriting docker...'
-    docker run -it --name alex_docker -v ~/:/workspace -p 8889:8888 -p 8098:8097 deephandwriting:custom
+    echo "Starting deephandwriting docker as: alex_docker..."
+    docker run -it --rm --name alex_docker -v ~/projects/DeepHandwriting.pytorch:/workspace -v /home/data/HandwritingRawData:/workspace/data/raw -p 8889:8888 -p 8098:8097 deephandwriting:custom
 }
 
 dhw_bash() {
