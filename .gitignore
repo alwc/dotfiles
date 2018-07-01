@@ -2,6 +2,7 @@ nvim/plugged
 nvim/swap
 nvim/undo
 nvim/.netrwhist
+karabiner/automatic_backups/
 .DS_Store
 
 # Swap
