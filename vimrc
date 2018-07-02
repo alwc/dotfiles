@@ -88,6 +88,7 @@ let mapleader=";"                       " use ";" as the <leader> key
 set colorcolumn=80                      " hightlight 80 character limit
 set hidden                              " allow buffers to be backgrounded wihtout being save
 set t_Co=256                            " use 256 colors
+let &t_ut=''                            " Fix background color problem when using kitty
 set number                              " for displaying line numbers
 set cursorline                          " hightlight the line the cursor is on
 set scrolloff=999                       " for displaying at least 10 lines below the cursor

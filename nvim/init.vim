@@ -64,6 +64,7 @@ Plug 'junegunn/fzf.vim'
 "   2. pip install yapf
 "   3. ln -s `pyenv which yapf` /usr/local/bin/yapf
 Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
+" Plug 'morhetz/gruvbox'
 
 call plug#end()
 
@@ -89,6 +90,8 @@ set splitbelow            " Splits show up below by default
 set splitright            " Splits go to the right by default
 set title                 " Set the title for gvim
 set visualbell            " Use a visual bell to notify us
+
+let &t_ut=''              " Fix background color problem when using kitty
 
 " Customize session options. Namely, I don't want to save hidden and
 " unloaded buffers or empty windows.
@@ -141,6 +144,7 @@ set wildignore+=*.swp         " Ignore vim backups
 " GUI settings
 if has("gui_running") || has("nvim")
     colorscheme apprentice
+    " colorscheme gruvbox
     set guioptions=cegmt
 
     if has("win32")
