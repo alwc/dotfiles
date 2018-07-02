@@ -330,7 +330,7 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 nnoremap <silent> <F4> :ALEToggleBuffer<CR>
 
 " [airblade/vim-gitgutter]
-let g:gitgutter_sign_added='┃'
+let g:gitgutter_sign_added='┣'
 let g:gitgutter_sign_modified='┃'
 let g:gitgutter_sign_removed='◢'
 let g:gitgutter_sign_removed_first_line='◥'
@@ -353,4 +353,4 @@ end
 
 " [google/yapf]
 map <C-Y> :call yapf#YAPF()<CR>
-imap <C-Y> <c-o>:call yapf#YAPF()<CR>
+" imap <C-Y> <c-o>:call yapf#YAPF()<CR>
