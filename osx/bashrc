@@ -62,7 +62,9 @@ alias show-pg-status='pg_ctl status'
 alias restart-pg='pg_ctl reload'
 
 ## Git
-export GIT_EDITOR="nvim"
+# export GIT_EDITOR="nvim"
+export VISUAL=nvim
+export EDITOR=nvim
 
 ## Kaggle
 # TODO: currently i'm still using default .bashrc on server. Need update.

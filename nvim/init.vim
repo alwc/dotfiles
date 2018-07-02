@@ -2,7 +2,6 @@
 "
 "   1. Install vim-plug: curl -fLo ~/dotfiles/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 "   2. :PlugInstall
-"
 
 scriptencoding utf-8
 set encoding=utf-8
@@ -42,7 +41,7 @@ Plug 'tpope/vim-fugitive'
 "Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': [ 'pandoc', 'markdown' ] }
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
-Plug 'lervag/vimtex'
+Plug 'lervag/vimtex', { 'for': ['latex', 'tex'] }
 " Async autocompletion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Python autocompletion
@@ -271,7 +270,7 @@ let g:netrw_altv = 1
 let g:netrw_winsize = 25
 nnoremap <silent> - :Lex<CR>
 
-" [vimtex]
+" [lervag/vimtex]
 let g:tex_flavor='latex'
 let g:vimtex_quickfix_mode=0
 let g:vimtex_quickfix_open_on_warning=0
@@ -325,6 +324,13 @@ nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 nnoremap <silent> <F4> :ALEToggleBuffer<CR>
+
+" [airblade/vim-gitgutter]
+let g:gitgutter_sign_added='┃'
+let g:gitgutter_sign_modified='┃'
+let g:gitgutter_sign_removed='◢'
+let g:gitgutter_sign_removed_first_line='◥'
+let g:gitgutter_sign_modified_removed='◢'
 
 " [junegunn/fzf.vim]
 if executable('fzf')

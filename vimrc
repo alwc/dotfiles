@@ -26,7 +26,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-eunuch'
 Plugin 'kien/ctrlp.vim'
 Plugin 'godlygeek/tabular'
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 Plugin 'mattn/emmet-vim'
 Plugin 'tpope/vim-markdown'
 Plugin 'mikewest/vimroom'
@@ -116,7 +116,7 @@ set expandtab                           " use spaces instead of tabs
 set tabstop=4                           " tab spacing
 set shiftwidth=2                        " indent/outdent by 4 columns
 set softtabstop=2                       " soft tab width in spaces
-set shiftround                          " alwyas indent/outdent to the nearest tabstop 
+set shiftround                          " alwyas indent/outdent to the nearest tabstop
 set smartindent                         " does the right thing (mostly) in programs
 set autoindent                          " auto-indent
 
