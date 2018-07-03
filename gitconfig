@@ -4,7 +4,6 @@
 [color]
     ui = true
 [credential]
-    help = osxkeychain
     helper = osxkeychain
 [github]
     user = alwc
@@ -14,7 +13,7 @@
     name = Alex L
     email = alex90@gmail.com
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
