@@ -65,6 +65,7 @@ Plug 'junegunn/fzf.vim'
 "   3. ln -s `pyenv which yapf` /usr/local/bin/yapf
 Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
 " Plug 'morhetz/gruvbox'
+Plug 'skywind3000/asyncrun.vim'
 
 call plug#end()
 
@@ -354,3 +355,8 @@ end
 " [google/yapf]
 map <C-Y> :call yapf#YAPF()<CR>
 " imap <C-Y> <c-o>:call yapf#YAPF()<CR>
+"
+
+" [skywind3000/asyncrun.vim]
+" Give async capabilities to vim-fugitive
+command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>
