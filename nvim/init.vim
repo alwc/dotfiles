@@ -358,5 +358,6 @@ map <C-Y> :call yapf#YAPF()<CR>
 "
 
 " [skywind3000/asyncrun.vim]
+"
 " Give async capabilities to vim-fugitive
 command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>
