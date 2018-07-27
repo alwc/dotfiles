@@ -195,15 +195,15 @@ endif
 nmap <silent> <leader>snipt :e ~/dotfiles/nvim/snippets/tex.snip<CR>
 
 " Make navigating around splits easier
-" nnoremap <C-j> <C-w>j
-" nnoremap <C-k> <C-w>k
-" nnoremap <C-h> <C-w>h
-" nnoremap <C-l> <C-w>l
-" if has('nvim')
-"   " We have to do this to fix a bug with Neovim on OS X where C-h
-"   " is sent as backspace for some reason.
-"   nnoremap <BS> <C-W>h
-" endif
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+if has('nvim')
+  " We have to do this to fix a bug with Neovim on OS X where C-h
+  " is sent as backspace for some reason.
+  nnoremap <BS> <C-W>h
+endif
 
 " Navigating tabs easier
 " map <D-S-{> :tabprevious
@@ -318,17 +318,17 @@ let g:ale_linters = {'python': ['flake8']}
 " Only allowed one global window that shows errors
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
-
-" Only run linters on-demand
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
-let g:ale_lint_on_save = 0
+let b:ale_lint_on_save = 1
 
 " Ctrl+j and Ctrl+k to move between errors
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
+nmap <silent> <C-m> <Plug>(ale_previous_wrap)
+nmap <silent> <C-n> <Plug>(ale_next_wrap)
 
-nnoremap <silent> <F4> :ALEToggleBuffer<CR>
+" Only run linters on-demand
+"nnoremap <silent> <F4> :ALEToggleBuffer<CR>
+nmap <silent> <leader>l :ALEToggleBuffer<CR>
 
 " [airblade/vim-gitgutter]
 let g:gitgutter_sign_added='┣'
