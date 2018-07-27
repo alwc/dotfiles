@@ -244,11 +244,6 @@ noremap <silent><leader>/ :nohlsearch<CR>
 " map <C-c> :tabclose<CR>
 " map <C-[> :tabprevious<CR>
 " map <C-]> :tabnext<CR>
-"
-" " CtrlP
-" nnoremap <leader>t :CtrlP<CR>
-" nnoremap <leader>b :CtrlPBuffer<CR>
-" nnoremap <leader>l :CtrlPLine<CR>
 
 "----------------------------------------------------------------------
 " Autocommands
