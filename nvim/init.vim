@@ -28,30 +28,25 @@ call plug#begin('~/dotfiles/nvim/plugged')
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-"Plug 'ctrlpvim/ctrlp.vim'
 "Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 "Plug 'gcmt/taboo.vim'
 "Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
-
-" New
+Plug 'junegunn/gv.vim'
 "Plug 'vim-pandoc/vim-pandoc', { 'for': [ 'pandoc', 'markdown' ] }
 "Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': [ 'pandoc', 'markdown' ] }
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'lervag/vimtex', { 'for': ['latex', 'tex'] }
-" Async autocompletion
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" Python autocompletion
-Plug 'zchee/deoplete-jedi', { 'do': ':UpdateRemotePlugins' }
+Plug 'skywind3000/asyncrun.vim'
 Plug 'Shougo/neosnippet'
-Plug 'jiangmiao/auto-pairs'
 Plug 'Shougo/neosnippet-snippets'
-" Just to add the python go-to-definition and similar features, autocompletion
-" from this plugin is disabled
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-jedi', { 'do': ':UpdateRemotePlugins' }
 Plug 'davidhalter/jedi-vim'
+Plug 'jiangmiao/auto-pairs'
 Plug 'w0rp/ale'
 if has('mac')
     Plug '/usr/local/opt/fzf'
@@ -59,13 +54,12 @@ else
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 endif
 Plug 'junegunn/fzf.vim'
+
 " After installed yapf, I'll need to run
 "   1. pyenv activate neovim3
 "   2. pip install yapf
 "   3. ln -s `pyenv which yapf` /usr/local/bin/yapf
 Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
-" Plug 'morhetz/gruvbox'
-Plug 'skywind3000/asyncrun.vim'
 
 call plug#end()
 
@@ -315,14 +309,14 @@ let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
-let b:ale_lint_on_save = 1
+let g:ale_lint_on_save = 0
+" let b:ale_lint_on_save = 1
 
 " Ctrl+j and Ctrl+k to move between errors
 nmap <silent> <C-m> <Plug>(ale_previous_wrap)
 nmap <silent> <C-n> <Plug>(ale_next_wrap)
 
 " Only run linters on-demand
-"nnoremap <silent> <F4> :ALEToggleBuffer<CR>
 nmap <silent> <leader>l :ALEToggleBuffer<CR>
 
 " [airblade/vim-gitgutter]
