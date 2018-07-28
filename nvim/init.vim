@@ -256,6 +256,10 @@ autocmd BufNewFile,BufRead *.pp call Pl#Load()"
 " Plugins
 "----------------------------------------------------------------------
 
+" [vim-airline/vim-airline-themes]
+" options: 'tomorrow', 'onedark', 'hybrid', 'ayu_mirage', 'angr'
+let g:airline_theme='tomorrow'
+
 " [netrw]
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
