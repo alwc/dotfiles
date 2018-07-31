@@ -316,6 +316,9 @@ let g:ale_lint_on_enter = 0
 let g:ale_lint_on_save = 0
 " let b:ale_lint_on_save = 1
 
+let g:ale_sign_error = '▓▓'
+let g:ale_sign_warning = '░░'
+
 " Ctrl+j and Ctrl+k to move between errors
 nmap <silent> <C-m> <Plug>(ale_previous_wrap)
 nmap <silent> <C-n> <Plug>(ale_next_wrap)
