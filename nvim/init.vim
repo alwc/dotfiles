@@ -85,6 +85,7 @@ set splitbelow            " Splits show up below by default
 set splitright            " Splits go to the right by default
 set title                 " Set the title for gvim
 set visualbell            " Use a visual bell to notify us
+set updatetime=100        " reduce vim-gitgutter's updatetime
 
 let &t_ut=''              " Fix background color problem when using kitty
 
