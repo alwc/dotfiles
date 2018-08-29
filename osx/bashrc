@@ -42,7 +42,7 @@ alias todo="vim ~/Dropbox/notes/todo.md"
 alias roadmap="cd ~/Dropbox/_study_materials; vim roadmap.txt"
 alias scratch="cd ~/Dropbox/notes/scratch_pad/; vim"
 
-alias brew-all="brew update && brew upgrade && brew cleanup && brew cask cleanup"
+alias brew-all="brew update && brew upgrade && brew cleanup"
 # `brew cu` command comes from 'https://github.com/buo/homebrew-cask-upgrade'
 alias brew-cask-all="brew cu -a -y --cleanup"
 
