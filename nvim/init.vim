@@ -28,16 +28,17 @@ call plug#begin('~/dotfiles/nvim/plugged')
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-"Plug 'godlygeek/tabular'
+" "Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
-"Plug 'gcmt/taboo.vim'
-"Plug 'mhinz/vim-startify'
+" "Plug 'gcmt/taboo.vim'
+" "Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
-"Plug 'vim-pandoc/vim-pandoc', { 'for': [ 'pandoc', 'markdown' ] }
-"Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': [ 'pandoc', 'markdown' ] }
-Plug 'vim-pandoc/vim-pandoc'
+" "Plug 'vim-pandoc/vim-pandoc', { 'for': [ 'pandoc', 'markdown' ] }
+" "Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': [ 'pandoc', 'markdown' ] }
+" Disablaed because of the chdir problem: https://github.com/vim-pandoc/vim-pandoc/issues/272
+" Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'lervag/vimtex', { 'for': ['latex', 'tex'] }
 Plug 'skywind3000/asyncrun.vim'
@@ -54,11 +55,11 @@ else
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 endif
 Plug 'junegunn/fzf.vim'
-
-" After installed yapf, I'll need to run
-"   1. pyenv activate neovim3
-"   2. pip install yapf
-"   3. ln -s `pyenv which yapf` /usr/local/bin/yapf
+"
+" " After installed yapf, I'll need to run
+" "   1. pyenv activate neovim3
+" "   2. pip install yapf
+" "   3. ln -s `pyenv which yapf` /usr/local/bin/yapf
 Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
 
 call plug#end()
