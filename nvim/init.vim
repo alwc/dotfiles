@@ -201,9 +201,21 @@ if has('nvim')
   nnoremap <BS> <C-W>h
 endif
 
-" Navigating tabs easier
-" map <D-S-{> :tabprevious
-" map <D-S-}> :tabprevious
+" Tabs navigation
+map <M-1> 1gt
+map <M-2> 2gt
+map <M-3> 3gt
+map <M-4> 4gt
+map <M-5> 5gt
+map <M-6> 6gt
+map <M-7> 7gt
+map <M-8> 8gt
+map <M-9> 9gt
+map <M-0> :tablast<CR>
+map <M-t> :tabnew<CR>
+map <M-c> :tabclose<CR>
+map <M-{> :tabprevious<CR>
+map <M-}> :tabnext<CR>
 
 " Shortcut to yanking to the system clipboard
 map <leader>y "*y
@@ -235,11 +247,6 @@ noremap <silent><leader>/ :nohlsearch<CR>
 "     nnoremap <Leader>c :terminal <CR>
 " endif
 "
-" " Tabs
-" map <C-t> :tabnew<CR>
-" map <C-c> :tabclose<CR>
-" map <C-[> :tabprevious<CR>
-" map <C-]> :tabnext<CR>
 
 "----------------------------------------------------------------------
 " Autocommands
@@ -301,6 +308,7 @@ let g:deoplete#enable_at_startup=1
 let g:deoplete#auto_completion_start_length=1
 let g:deoplete#enable_camel_case=1
 let g:deoplete#max_list=100
+let g:deoplete#sources#jedi#python_path = 'python3'
 " let g:deoplete#ignore_sources={}
 " let g:deoplete#ignore_sources._=['buffer']
 
