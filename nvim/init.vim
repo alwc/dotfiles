@@ -214,8 +214,8 @@ map <M-9> 9gt
 map <M-0> :tablast<CR>
 map <M-t> :tabnew<CR>
 map <M-c> :tabclose<CR>
-map <M-{> :tabprevious<CR>
-map <M-}> :tabnext<CR>
+map <M-[> :tabprevious<CR>
+map <M-]> :tabnext<CR>
 
 " Shortcut to yanking to the system clipboard
 map <leader>y "*y
