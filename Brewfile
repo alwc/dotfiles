@@ -62,6 +62,4 @@ cask "mactex"
 cask "rstudio"
 cask "slack"
 cask "spotify"
-cask "telegram"
-cask "virtualbox"
 mas "1Password", id: 443987910
