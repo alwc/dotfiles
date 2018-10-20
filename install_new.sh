@@ -17,3 +17,7 @@ ln -s $DOTFILES_DIR/osx/bashrc ~/.bashrc
 ln -s $DOTFILES_DIR/osx/profile ~/.profile
 # ln -s $DOTFILES_DIR/tmux.conf ~/.tmux.conf
 # ln -s $DOTFILES_DIR/vimrc ~/.vimrc
+
+# 3. Install Tmux Plugin Manager (TPM)
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+tmux source ~/.tmux.conf

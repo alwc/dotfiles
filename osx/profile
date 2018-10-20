@@ -37,15 +37,9 @@ export ARCHFLAGS="-arch x86_64"
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
 
-# The next line updates PATH for the Google Cloud SDK.
-source '/Users/alexlee/google-cloud-sdk/path.bash.inc'
-
-# The next line enables shell command completion for gcloud.
-source '/Users/alexlee/google-cloud-sdk/completion.bash.inc'
-
-# Homebrew: "New shell sessions will start using GRC after you add this to your profile"
-source '/usr/local/etc/grc.bashrc'
-#source "`brew --prefix grc`/etc/grc.bashrc"
+# For Google Cloud SDK.
+source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc'
+source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc'
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
