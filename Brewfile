@@ -66,5 +66,6 @@ cask "rstudio"
 cask "slack"
 cask "smcfancontrol"
 cask "spotify"
+cask "vlc"
 mas "1Password", id: 443987910
 mas "Xcode", id: 497799835
