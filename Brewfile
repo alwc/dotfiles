@@ -27,7 +27,7 @@ brew "git"
 brew "git-lfs"
 brew "hub"
 brew "imagemagick"
-brew "mas"
+brew "mas-cli/tap/mas"
 brew "neovim"
 brew "pandoc"
 brew "pyenv"
@@ -67,3 +67,4 @@ cask "slack"
 cask "smcfancontrol"
 cask "spotify"
 mas "1Password", id: 443987910
+mas "Xcode", id: 497799835
