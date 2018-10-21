@@ -61,6 +61,7 @@ Plug 'junegunn/fzf.vim'
 " "   2. pip install yapf
 " "   3. ln -s `pyenv which yapf` /usr/local/bin/yapf
 Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
+Plug 'majutsushi/tagbar'
 
 call plug#end()
 
@@ -361,9 +362,17 @@ end
 " [google/yapf]
 map <C-Y> :call yapf#YAPF()<CR>
 " imap <C-Y> <c-o>:call yapf#YAPF()<CR>
-"
+
+" [majutsushi/tagbar]
+" let g:targar_compact=1
+let g:tagbar_autofocus=1
+let g:tagbar_sort=0
+let g:tagbar_width=40
+let g:tagbar_iconchars = ['▶', '▼']
+nmap <silent> <leader>t :TagbarToggle<CR>
 
 " [skywind3000/asyncrun.vim]
 "
 " Give async capabilities to vim-fugitive
 command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>
+
