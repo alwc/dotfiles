@@ -61,8 +61,9 @@ Plug 'junegunn/fzf.vim'
 " "   2. pip install yapf
 " "   3. ln -s `pyenv which yapf` /usr/local/bin/yapf
 Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
-Plug 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 Plug 'jsfaint/gen_tags.vim'
+Plug 'tyru/open-browser.vim', {'on': ['OpenBrowserSmartSearch', 'OpenBrowser', 'OpenBrowserSearch']}
 
 call plug#end()
 
@@ -393,6 +394,9 @@ let g:tagbar_sort=0
 let g:tagbar_width=40
 let g:tagbar_iconchars = ['▶', '▼']
 nmap <silent> <leader>e :TagbarToggle<CR>
+
+" ['jsfaint/gen_tags.vim']
+let $GTAGSLIBPATH='/usr/include/'
 
 " [skywind3000/asyncrun.vim]
 "
