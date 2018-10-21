@@ -62,6 +62,7 @@ Plug 'junegunn/fzf.vim'
 " "   3. ln -s `pyenv which yapf` /usr/local/bin/yapf
 Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
 Plug 'majutsushi/tagbar'
+Plug 'jsfaint/gen_tags.vim'
 
 call plug#end()
 
@@ -279,27 +280,26 @@ let g:netrw_winsize = 16
 let g:NetrwIsOpen=0
 
 " Toggles netrw explorer buffer
-" From: https://coderwall.com/p/p6pddw/swap-nerdtree-for-vim-s-netrw-explorer
-function! ToggleVExplorer()
-  if exists("t:expl_buf_num")
-    let expl_win_num = bufwinnr(t:expl_buf_num)
-    if expl_win_num != -1
-      let cur_win_nr = winnr()
-      exec expl_win_num . 'wincmd w'
-      close
-      exec cur_win_nr . 'wincmd w'
-      unlet t:expl_buf_num
+" From: https://www.reddit.com/r/vim/comments/6jcyfj/toggle_lexplore_properly/djdmsal/
+let g:NetrwIsOpen=0
+
+function! ToggleNetrw()
+    if g:NetrwIsOpen
+        let i = bufnr("$")
+        while (i >= 1)
+            if (getbufvar(i, "&filetype") == "netrw")
+                silent exe "bwipeout " . i
+            endif
+            let i-=1
+        endwhile
+        let g:NetrwIsOpen=0
     else
-      unlet t:expl_buf_num
+        let g:NetrwIsOpen=1
+        silent Lexplore
     endif
-  else
-    exec '1wincmd w'
-    Vexplore
-    let t:expl_buf_num = bufnr("%")
-  endif
 endfunction
 
-noremap <silent> <C-w> :call ToggleVExplorer()<CR>
+noremap <silent> <leader>w :call ToggleNetrw()<CR>
 
 " [lervag/vimtex]
 let g:tex_flavor='latex'
@@ -392,7 +392,7 @@ let g:tagbar_autofocus=1
 let g:tagbar_sort=0
 let g:tagbar_width=40
 let g:tagbar_iconchars = ['▶', '▼']
-nmap <silent> <C-E> :TagbarToggle<CR>
+nmap <silent> <leader>e :TagbarToggle<CR>
 
 " [skywind3000/asyncrun.vim]
 "
