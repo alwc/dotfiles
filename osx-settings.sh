@@ -5,6 +5,9 @@ set -ex
 # Disable Dashboard
 defaults write com.apple.dashboard mcx-disabled -bool true
 
+# Disable automatically rearrange Spaces based on most recent use
+defaults write com.apple.dock mru-spaces -bool false
+
 # Avoid creating .DS_Store files on network or USB volumes
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
@@ -16,7 +19,7 @@ defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 # defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 
 # Specify iTerm2's preferences directory
-defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/dotfiles/"
+# defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/dotfiles/"
 
 # Tell iTerm2 to use the custom preferences in the directory
-defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
+# defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
