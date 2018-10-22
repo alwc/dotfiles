@@ -8,7 +8,9 @@
 # Open 'System Preferences' -> 'Keyboard' ->
 # Click on 'Modifier Keys...' -> 'Caps Lock Key' to 'Escape'
 
-# >>>>> Change 'Key repeat' and 'Delay Until Repeat' to the fastest speed.
+# >>>>> Maximize the 'Key repeat' and 'Delay Until Repeat' speed in 'Keyboard'.
+
+# >>>>> Minimize the 'Alert volume' in 'Sound'.
 
 echo ">>>>> Install XCode command line tools..."
 xcode-select --install
