@@ -63,6 +63,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 Plug 'jsfaint/gen_tags.vim'
+Plug 'kshenoy/vim-signature'
 
 call plug#end()
 
@@ -396,6 +397,9 @@ nmap <silent> <leader>e :TagbarToggle<CR>
 
 " ['jsfaint/gen_tags.vim']
 let $GTAGSLIBPATH='/usr/include/'
+
+" ['kshenoy/vim-signature']
+nmap <silent> <leader>m :SignatureToggle<CR>
 
 " [skywind3000/asyncrun.vim]
 "
