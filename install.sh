@@ -16,7 +16,7 @@ echo ">>>>> Install XCode command line tools..."
 xcode-select --install
 
 echo ">>>>> Setup HostName..."
-USER_HOSTNAME=MBP
+USER_HOSTNAME=AlexMBP
 sudo scutil --set HostName ${USER_HOSTNAME}
 
 # >>>>> Setup SSH keys
@@ -40,19 +40,22 @@ DOTFILES_DIR=~/dotfiles
 CONFIG_DIR=~/.config
 OS_DIR=osx # or ubuntu
 
-ln -s $DOTFILES_DIR/karabiner $CONFIG_DIR/karabiner
-ln -s $DOTFILES_DIR/kitty $CONFIG_DIR/kitty
-ln -s $DOTFILES_DIR/nvim $CONFIG_DIR/nvim
-ln -s $DOTFILES_DIR/bash_profile ~/.bash_profile
-ln -s $DOTFILES_DIR/$OS_DIR/bashrc ~/.bashrc
-ln -s $DOTFILES_DIR/gitconfig ~/.gitconfig
-ln -s $DOTFILES_DIR/latexmkrc ~/.latexmkrc
-ln -s $DOTFILES_DIR/$OS_DIR/profile ~/.profile
-ln -s $DOTFILES_DIR/tmux/tmux.conf ~/.tmux.conf
-ln -s $DOTFILES_DIR/vimrc ~/.vimrc
+ln -sf $DOTFILES_DIR/karabiner $CONFIG_DIR/karabiner
+ln -sf $DOTFILES_DIR/kitty $CONFIG_DIR/kitty
+ln -sf $DOTFILES_DIR/nvim $CONFIG_DIR/nvim
+ln -sf $DOTFILES_DIR/bash_profile ~/.bash_profile
+ln -sf $DOTFILES_DIR/$OS_DIR/bashrc ~/.bashrc
+ln -sf $DOTFILES_DIR/gitconfig ~/.gitconfig
+ln -sf $DOTFILES_DIR/latexmkrc ~/.latexmkrc
+ln -sf $DOTFILES_DIR/$OS_DIR/profile ~/.profile
+ln -sf $DOTFILES_DIR/tmux/tmux.conf ~/.tmux.conf
+ln -sf $DOTFILES_DIR/vimrc ~/.vimrc
 
 echo ">>>>> Install Homebrew Bundle..."
 brew bundle
+
+echo ">>>>> Install vim-plug..."
+curl -fLo ~/dotfiles/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 echo ">>>>> Install Tmux Plugin Manager (TPM)..."
 # https://github.com/tmux-plugins/tpm#installing-plugins
