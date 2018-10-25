@@ -12,6 +12,9 @@
 
 # >>>>> Minimize the 'Alert volume' in 'Sound'.
 
+# >>>>> Setup space support for Amethyst
+# Go to 'Keyboard' -> 'Keyboard Shortcuts' -> Turn on 'Switch to Desktop {1..N}'
+
 echo ">>>>> Install XCode command line tools..."
 xcode-select --install
 
