@@ -53,6 +53,7 @@ ln -sf $DOTFILES_DIR/latexmkrc ~/.latexmkrc
 ln -sf $DOTFILES_DIR/$OS_DIR/profile ~/.profile
 ln -sf $DOTFILES_DIR/tmux/tmux.conf ~/.tmux.conf
 ln -sf $DOTFILES_DIR/vimrc ~/.vimrc
+ln -sf $DOTFILES_DIR/ctags.d ~/.ctags.d
 
 echo ">>>>> Install Homebrew Bundle..."
 brew bundle
