@@ -90,7 +90,6 @@ set splitright            " Splits go to the right by default
 set title                 " Set the title for gvim
 set visualbell            " Use a visual bell to notify us
 set updatetime=100        " reduce vim-gitgutter's updatetime
-
 let &t_ut=''              " Fix background color problem when using kitty
 
 " Customize session options. Namely, I don't want to save hidden and
@@ -157,6 +156,9 @@ if has("gui_running") || has("nvim")
         set fuopt+=maxhorz
     endif
 endif
+
+" Change bright red to grey for colorcolumn
+highlight ColorColumn ctermbg=236
 
 "----------------------------------------------------------------------
 " Key Mappings
@@ -271,6 +273,9 @@ autocmd BufNewFile,BufRead *.pp call Pl#Load()"
 " [vim-airline/vim-airline-themes]
 " options: 'tomorrow', 'onedark', 'hybrid', 'ayu_mirage', 'angr'
 let g:airline_theme='tomorrow'
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#left_sep = ''
+" let g:airline#extensions#tabline#left_alt_sep = ''
 
 " [netrw]
 let g:netrw_banner = 0
@@ -405,4 +410,3 @@ nmap <silent> <leader>m :SignatureToggle<CR>
 "
 " Give async capabilities to vim-fugitive
 command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>
-
