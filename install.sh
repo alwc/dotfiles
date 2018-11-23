@@ -4,7 +4,7 @@
 #                        Alex's OSX setup script                              #
 ###############################################################################
 
-# >>>>> Change 'Caps Lock' to 'Escape' on OSX**
+# # >>>>> Change 'Caps Lock' to 'Escape' on OSX
 # Open 'System Preferences' -> 'Keyboard' ->
 # Click on 'Modifier Keys...' -> 'Caps Lock Key' to 'Escape'
 
