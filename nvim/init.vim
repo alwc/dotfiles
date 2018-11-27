@@ -10,8 +10,8 @@ set encoding=utf-8
 " pyenv
 "----------------------------------------------------------------------
 if has("unix")
-    let g:python_host_prog = '/Users/' . $USER . '/.pyenv/versions/neovim3/bin/python'
-    let g:python3_host_prog = '/Users/' . $USER . '/.pyenv/versions/neovim3/bin/python'
+    let g:python_host_prog = '/home/' . $USER . '/.pyenv/versions/neovim3/bin/python'
+    let g:python3_host_prog = '/home/' . $USER . '/.pyenv/versions/neovim3/bin/python'
     let g:python3_host_skip_check=1
 endif
 
