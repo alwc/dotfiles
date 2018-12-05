@@ -61,6 +61,9 @@ alias stop-pg='pg_ctl stop -m fast'
 alias show-pg-status='pg_ctl status'
 alias restart-pg='pg_ctl reload'
 
+## kitty
+alias icat="kitty +kitten icat"
+
 ## Git
 # export GIT_EDITOR="nvim"
 export VISUAL=nvim
