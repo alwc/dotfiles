@@ -70,7 +70,7 @@ echo ">>>>> Install pyenv (mainly for neovim)..."
 # - https://github.com/zchee/deoplete-jedi/wiki/Setting-up-Python-for-Neovim
 # Check the available python version using `pyenv install --list`
 PYENV_2=2.7.15
-PYENV_3=3.6.2
+PYENV_3=3.7.1
 
 pyenv install $PYENV_2
 pyenv install $PYENV_3
