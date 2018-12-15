@@ -64,6 +64,10 @@ alias restart-pg='pg_ctl reload'
 ## kitty
 alias icat="kitty +kitten icat"
 
+## For duckietown
+export IP=$(ifconfig en0 | grep inet | awk '$1=="inet" {print $2}')
+xhost +$IP
+
 ## Git
 # export GIT_EDITOR="nvim"
 export VISUAL=nvim
