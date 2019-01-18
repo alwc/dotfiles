@@ -65,8 +65,9 @@ alias restart-pg='pg_ctl reload'
 alias icat="kitty +kitten icat"
 
 ## For duckietown
-export IP=$(ifconfig en0 | grep inet | awk '$1=="inet" {print $2}')
-xhost +$IP
+## http://docs.duckietown.org/DT18/opmanual_duckiebot/out/laptop_setup.html (Section 1.4, 2 Quartz)
+# export IP=$(ifconfig en0 | grep inet | awk '$1=="inet" {print $2}')
+# xhost +$IP
 
 ## Git
 # export GIT_EDITOR="nvim"
