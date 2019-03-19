@@ -19,4 +19,4 @@
     process = git-lfs filter-process --skip
     required = true
 [status]
-	submoduleSummary = true
+    submoduleSummary = true
