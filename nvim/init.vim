@@ -19,6 +19,7 @@ endif
 " Plugins
 "----------------------------------------------------------------------
 call plug#begin('~/dotfiles/nvim/plugged')
+Plug 'ekalinin/Dockerfile.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
