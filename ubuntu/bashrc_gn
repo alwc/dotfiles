@@ -169,3 +169,6 @@ if [ -f '/home/alex/google-cloud-sdk/path.bash.inc' ]; then source '/home/alex/g
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/alex/google-cloud-sdk/completion.bash.inc' ]; then source '/home/alex/google-cloud-sdk/completion.bash.inc'; fi
+
+# For Docker container's Jupyter notebook port
+export JUPYTER_NOTEBOOK_PORT=8845
