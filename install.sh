@@ -71,23 +71,16 @@ tmux source ~/.tmux.conf
 echo ">>>>> Install pyenv (mainly for neovim)..."
 if [ "$OS_DIR" = ubuntu ] ; then
     curl https://pyenv.run | bash
+    sudo apt-get update; sudo apt-get install --no-install-recommends make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 fi
 
 # - https://github.com/zchee/deoplete-jedi/wiki/Setting-up-Python-for-Neovim
 # Check the available python version using `pyenv install --list`
-PYENV_2=2.7.15
-PYENV_3=3.7.1
+PYENV_3=3.8.0
 
-pyenv install $PYENV_2
 pyenv install $PYENV_3
 
 pyenv virtualenv $PYENV_2 neovim2
-pyenv virtualenv $PYENV_3 neovim3
-
-pyenv activate neovim2
-pip install --upgrade pip
-pip install neovim
-pyenv which python
 
 pyenv activate neovim3
 pip install --upgrade pip
