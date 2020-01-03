@@ -80,7 +80,7 @@ PYENV_3=3.8.0
 
 pyenv install $PYENV_3
 
-pyenv virtualenv $PYENV_2 neovim2
+pyenv virtualenv $PYENV_3 neovim3
 
 pyenv activate neovim3
 pip install --upgrade pip
