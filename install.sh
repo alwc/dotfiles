@@ -67,7 +67,12 @@ echo ">>>>> Install Tmux Plugin Manager (TPM)..."
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 tmux source ~/.tmux.conf
 
+# https://github.com/pyenv/pyenv-installer
 echo ">>>>> Install pyenv (mainly for neovim)..."
+if [ "$OS_DIR" = ubuntu ] ; then
+    curl https://pyenv.run | bash
+fi
+
 # - https://github.com/zchee/deoplete-jedi/wiki/Setting-up-Python-for-Neovim
 # Check the available python version using `pyenv install --list`
 PYENV_2=2.7.15
