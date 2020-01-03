@@ -3,8 +3,7 @@
 # for examples
 
 # If not running interactively, don't do anything
-case $- in
-    *i*) ;;
+case $- in *i*) ;;
       *) return;;
 esac
 
@@ -172,3 +171,6 @@ if [ -f '/home/alex/google-cloud-sdk/completion.bash.inc' ]; then source '/home/
 
 # For Docker container's Jupyter notebook port
 export JUPYTER_NOTEBOOK_PORT=8845
+
+# For Tensorboard port
+export TENSORBOARD_PORT=6015
