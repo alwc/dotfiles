@@ -42,15 +42,16 @@ echo ">>>>> Symlink dotfiles..."
 DOTFILES_DIR=~/dotfiles
 CONFIG_DIR=~/.config
 OS_DIR=osx # or ubuntu
+WORKSPACE=home # or gn
 
 ln -sf $DOTFILES_DIR/karabiner $CONFIG_DIR/karabiner
 ln -sf $DOTFILES_DIR/kitty $CONFIG_DIR/kitty
 ln -sf $DOTFILES_DIR/nvim $CONFIG_DIR/nvim
 ln -sf $DOTFILES_DIR/bash_profile ~/.bash_profile
-ln -sf $DOTFILES_DIR/$OS_DIR/bashrc ~/.bashrc
+ln -sf $DOTFILES_DIR/$OS_DIR/bashrc_$WORKSPACE ~/.bashrc
 ln -sf $DOTFILES_DIR/gitconfig ~/.gitconfig
 ln -sf $DOTFILES_DIR/latexmkrc ~/.latexmkrc
-ln -sf $DOTFILES_DIR/$OS_DIR/profile ~/.profile
+ln -sf $DOTFILES_DIR/$OS_DIR/profile_$WORKSPACE ~/.profile
 ln -sf $DOTFILES_DIR/tmux/tmux.conf ~/.tmux.conf
 ln -sf $DOTFILES_DIR/vimrc ~/.vimrc
 ln -sf $DOTFILES_DIR/ctags.d ~/.ctags.d
