@@ -20,7 +20,6 @@ endif
 "----------------------------------------------------------------------
 call plug#begin('~/dotfiles/nvim/plugged')
 Plug 'ekalinin/Dockerfile.vim'
-Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " "Plug 'godlygeek/tabular'
@@ -59,6 +58,13 @@ Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 Plug 'jsfaint/gen_tags.vim'
 Plug 'kshenoy/vim-signature'
+if has('patch-8.0.902')
+  Plug 'mhinz/vim-signify'
+else
+  Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
+endif
+Plug 'google/vim-jsonnet'
+
 
 call plug#end()
 
@@ -361,12 +367,14 @@ nmap <silent> <C-n> <Plug>(ale_next_wrap)
 " Only run linters on-demand
 nmap <silent> <leader>l :ALEToggleBuffer<CR>
 
-" [airblade/vim-gitgutter]
-let g:gitgutter_sign_added='┣'
-let g:gitgutter_sign_modified='┃'
-let g:gitgutter_sign_removed='◢'
-let g:gitgutter_sign_removed_first_line='◥'
-let g:gitgutter_sign_modified_removed='◢'
+" [mhinz/vim-signify]
+let g:signify_sign_add='┣'
+let g:signify_sign_delete='◢'
+let g:signify_sign_delete_first_line='◥'
+let g:signify_sign_change='┃'
+
+" https://github.com/mhinz/vim-signify/issues/174#issuecomment-174005326
+autocmd User Fugitive SignifyRefresh
 
 " [junegunn/fzf.vim]
 if executable('fzf')
