@@ -63,6 +63,8 @@ if has('patch-8.0.902')
 else
   Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
 endif
+Plug 'google/vim-jsonnet'
+
 
 call plug#end()
 
@@ -370,6 +372,9 @@ let g:signify_sign_add='┣'
 let g:signify_sign_delete='◢'
 let g:signify_sign_delete_first_line='◥'
 let g:signify_sign_change='┃'
+
+" https://github.com/mhinz/vim-signify/issues/174#issuecomment-174005326
+autocmd User Fugitive SignifyRefresh
 
 " [junegunn/fzf.vim]
 if executable('fzf')
