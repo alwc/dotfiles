@@ -32,15 +32,17 @@ sudo scutil --set HostName ${USER_HOSTNAME}
 
 echo ">>>>> Install Homebrew..."
 # https://brew.sh/
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+# /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 echo ">>>>> Install git then clone dotfiles to home directory..."
-brew update && brew upgrade && brew install git
-git clone git@github.com:alwc/dotfiles.git
+brew update && brew upgrade
+# brew install git
+# git clone git@github.com:alwc/dotfiles.git
 
 echo ">>>>> Symlink dotfiles..."
 DOTFILES_DIR=~/dotfiles
 CONFIG_DIR=~/.config
+mkdir $CONFIG_DIR
 OS_DIR=osx # or ubuntu
 
 ln -sf $DOTFILES_DIR/karabiner $CONFIG_DIR/karabiner
