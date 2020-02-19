@@ -42,7 +42,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi', { 'do': ':UpdateRemotePlugins' }
 Plug 'davidhalter/jedi-vim'
 Plug 'jiangmiao/auto-pairs'
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 if has('mac')
     Plug '/usr/local/opt/fzf'
 else
