@@ -19,12 +19,12 @@ endif
 " Plugins
 "----------------------------------------------------------------------
 call plug#begin('~/dotfiles/nvim/plugged')
-Plug 'airblade/vim-gitgutter'
+Plug 'ekalinin/Dockerfile.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " "Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
-" "Plug 'gcmt/taboo.vim'
+Plug 'gcmt/taboo.vim'
 " "Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
@@ -58,6 +58,13 @@ Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 Plug 'jsfaint/gen_tags.vim'
 Plug 'kshenoy/vim-signature'
+if has('patch-8.0.902')
+  Plug 'mhinz/vim-signify'
+else
+  Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
+endif
+Plug 'google/vim-jsonnet'
+
 
 call plug#end()
 
@@ -200,22 +207,6 @@ if has('nvim')
   nnoremap <BS> <C-W>h
 endif
 
-" Tabs navigation
-map <M-1> 1gt
-map <M-2> 2gt
-map <M-3> 3gt
-map <M-4> 4gt
-map <M-5> 5gt
-map <M-6> 6gt
-map <M-7> 7gt
-map <M-8> 8gt
-map <M-9> 9gt
-map <M-0> :tablast<CR>
-map <M-t> :tabnew<CR>
-map <M-c> :tabclose<CR>
-map <M-[> :tabprevious<CR>
-map <M-]> :tabnext<CR>
-
 " Shortcut to yanking to the system clipboard
 map <leader>y "*y
 map <leader>p "*p
@@ -263,6 +254,28 @@ autocmd BufNewFile,BufRead *.pp call Pl#Load()"
 "----------------------------------------------------------------------
 " Plugins
 "----------------------------------------------------------------------
+"
+" [gcmt/taboo.vim] + vim's built-in tabs navigation
+map <M-1> 1gt
+map <M-2> 2gt
+map <M-3> 3gt
+map <M-4> 4gt
+map <M-5> 5gt
+map <M-6> 6gt
+map <M-7> 7gt
+map <M-8> 8gt
+map <M-9> 9gt
+map <M-0> :tablast<CR>
+"map <M-t> :tabnew<CR>
+map <M-t> :TabooOpen<Space>
+map <M-c> :tabclose<CR>
+map <M-[> :tabprevious<CR>
+map <M-]> :tabnext<CR>
+map <M-m> :TabooRename<Space>
+
+let g:taboo_tab_format = " %N   %f%m "
+let g:taboo_renamed_tab_format = " %N   %l%m "
+
 
 " [vim-airline/vim-airline-themes]
 " options: 'tomorrow', 'onedark', 'hybrid', 'ayu_mirage', 'angr'
@@ -325,9 +338,9 @@ let g:neosnippet#enable_snipmate_compatibility=1
 " [Shougo/deoplete]
 smap <silent><expr><tab> neosnippet#jumpable() ? "\<plug>(neosnippet_jump)"      : "\<tab>"
 imap <silent><expr><tab> pumvisible()          ? "\<c-n>"                        : (neosnippet#jumpable()   ? "\<plug>(neosnippet_jump)"   : "\<tab>")
-imap <silent><expr><CR>  !pumvisible()         ? "\<CR>\<plug>AutoPairsReturn"   : (neosnippet#expandable() ? "\<plug>(neosnippet_expand)" : deoplete#mappings#close_popup())
-imap <silent><expr><esc> pumvisible()          ? deoplete#mappings#close_popup() : "\<esc>"
-imap <silent><expr><bs>  deoplete#mappings#smart_close_popup()."\<bs>"
+imap <silent><expr><CR>  !pumvisible()         ? "\<CR>\<plug>AutoPairsReturn"   : (neosnippet#expandable() ? "\<plug>(neosnippet_expand)" : deoplete#close_popup())
+imap <silent><expr><esc> pumvisible()          ? deoplete#close_popup() : "\<esc>"
+imap <silent><expr><bs>  deoplete#smart_close_popup()."\<bs>"
 let g:deoplete#enable_at_startup=1
 let g:deoplete#auto_completion_start_length=1
 let g:deoplete#enable_camel_case=1
@@ -360,12 +373,14 @@ nmap <silent> <C-n> <Plug>(ale_next_wrap)
 " Only run linters on-demand
 nmap <silent> <leader>l :ALEToggleBuffer<CR>
 
-" [airblade/vim-gitgutter]
-let g:gitgutter_sign_added='┣'
-let g:gitgutter_sign_modified='┃'
-let g:gitgutter_sign_removed='◢'
-let g:gitgutter_sign_removed_first_line='◥'
-let g:gitgutter_sign_modified_removed='◢'
+" [mhinz/vim-signify]
+let g:signify_sign_add='┣'
+let g:signify_sign_delete='◢'
+let g:signify_sign_delete_first_line='◥'
+let g:signify_sign_change='┃'
+
+" https://github.com/mhinz/vim-signify/issues/174#issuecomment-174005326
+autocmd User Fugitive SignifyRefresh
 
 " [junegunn/fzf.vim]
 if executable('fzf')

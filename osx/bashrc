@@ -39,6 +39,12 @@ alias sn="cd ~/Google\ Drive/_study_notes"
 alias todo="vim ~/Google\ Drive/notes/todo.md"
 alias roadmap="cd ~/Google\ Drive/_study_materials; vim roadmap.txt"
 alias scratch="cd ~/Google\ Drive/notes/scratch_pad/; vim"
+alias tn="cd ~/Google\ Drive/_latex_notes"
+alias gn="cd ~/Google\ Drive/_goodnotes"
+alias genn="cd ~/Google\ Drive/_general_notes"
+alias mlnn="cd ~/Google\ Drive/_ml_notes"
+alias clsn="cd ~/Google\ Drive/_class_notes"
+alias codn="cd ~/Google\ Drive/_coding_notes"
 
 alias brew-all="brew update && brew upgrade && brew cleanup"
 # `brew cu` command comes from 'https://github.com/buo/homebrew-cask-upgrade'

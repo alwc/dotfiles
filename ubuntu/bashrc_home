@@ -232,3 +232,6 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
   eval "$(pyenv virtualenv-init -)"
 fi
+
+# For Docker container's Jupyter notebook port
+export JUPYTER_NOTEBOOK_PORT=8845

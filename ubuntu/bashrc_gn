@@ -3,8 +3,7 @@
 # for examples
 
 # If not running interactively, don't do anything
-case $- in
-    *i*) ;;
+case $- in *i*) ;;
       *) return;;
 esac
 
@@ -169,3 +168,14 @@ if [ -f '/home/alex/google-cloud-sdk/path.bash.inc' ]; then source '/home/alex/g
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/alex/google-cloud-sdk/completion.bash.inc' ]; then source '/home/alex/google-cloud-sdk/completion.bash.inc'; fi
+
+# For Docker container's Jupyter notebook port
+export JUPYTER_NOTEBOOK_PORT=8845
+
+# For Tensorboard port
+export TENSORBOARD_PORT=6015
+
+# For `gcloud` since it uses python2 Read:
+# - https://github.com/pyenv/pyenv/issues/1159#issuecomment-549235372
+# - https://github.com/pyenv/pyenv-virtualenv/issues/267#issuecomment-395932404
+export CLOUDSDK_PYTHON=~/.pyenv/shims/python2

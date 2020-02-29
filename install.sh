@@ -32,25 +32,28 @@ sudo scutil --set HostName ${USER_HOSTNAME}
 
 echo ">>>>> Install Homebrew..."
 # https://brew.sh/
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+# /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 echo ">>>>> Install git then clone dotfiles to home directory..."
-brew update && brew upgrade && brew install git
-git clone git@github.com:alwc/dotfiles.git
+brew update && brew upgrade
+# brew install git
+# git clone git@github.com:alwc/dotfiles.git
 
 echo ">>>>> Symlink dotfiles..."
 DOTFILES_DIR=~/dotfiles
 CONFIG_DIR=~/.config
+mkdir $CONFIG_DIR
 OS_DIR=osx # or ubuntu
+WORKSPACE=home # or gn
 
 ln -sf $DOTFILES_DIR/karabiner $CONFIG_DIR/karabiner
 ln -sf $DOTFILES_DIR/kitty $CONFIG_DIR/kitty
 ln -sf $DOTFILES_DIR/nvim $CONFIG_DIR/nvim
 ln -sf $DOTFILES_DIR/bash_profile ~/.bash_profile
-ln -sf $DOTFILES_DIR/$OS_DIR/bashrc ~/.bashrc
+ln -sf $DOTFILES_DIR/$OS_DIR/bashrc_$WORKSPACE ~/.bashrc
 ln -sf $DOTFILES_DIR/gitconfig ~/.gitconfig
 ln -sf $DOTFILES_DIR/latexmkrc ~/.latexmkrc
-ln -sf $DOTFILES_DIR/$OS_DIR/profile ~/.profile
+ln -sf $DOTFILES_DIR/$OS_DIR/profile_$WORKSPACE ~/.profile
 ln -sf $DOTFILES_DIR/tmux/tmux.conf ~/.tmux.conf
 ln -sf $DOTFILES_DIR/vimrc ~/.vimrc
 ln -sf $DOTFILES_DIR/ctags.d ~/.ctags.d
@@ -66,22 +69,20 @@ echo ">>>>> Install Tmux Plugin Manager (TPM)..."
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 tmux source ~/.tmux.conf
 
+# https://github.com/pyenv/pyenv-installer
 echo ">>>>> Install pyenv (mainly for neovim)..."
+if [ "$OS_DIR" = ubuntu ] ; then
+    curl https://pyenv.run | bash
+    sudo apt-get update; sudo apt-get install --no-install-recommends make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+fi
+
 # - https://github.com/zchee/deoplete-jedi/wiki/Setting-up-Python-for-Neovim
 # Check the available python version using `pyenv install --list`
-PYENV_2=2.7.15
-PYENV_3=3.7.1
+PYENV_3=3.8.0
 
-pyenv install $PYENV_2
 pyenv install $PYENV_3
 
-pyenv virtualenv $PYENV_2 neovim2
 pyenv virtualenv $PYENV_3 neovim3
-
-pyenv activate neovim2
-pip install --upgrade pip
-pip install neovim
-pyenv which python
 
 pyenv activate neovim3
 pip install --upgrade pip
