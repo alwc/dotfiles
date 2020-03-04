@@ -64,7 +64,7 @@ else
   Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
 endif
 Plug 'google/vim-jsonnet'
-
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
@@ -413,3 +413,5 @@ nmap <silent> <leader>m :SignatureToggle<CR>
 "
 " Give async capabilities to vim-fugitive
 command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>
+
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=0 expandtab
