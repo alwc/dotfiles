@@ -24,7 +24,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " "Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
-" "Plug 'gcmt/taboo.vim'
+Plug 'gcmt/taboo.vim'
 " "Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
@@ -207,22 +207,6 @@ if has('nvim')
   nnoremap <BS> <C-W>h
 endif
 
-" Tabs navigation
-map <M-1> 1gt
-map <M-2> 2gt
-map <M-3> 3gt
-map <M-4> 4gt
-map <M-5> 5gt
-map <M-6> 6gt
-map <M-7> 7gt
-map <M-8> 8gt
-map <M-9> 9gt
-map <M-0> :tablast<CR>
-map <M-t> :tabnew<CR>
-map <M-c> :tabclose<CR>
-map <M-[> :tabprevious<CR>
-map <M-]> :tabnext<CR>
-
 " Shortcut to yanking to the system clipboard
 map <leader>y "*y
 map <leader>p "*p
@@ -270,6 +254,28 @@ autocmd BufNewFile,BufRead *.pp call Pl#Load()"
 "----------------------------------------------------------------------
 " Plugins
 "----------------------------------------------------------------------
+"
+" [gcmt/taboo.vim] + vim's built-in tabs navigation
+map <M-1> 1gt
+map <M-2> 2gt
+map <M-3> 3gt
+map <M-4> 4gt
+map <M-5> 5gt
+map <M-6> 6gt
+map <M-7> 7gt
+map <M-8> 8gt
+map <M-9> 9gt
+map <M-0> :tablast<CR>
+"map <M-t> :tabnew<CR>
+map <M-t> :TabooOpen<Space>
+map <M-c> :tabclose<CR>
+map <M-[> :tabprevious<CR>
+map <M-]> :tabnext<CR>
+map <M-m> :TabooRename<Space>
+
+let g:taboo_tab_format = " %N   %f%m "
+let g:taboo_renamed_tab_format = " %N   %l%m "
+
 
 " [vim-airline/vim-airline-themes]
 " options: 'tomorrow', 'onedark', 'hybrid', 'ayu_mirage', 'angr'
