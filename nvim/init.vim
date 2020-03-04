@@ -353,7 +353,7 @@ set t_ZH=[3m
 set t_ZR=[23m
 
 " [dense-analysis/ale]
-let g:ale_linters = {'python': ['flake8']}
+let g:ale_linters = {'python': ['flake8'], 'javascript': ['eslint']}
 
 " Only allowed one global window that shows errors
 let g:ale_set_loclist = 0
@@ -363,8 +363,10 @@ let g:ale_lint_on_enter = 0
 " let g:ale_lint_on_save = 0
 let b:ale_lint_on_save = 1
 
-let g:ale_sign_error = '▓▓'
-let g:ale_sign_warning = '░░'
+" let g:ale_sign_error = '▓▓'
+" let g:ale_sign_warning = '░░'
+let g:ale_sign_error = '❌'
+let g:ale_sign_warning = '⚠️'
 
 " Ctrl+j and Ctrl+k to move between errors
 nmap <silent> <C-m> <Plug>(ale_previous_wrap)
