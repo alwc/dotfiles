@@ -66,6 +66,9 @@ endif
 Plug 'google/vim-jsonnet'
 Plug 'sheerun/vim-polyglot'
 
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+
 call plug#end()
 
 "----------------------------------------------------------------------
@@ -96,6 +99,8 @@ let &t_ut=''              " Fix background color problem when using kitty
 " Customize session options. Namely, I don't want to save hidden and
 " unloaded buffers or empty windows.
 set sessionoptions="curdir,folds,help,options,tabpages,winsize"
+
+
 
 if !has("win32")
     set showbreak=↪       " The character to put to show a line has been wrapped
@@ -283,36 +288,6 @@ let g:airline_theme='tomorrow'
 " let g:airline#extensions#tabline#enabled = 1
 " let g:airline#extensions#tabline#left_sep = ''
 " let g:airline#extensions#tabline#left_alt_sep = ''
-
-" [netrw]
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-let g:netrw_browse_split = 4
-let g:netrw_altv = 1
-let g:netrw_winsize = 16
-let g:NetrwIsOpen=0
-
-" Toggles netrw explorer buffer
-" From: https://www.reddit.com/r/vim/comments/6jcyfj/toggle_lexplore_properly/djdmsal/
-let g:NetrwIsOpen=0
-
-function! ToggleNetrw()
-    if g:NetrwIsOpen
-        let i = bufnr("$")
-        while (i >= 1)
-            if (getbufvar(i, "&filetype") == "netrw")
-                silent exe "bwipeout " . i
-            endif
-            let i-=1
-        endwhile
-        let g:NetrwIsOpen=0
-    else
-        let g:NetrwIsOpen=1
-        silent Lexplore
-    endif
-endfunction
-
-noremap <silent> <leader>w :call ToggleNetrw()<CR>
 
 " [lervag/vimtex]
 let g:tex_flavor='latex'
