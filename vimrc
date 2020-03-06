@@ -10,7 +10,7 @@ set encoding=utf-8
 " Windows settings TODO: look at mitchell/dotfiles
 
 " Usual settings
-set rtp+=~/.vim/bundle/Vundle.vim
+# set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle, required

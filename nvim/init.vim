@@ -42,7 +42,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi', { 'do': ':UpdateRemotePlugins' }
 Plug 'davidhalter/jedi-vim'
 Plug 'jiangmiao/auto-pairs'
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 if has('mac')
     Plug '/usr/local/opt/fzf'
 else
@@ -58,13 +58,13 @@ Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 Plug 'jsfaint/gen_tags.vim'
 Plug 'kshenoy/vim-signature'
-if has('patch-8.0.902')
+if has('nvim') || has('patch-8.0.902')
   Plug 'mhinz/vim-signify'
 else
   Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
 endif
 Plug 'google/vim-jsonnet'
-
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
@@ -352,19 +352,21 @@ let g:deoplete#sources#jedi#python_path = 'python3'
 set t_ZH=[3m
 set t_ZR=[23m
 
-" [w0rp/ale]
-let g:ale_linters = {'python': ['flake8']}
+" [dense-analysis/ale]
+let g:ale_linters = {'python': ['flake8'], 'javascript': ['eslint']}
 
 " Only allowed one global window that shows errors
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
-let g:ale_lint_on_save = 0
-" let b:ale_lint_on_save = 1
+" let g:ale_lint_on_save = 0
+let b:ale_lint_on_save = 1
 
-let g:ale_sign_error = '▓▓'
-let g:ale_sign_warning = '░░'
+" let g:ale_sign_error = '▓▓'
+" let g:ale_sign_warning = '░░'
+let g:ale_sign_error = '❌'
+let g:ale_sign_warning = '⚠️'
 
 " Ctrl+j and Ctrl+k to move between errors
 nmap <silent> <C-m> <Plug>(ale_previous_wrap)
@@ -419,3 +421,5 @@ nmap <silent> <leader>m :SignatureToggle<CR>
 "
 " Give async capabilities to vim-fugitive
 command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>
+
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=0 expandtab
