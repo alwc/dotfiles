@@ -1,5 +1,5 @@
 {
-  //"coc.preferences.formatOnSaveFiletypes": ["python"],
+  "coc.preferences.formatOnSaveFiletypes": ["python"],
 
   //"diagnostic.displayByAle": true,
 
@@ -10,15 +10,17 @@
 
   //"python.autoComplete.showAdvancedMembers": false,
   "python.pythonPath": "/Users/alexlee/.pyenv/versions/neovim3/bin/python",
+  "python.venvPath": "/Users/alexlee/.pyenv",
   "python.jediEnabled": false,
   "python.formatting.provider": "black",
   "python.formatting.blackPath": "/Users/alexlee/.pyenv/versions/neovim3/bin/black",
   "python.sortImports.path": "/Users/alexlee/.pyenv/versions/neovim3/bin/isort",
+  "python.linting.pylintEnabled": false,
   "python.linting.mypyEnabled": true,
   "python.linting.mypyPath": "/Users/alexlee/.pyenv/versions/neovim3/bin/mypy",
-  "python.linting.pylintEnabled": false,
   "python.linting.pylamaEnabled": true,
   "python.linting.pylamaPath": "/Users/alexlee/.pyenv/versions/neovim3/bin/pylama",
+  "python.linting.pylamaArgs": ["-i", "E501"],
   "python.linting.banditEnabled": true,
   "python.linting.banditPath": "/Users/alexlee/.pyenv/versions/neovim3/bin/bandit"
 }

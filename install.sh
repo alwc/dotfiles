@@ -89,8 +89,8 @@ pip install --upgrade pip
 pip install neovim
 pyenv which python
 
-# Install Python library for neovim (e.g. `yapf`)
-pip install black mypy pylama bandit
+# Install Python library for neovim
+pip install black mypy pylama bandit rope
 
 source deactivate neovim3
 
