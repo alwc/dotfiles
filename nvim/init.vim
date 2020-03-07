@@ -19,7 +19,6 @@ endif
 call plug#begin('~/dotfiles/nvim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-" "Plug 'godlygeek/tabular'
 " Plug 'plasticboy/vim-markdown'
 Plug 'gcmt/taboo.vim'
 " "Plug 'mhinz/vim-startify'
@@ -33,11 +32,6 @@ Plug 'tpope/vim-commentary'
 " Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'lervag/vimtex', { 'for': ['latex', 'tex'] }
 Plug 'skywind3000/asyncrun.vim'
-" Plug 'Shougo/neosnippet'
-" Plug 'Shougo/neosnippet-snippets'
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" Plug 'zchee/deoplete-jedi', { 'do': ':UpdateRemotePlugins' }
-" Plug 'davidhalter/jedi-vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/gv.vim'
 if has('mac')
@@ -47,22 +41,9 @@ else
 endif
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
-"
-" " After installed yapf, I'll need to run
-" "   1. pyenv activate neovim3
-" "   2. pip install yapf
-" "   3. ln -s `pyenv which yapf` /usr/local/bin/yapf
-" Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 Plug 'jsfaint/gen_tags.vim'
-
 Plug 'kshenoy/vim-signature'
-" if has('nvim') || has('patch-8.0.902')
-"   Plug 'mhinz/vim-signify'
-" else
-"   Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
-" endif
-
 Plug 'google/vim-jsonnet'
 Plug 'sheerun/vim-polyglot'
 
