@@ -374,8 +374,11 @@ function! SetupCommandAbbrs(from, to)
         \ .'? ("'.a:to.'") : ("'.a:from.'"))'
 endfunction
 
-" Use C to open coc config
+" Use C to open user's coc-settings.json
 call SetupCommandAbbrs('C', 'CocConfig')
+
+" Add `:isort` command to sort Python's imports
+command! -nargs=0 Isort :call CocAction('runCommand', 'python.sortImports')
 "
 " [gcmt/taboo.vim] + vim's built-in tabs navigation ==========================
 map <M-1> 1gt
