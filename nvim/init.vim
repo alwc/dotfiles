@@ -16,8 +16,6 @@ if has("unix")
 endif
 
 "-----------------------------------------------------------------------------
-" Plugins
-"-----------------------------------------------------------------------------
 call plug#begin('~/dotfiles/nvim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -27,7 +25,7 @@ Plug 'gcmt/taboo.vim'
 " "Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
-Plug 'junegunn/gv.vim'
+Plug 'tpope/vim-commentary'
 " "Plug 'vim-pandoc/vim-pandoc', { 'for': [ 'pandoc', 'markdown' ] }
 " "Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': [ 'pandoc', 'markdown' ] }
 " Disablaed because of the chdir problem: https://github.com/vim-pandoc/vim-pandoc/issues/272
@@ -41,13 +39,14 @@ Plug 'skywind3000/asyncrun.vim'
 " Plug 'zchee/deoplete-jedi', { 'do': ':UpdateRemotePlugins' }
 " Plug 'davidhalter/jedi-vim'
 Plug 'jiangmiao/auto-pairs'
-" Plug 'dense-analysis/ale'
+Plug 'junegunn/gv.vim'
 if has('mac')
     Plug '/usr/local/opt/fzf'
 else
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 endif
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/vim-peekaboo'
 "
 " " After installed yapf, I'll need to run
 " "   1. pyenv activate neovim3
@@ -56,15 +55,18 @@ Plug 'junegunn/fzf.vim'
 " Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 Plug 'jsfaint/gen_tags.vim'
+
 Plug 'kshenoy/vim-signature'
-if has('nvim') || has('patch-8.0.902')
-  Plug 'mhinz/vim-signify'
-else
-  Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
-endif
+" if has('nvim') || has('patch-8.0.902')
+"   Plug 'mhinz/vim-signify'
+" else
+"   Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
+" endif
+
 Plug 'google/vim-jsonnet'
 Plug 'sheerun/vim-polyglot'
 
+" Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 
@@ -238,6 +240,7 @@ autocmd BufNewFile,BufRead *.pp call Pl#Load()"
 " [neoclide/coc.nvim] ========================================================
 " Alex: should try out 'coc-snippets', 'coc-pairs', 'coc-eslint',
 let g:coc_global_extensions = [
+  \ 'coc-git',
   \ 'coc-tsserver',
   \ 'coc-prettier',
   \ 'coc-json',
@@ -391,7 +394,7 @@ endfunction
 
 " Use C to open coc config
 call SetupCommandAbbrs('C', 'CocConfig')
-
+"
 " [gcmt/taboo.vim] + vim's built-in tabs navigation ==========================
 map <M-1> 1gt
 map <M-2> 2gt
@@ -480,13 +483,13 @@ let g:AutoPairsMapCR=0
 " nmap <silent> <leader>l :ALEToggleBuffer<CR>
 
 " [mhinz/vim-signify] ========================================================
-let g:signify_sign_add='┣'
-let g:signify_sign_delete='◢'
-let g:signify_sign_delete_first_line='◥'
-let g:signify_sign_change='┃'
+" let g:signify_sign_add='┣'
+" let g:signify_sign_delete='◢'
+" let g:signify_sign_delete_first_line='◥'
+" let g:signify_sign_change='┃'
 
-" https://github.com/mhinz/vim-signify/issues/174#issuecomment-174005326
-autocmd User Fugitive SignifyRefresh
+" " https://github.com/mhinz/vim-signify/issues/174#issuecomment-174005326
+" autocmd User Fugitive SignifyRefresh
 
 " [junegunn/fzf.vim] =========================================================
 if executable('fzf')
