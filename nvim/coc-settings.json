@@ -1,15 +1,15 @@
 {
-  "coc.preferences.formatOnSaveFiletypes": ["python"],
+  //"coc.preferences.formatOnSaveFiletypes": ["python"],
 
   //"diagnostic.displayByAle": true,
 
   "tsserver.npm": "/Users/alexlee/n/bin/npm",
-  "tsserver.trace.server": "verbose",
-  "tsserver.log": "verbose",
+  //"tsserver.trace.server": "verbose",
+  //"tsserver.log": "verbose",
   "prettier.trailingComma": "es5",
 
   //"python.autoComplete.showAdvancedMembers": false,
-  "python.pythonPath": "/Users/alexlee/.pyenv/versions/neovim3/bin/python",
+  //"python.pythonPath": "/Users/alexlee/.pyenv/versions/neovim3/bin/python",
   "python.venvPath": "/Users/alexlee/.pyenv",
   "python.jediEnabled": false,
   "python.formatting.provider": "black",
