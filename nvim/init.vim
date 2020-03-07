@@ -488,9 +488,6 @@ if executable('fzf')
       \   <bang>0)
 end
 
-" [google/yapf]
-map <C-Y> :call yapf#YAPF()<CR>
-
 " [majutsushi/tagbar] ========================================================
 " let g:targar_compact=1
 let g:tagbar_autofocus=1
@@ -508,5 +505,3 @@ nmap <silent> <leader>m :SignatureToggle<CR>
 " [skywind3000/asyncrun.vim] =================================================
 " Give async capabilities to vim-fugitive
 command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>
-
-" autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=0 expandtab
