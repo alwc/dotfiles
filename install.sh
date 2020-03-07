@@ -100,3 +100,6 @@ echo ">>>>> Install latex misc tool"
 # - https://tex.stackexchange.com/questions/1137/where-do-i-place-my-own-sty-or-cls-files-to-make-them-available-to-all-my-te
 # - https://tex.stackexchange.com/questions/8357/how-to-have-local-package-override-default-package/8359#8359
 # Install kbordermatrix.sty and Python's Pygments if you want to use latex's `minted` package
+
+echo ">>>>> Install N"
+curl -L https://git.io/n-install | bash -s -- -y
