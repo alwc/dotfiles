@@ -6,24 +6,23 @@
 scriptencoding utf-8
 set encoding=utf-8
 
-"----------------------------------------------------------------------
+"-----------------------------------------------------------------------------
 " pyenv
-"----------------------------------------------------------------------
+"-----------------------------------------------------------------------------
 if has("unix")
     let g:python_host_prog = $HOME.'/.pyenv/versions/neovim2/bin/python'
     let g:python3_host_prog = $HOME.'/.pyenv/versions/neovim3/bin/python'
     let g:python3_host_skip_check=1
 endif
 
-"----------------------------------------------------------------------
+"-----------------------------------------------------------------------------
 " Plugins
-"----------------------------------------------------------------------
+"-----------------------------------------------------------------------------
 call plug#begin('~/dotfiles/nvim/plugged')
-Plug 'ekalinin/Dockerfile.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " "Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
+" Plug 'plasticboy/vim-markdown'
 Plug 'gcmt/taboo.vim'
 " "Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-eunuch'
@@ -33,7 +32,7 @@ Plug 'junegunn/gv.vim'
 " "Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': [ 'pandoc', 'markdown' ] }
 " Disablaed because of the chdir problem: https://github.com/vim-pandoc/vim-pandoc/issues/272
 " Plug 'vim-pandoc/vim-pandoc'
-Plug 'vim-pandoc/vim-pandoc-syntax'
+" Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'lervag/vimtex', { 'for': ['latex', 'tex'] }
 Plug 'skywind3000/asyncrun.vim'
 " Plug 'Shougo/neosnippet'
@@ -54,7 +53,7 @@ Plug 'junegunn/fzf.vim'
 " "   1. pyenv activate neovim3
 " "   2. pip install yapf
 " "   3. ln -s `pyenv which yapf` /usr/local/bin/yapf
-Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
+" Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 Plug 'jsfaint/gen_tags.vim'
 Plug 'kshenoy/vim-signature'
@@ -64,17 +63,16 @@ else
   Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
 endif
 Plug 'google/vim-jsonnet'
-" Plug 'sheerun/vim-polyglot'
-
+Plug 'sheerun/vim-polyglot'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 
 call plug#end()
 
-"----------------------------------------------------------------------
+"-----------------------------------------------------------------------------
 " Basic Options
-"----------------------------------------------------------------------
+"-----------------------------------------------------------------------------
 let mapleader=";"         " The <leader> key
 set autoread              " Reload files that have not been modified
 set backspace=2           " Makes backspace not behave all retarded-like
@@ -158,9 +156,9 @@ endif
 " Change bright red to grey for colorcolumn
 highlight ColorColumn ctermbg=236
 
-"----------------------------------------------------------------------
+"-----------------------------------------------------------------------------
 " Key Mappings
-"----------------------------------------------------------------------
+"-----------------------------------------------------------------------------
 " Remap a key sequence in insert mode to kick me out to normal
 " mode. This makes it so this key sequence can never be typed
 " again in insert mode, so it has to be unique.
@@ -219,25 +217,10 @@ noremap <silent><leader>/ :nohlsearch<CR>
 "
 " " Buffer management
 " nnoremap <leader>d   :bd<CR>
-"
-" " Terminal mode
-" if has("nvim")
-"     tnoremap <esc> <C-\><C-n>
-"     tnoremap jj <C-\><C-n>
-"     tnoremap jJ <C-\><C-n>
-"     tnoremap Jj <C-\><C-n>
-"     tnoremap JJ <C-\><C-n>
-"     tnoremap jk <C-\><C-n>
-"     tnoremap jK <C-\><C-n>
-"     tnoremap Jk <C-\><C-n>
-"     tnoremap JK <C-\><C-n>
-"     nnoremap <Leader>c :terminal <CR>
-" endif
-"
 
-"----------------------------------------------------------------------
+"-----------------------------------------------------------------------------
 " Autocommands
-"----------------------------------------------------------------------
+"-----------------------------------------------------------------------------
 " Clear whitespace at the end of lines automatically
 autocmd BufWritePre * :%s/\s\+$//e
 
@@ -248,9 +231,9 @@ autocmd BufWinEnter * set foldlevel=999999
 " some weird bogus bug.
 autocmd BufNewFile,BufRead *.pp call Pl#Load()"
 
-"----------------------------------------------------------------------
+"-----------------------------------------------------------------------------
 " Plugins
-"----------------------------------------------------------------------
+"-----------------------------------------------------------------------------
 
 " [neoclide/coc.nvim] ========================================================
 " Alex: should try out 'coc-snippets', 'coc-pairs', 'coc-eslint',
@@ -258,6 +241,8 @@ let g:coc_global_extensions = [
   \ 'coc-tsserver',
   \ 'coc-prettier',
   \ 'coc-json',
+  \ 'coc-html',
+  \ 'coc-css',
   \ ]
 
 " Some servers have issues with backup files, see #649.
