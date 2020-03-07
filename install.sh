@@ -90,8 +90,8 @@ pip install neovim
 pyenv which python
 
 # Install Python library for neovim (e.g. `yapf`)
-pip install yapf flake8
-ln -s `pyenv which flake8` /usr/local/bin/yapf
+# pip install yapf flake8
+# ln -s `pyenv which flake8` /usr/local/bin/yapf
 
 source deactivate neovim3
 

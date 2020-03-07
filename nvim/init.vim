@@ -28,7 +28,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 " "Plug 'vim-pandoc/vim-pandoc', { 'for': [ 'pandoc', 'markdown' ] }
 " "Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': [ 'pandoc', 'markdown' ] }
-" Disablaed because of the chdir problem: https://github.com/vim-pandoc/vim-pandoc/issues/272
+" Disabled because of the chdir problem: https://github.com/vim-pandoc/vim-pandoc/issues/272
 " Plug 'vim-pandoc/vim-pandoc'
 " Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'lervag/vimtex', { 'for': ['latex', 'tex'] }
@@ -246,6 +246,7 @@ let g:coc_global_extensions = [
   \ 'coc-json',
   \ 'coc-html',
   \ 'coc-css',
+  \ 'coc-python',
   \ ]
 
 " Some servers have issues with backup files, see #649.
