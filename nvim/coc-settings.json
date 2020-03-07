@@ -1,5 +1,24 @@
 {
+  //"coc.preferences.formatOnSaveFiletypes": ["python"],
+
+  //"diagnostic.displayByAle": true,
+
   "tsserver.npm": "/Users/alexlee/n/bin/npm",
   "tsserver.trace.server": "verbose",
   "tsserver.log": "verbose",
+  "prettier.trailingComma": "es5",
+
+  //"python.autoComplete.showAdvancedMembers": false,
+  "python.pythonPath": "/Users/alexlee/.pyenv/versions/neovim3/bin/python",
+  "python.jediEnabled": false,
+  "python.formatting.provider": "black",
+  "python.formatting.blackPath": "/Users/alexlee/.pyenv/versions/neovim3/bin/black",
+  "python.sortImports.path": "/Users/alexlee/.pyenv/versions/neovim3/bin/isort",
+  "python.linting.mypyEnabled": true,
+  "python.linting.mypyPath": "/Users/alexlee/.pyenv/versions/neovim3/bin/mypy",
+  "python.linting.pylintEnabled": false,
+  "python.linting.pylamaEnabled": true,
+  "python.linting.pylamaPath": "/Users/alexlee/.pyenv/versions/neovim3/bin/pylama",
+  "python.linting.banditEnabled": true,
+  "python.linting.banditPath": "/Users/alexlee/.pyenv/versions/neovim3/bin/bandit"
 }
