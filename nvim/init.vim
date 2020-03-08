@@ -407,9 +407,6 @@ map <M-[> :tabprevious<CR>
 map <M-]> :tabnext<CR>
 map <M-m> :TabooRename<Space>
 
-" let g:taboo_tab_format = " %N   %f%m "
-" let g:taboo_renamed_tab_format = " %N   %l%m "
-
 " [vim-airline/vim-airline-themes] ===========================================
 let g:airline_theme='tomorrow'
 let g:airline_powerline_fonts = 1
@@ -418,6 +415,9 @@ let g:airline#extensions#tabline#tab_nr_type = 1 " show tab number
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = ' '
 let g:airline#extensions#tabline#formatter = 'unique_tail'
+" TODO: can't remove section y?
+" let g:airline_section_y=''
+" let g:airline_skip_empty_sections = 1
 
 " [lervag/vimtex]
 let g:tex_flavor='latex'
@@ -430,62 +430,6 @@ augroup END
 
 " [jiangmiao/auto-pairs] =====================================================
 let g:AutoPairsMapCR=0
-
-" [davidhalter/jedi-vim]
-" let g:jedi#completions_enabled=0
-" let g:jedi#force_py_version=3
-
-" [Shougo/neosnippet]
-" let g:neosnippet#disable_runtime_snippets={ '_' : 1 }
-" let g:neosnippet#snippets_directory='~/dotfiles/nvim/snippets'
-" let g:neosnippet#enable_snipmate_compatibility=1
-
-" [Shougo/deoplete]
-" smap <silent><expr><tab> neosnippet#jumpable() ? "\<plug>(neosnippet_jump)"      : "\<tab>"
-" imap <silent><expr><tab> pumvisible()          ? "\<c-n>"                        : (neosnippet#jumpable()   ? "\<plug>(neosnippet_jump)"   : "\<tab>")
-" imap <silent><expr><CR>  !pumvisible()         ? "\<CR>\<plug>AutoPairsReturn"   : (neosnippet#expandable() ? "\<plug>(neosnippet_expand)" : deoplete#close_popup())
-" imap <silent><expr><esc> pumvisible()          ? deoplete#close_popup() : "\<esc>"
-" imap <silent><expr><bs>  deoplete#smart_close_popup()."\<bs>"
-" let g:deoplete#enable_at_startup=1
-" let g:deoplete#auto_completion_start_length=1
-" let g:deoplete#enable_camel_case=1
-" let g:deoplete#max_list=100
-" let g:deoplete#sources#jedi#python_path = 'python3'
-" let g:deoplete#ignore_sources={}
-" let g:deoplete#ignore_sources._=['buffer']
-
-" set t_ZH=[3m
-" set t_ZR=[23m
-
-" [dense-analysis/ale]
-" let g:ale_linters = {'python': ['flake8'], 'javascript': ['eslint']}
-
-" Only allowed one global window that shows errors
-" let g:ale_set_loclist = 0
-" let g:ale_set_quickfix = 1
-" let g:ale_lint_on_text_changed = 'never'
-" let g:ale_lint_on_enter = 0
-" " let g:ale_lint_on_save = 0
-" let b:ale_lint_on_save = 1
-"
-" let g:ale_sign_error = '▓▓'
-" let g:ale_sign_warning = '░░'
-"
-" " Ctrl+j and Ctrl+k to move between errors
-" nmap <silent> <C-m> <Plug>(ale_previous_wrap)
-" nmap <silent> <C-n> <Plug>(ale_next_wrap)
-"
-" " Only run linters on-demand
-" nmap <silent> <leader>l :ALEToggleBuffer<CR>
-
-" [mhinz/vim-signify] ========================================================
-" let g:signify_sign_add='┣'
-" let g:signify_sign_delete='◢'
-" let g:signify_sign_delete_first_line='◥'
-" let g:signify_sign_change='┃'
-
-" " https://github.com/mhinz/vim-signify/issues/174#issuecomment-174005326
-" autocmd User Fugitive SignifyRefresh
 
 " [junegunn/fzf.vim] =========================================================
 if executable('fzf')
