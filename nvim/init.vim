@@ -19,7 +19,10 @@ endif
 call plug#begin('~/dotfiles/nvim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'ryanoasis/vim-devicons'
+
+if $TERM =~ 'xterm-kitty'
+    Plug 'ryanoasis/vim-devicons'
+endif
 
 " Plug 'plasticboy/vim-markdown'
 Plug 'gcmt/taboo.vim'
@@ -139,6 +142,14 @@ if has("gui_running") || has("nvim")
         set fuopt+=maxhorz
     endif
 endif
+
+" Minimize the border width of vertical splits
+" Read: https://stackoverflow.com/a/17506425
+highlight! VertSplit  ctermfg=240 ctermbg=235 gui=NONE
+
+" Make the Sign Column and Line Numbers look nicer in Apprentice
+highlight! SignColumn ctermfg=101 ctermbg=235 gui=NONE
+highlight! LineNr     ctermfg=242 ctermbg=235 gui=NONE
 
 " Change bright red to grey for colorcolumn
 highlight ColorColumn ctermbg=236
