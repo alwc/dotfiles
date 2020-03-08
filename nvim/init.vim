@@ -132,17 +132,6 @@ colorscheme gruvbox9
 " let g:gruvbox_filetype_hi_groups = 1
 let g:gruvbox_plugin_hi_groups = 1
 
-
-
-
-
-" Minimize the border width of vertical splits
-" Read: https://stackoverflow.com/a/17506425
-" highlight! VertSplit  ctermfg=240 ctermbg=235 gui=NONE
-
-" Change bright red to grey for colorcolumn
-" highlight ColorColumn ctermbg=236
-
 "-----------------------------------------------------------------------------
 " Key Mappings
 "-----------------------------------------------------------------------------
