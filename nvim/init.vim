@@ -19,6 +19,8 @@ endif
 call plug#begin('~/dotfiles/nvim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'ryanoasis/vim-devicons'
+
 " Plug 'plasticboy/vim-markdown'
 Plug 'gcmt/taboo.vim'
 " "Plug 'mhinz/vim-startify'
