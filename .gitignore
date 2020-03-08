@@ -23,3 +23,5 @@ Session.vim
 tags
 # Persistent undo
 [._]*.un~
+
+.mypy_cache

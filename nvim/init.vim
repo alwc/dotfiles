@@ -41,7 +41,9 @@ else
 endif
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
-Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
+" Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
+Plug 'liuchengxu/vista.vim'
+
 Plug 'jsfaint/gen_tags.vim'
 Plug 'kshenoy/vim-signature'
 Plug 'google/vim-jsonnet'
@@ -75,7 +77,7 @@ set splitbelow            " Splits show up below by default
 set splitright            " Splits go to the right by default
 set title                 " Set the title for gvim
 set visualbell            " Use a visual bell to notify us
-set updatetime=100        " reduce vim-gitgutter's updatetime
+set updatetime=300        " reduce vim-gitgutter's updatetime
 let &t_ut=''              " Fix background color problem when using kitty
 
 " Customize session options. Namely, I don't want to save hidden and
@@ -235,7 +237,7 @@ set nobackup
 set nowritebackup
 
 " Give more space for displaying messages at the bottom row of Neovim.
-set cmdheight=2
+set cmdheight=1
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
@@ -493,11 +495,18 @@ end
 
 " [majutsushi/tagbar] ========================================================
 " let g:targar_compact=1
-let g:tagbar_autofocus=1
-let g:tagbar_sort=0
-let g:tagbar_width=40
-let g:tagbar_iconchars = ['▶', '▼']
-nmap <silent> <leader>e :TagbarToggle<CR>
+" let g:tagbar_autofocus=1
+" let g:tagbar_sort=0
+" let g:tagbar_width=40
+" let g:tagbar_iconchars = ['▶', '▼']
+" nmap <silent> <leader>e :TagbarToggle<CR>
+
+" [liuchengxu/vista.vim] =====================================================
+let g:vista_fzf_preview = ['right:50%']
+let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
+let g:vista_default_executive = 'coc'
+nmap <silent> <leader>e :Vista!!<CR>
+
 
 " ['jsfaint/gen_tags.vim'] ===================================================
 let $GTAGSLIBPATH='/usr/include/'

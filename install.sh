@@ -90,7 +90,7 @@ pip install neovim
 pyenv which python
 
 # Install Python library for neovim
-pip install black mypy pylama bandit rope
+pip install black mypy pylama bandit rope jedi
 
 source deactivate neovim3
 

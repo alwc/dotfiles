@@ -10,8 +10,10 @@
 
   //"python.autoComplete.showAdvancedMembers": false,
   //"python.pythonPath": "/Users/alexlee/.pyenv/versions/neovim3/bin/python",
+  "python.trace.server": "verbose",
   "python.venvPath": "/Users/alexlee/.pyenv",
-  "python.jediEnabled": false,
+  "python.jediEnabled": true,
+  "python.jediPath": "/Users/alexlee/.pyenv/versions/3.7.1/envs/neovim3/lib/python3.7/site-packages",
   "python.formatting.provider": "black",
   "python.formatting.blackPath": "/Users/alexlee/.pyenv/versions/neovim3/bin/black",
   "python.sortImports.path": "/Users/alexlee/.pyenv/versions/neovim3/bin/isort",
