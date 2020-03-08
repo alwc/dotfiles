@@ -45,15 +45,17 @@ else
 endif
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
-Plug 'liuchengxu/vista.vim'
-Plug 'jsfaint/gen_tags.vim'
 Plug 'kshenoy/vim-signature'
+
 Plug 'google/vim-jsonnet'
 Plug 'sheerun/vim-polyglot'
 
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'skywind3000/gutentags_plus'
+Plug 'liuchengxu/vista.vim'
+
 " Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
 
 call plug#end()
 
@@ -218,17 +220,6 @@ augroup END
 
 " [jiangmiao/auto-pairs] =====================================================
 let g:AutoPairsMapCR=0
-
-" [liuchengxu/vista.vim] =====================================================
-let g:vista_fzf_preview = ['right:50%']
-let g:vista_sidebar_width = 40
-let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
-let g:vista_default_executive = 'coc'
-let g:vista_executive_for = { 'pandoc': 'markdown' }
-nmap <silent> <leader>e :Vista!!<CR>
-
-" ['jsfaint/gen_tags.vim'] ===================================================
-let $GTAGSLIBPATH='/usr/include/'
 
 " ['kshenoy/vim-signature'] ==================================================
 nmap <silent> <leader>m :SignatureToggle<CR>

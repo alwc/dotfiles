@@ -3,7 +3,7 @@ let g:lightline = {
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ],
     \             [ 'fugitive', 'readonly', 'filename', 'modified' ],
-    \             [ 'cocstatus' ] ],
+    \             [ 'cocstatus', 'cocfunction', 'gutentags' ] ],
     \   'right': [ [ 'lineinfo' ],
     \              [ 'percent' ],
     \              [ 'filetype' ] ]
@@ -16,12 +16,22 @@ let g:lightline = {
     \   'readonly': 'LightlineReadonly',
     \   'fugitive': 'LightlineFugitive',
     \   'cocstatus': 'coc#status',
+    \   'cocfunction': 'CocCurrentFunction',
+    \   'gutentags': 'GutentagsStatus',
     \   'filetype': 'MyFiletype',
     \   'fileformat': 'MyFileformat',
     \ },
     \ 'separator': { 'left': '', 'right': ' ' },
     \ 'subseparator': { 'left': '', 'right': '' }
     \ }
+
+function! CocCurrentFunction()
+    return get(b:, 'coc_current_function', '')
+endfunction
+
+function! GutentagsStatus()
+    return gutentags#statusline()
+endfunction
 
 function! LightlineReadonly()
     return &readonly ? '' : ''

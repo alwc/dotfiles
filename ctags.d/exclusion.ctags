@@ -8,3 +8,6 @@
 --exclude=vendor
 --exclude=tmp
 --exclude=legacy
+--exclude=.mypy_cache
+--exclude=*.md
+--exclude=*.plist
