@@ -24,16 +24,16 @@ if $TERM =~ 'xterm-kitty'
 endif
 
 " Plug 'plasticboy/vim-markdown'
-Plug 'gcmt/taboo.vim'
 " "Plug 'mhinz/vim-startify'
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-commentary'
 " "Plug 'vim-pandoc/vim-pandoc', { 'for': [ 'pandoc', 'markdown' ] }
 " "Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': [ 'pandoc', 'markdown' ] }
 " Disabled because of the chdir problem: https://github.com/vim-pandoc/vim-pandoc/issues/272
 " Plug 'vim-pandoc/vim-pandoc'
 " Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'gcmt/taboo.vim'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
 Plug 'lervag/vimtex', { 'for': ['latex', 'tex'] }
 Plug 'skywind3000/asyncrun.vim'
 Plug 'jiangmiao/auto-pairs'
@@ -45,9 +45,7 @@ else
 endif
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
-" Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 Plug 'liuchengxu/vista.vim'
-
 Plug 'jsfaint/gen_tags.vim'
 Plug 'kshenoy/vim-signature'
 Plug 'google/vim-jsonnet'
@@ -88,7 +86,6 @@ let &t_ut=''              " Fix background color problem when using kitty
 " unloaded buffers or empty windows.
 set sessionoptions="curdir,folds,help,options,tabpages,winsize"
 
-
 if !has("win32")
     set showbreak=↪       " The character to put to show a line has been wrapped
 end
@@ -96,16 +93,7 @@ end
 syntax on                 " Enable filetype detection by syntax
 "
 " Home path
-if has("nvim")
-    " Neovim
-    let g:vim_home_path = "~/dotfiles/nvim"
-"elseif has("win32")
-"    " We're on Windows.
-"    let g:vim_home_path = "~/vimfiles"
-"else
-"    " We're on some POSIX system, hopefully.
-"    let g:vim_home_path = "~/.vim"
-endif
+let g:vim_home_path = "~/dotfiles/nvim"
 
 " Search settings
 set hlsearch   " Highlight results
@@ -128,8 +116,6 @@ set wildignore+=*.swp         " Ignore vim backups
 " Color settings
 set background=dark
 colorscheme gruvbox9
-" let g:gruvbox_filetype_hi_groups = 1
-" let g:gruvbox_filetype_hi_groups = 1
 let g:gruvbox_plugin_hi_groups = 1
 
 "-----------------------------------------------------------------------------
@@ -158,11 +144,7 @@ map k gk
 " nmap <leader>lcd :lcd %:h<CR>
 
 " Shortcut to edit the vimrc
-if has("nvim")
-    nmap <silent> <leader>vimrc :e ~/dotfiles/nvim/init.vim<CR>
-else
-    nmap <silent> <leader>vimrc :e ~/.vimrc<CR>
-endif
+nmap <silent> <leader>vimrc :e ~/dotfiles/nvim/init.vim<CR>
 
 " Shortcut to edit the snippets
 " nmap <silent> <leader>snipt :e ~/dotfiles/nvim/snippets/tex.snip<CR>
@@ -203,176 +185,10 @@ autocmd BufWritePre * :%s/\s\+$//e
 " Don't fold anything.
 autocmd BufWinEnter * set foldlevel=999999
 
-" Reload Powerline when we read a Puppet file. This works around
-" some weird bogus bug.
-autocmd BufNewFile,BufRead *.pp call Pl#Load()"
-
 "-----------------------------------------------------------------------------
 " Plugins
 "-----------------------------------------------------------------------------
 
-" [neoclide/coc.nvim] ========================================================
-" Alex: should try out 'coc-snippets', 'coc-pairs', 'coc-eslint',
-let g:coc_global_extensions = [
-  \ 'coc-git',
-  \ 'coc-tsserver',
-  \ 'coc-prettier',
-  \ 'coc-json',
-  \ 'coc-html',
-  \ 'coc-css',
-  \ 'coc-python',
-  \ ]
-
-" Some servers have issues with backup files, see #649.
-set nobackup
-set nowritebackup
-
-" Give more space for displaying messages at the bottom row of Neovim.
-set cmdheight=1
-
-" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
-" delays and poor user experience.
-" set updatetime=300
-
-" Don't pass messages to |ins-completion-menu|.
-set shortmess+=c
-
-" Always show the signcolumn, otherwise it would shift the text each time
-" diagnostics appear/become resolved.
-set signcolumn=yes
-
-" Use tab for trigger completion with characters ahead and navigate.
-" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" other plugin before putting this into your config.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
-
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
-" position. Coc only does snippet and additional edit on confirm.
-if has('patch8.1.1068')
-  " Use `complete_info` if your (Neo)Vim version supports it.
-  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-else
-  imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-endif
-
-" Use `[g` and `]g` to navigate diagnostics
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
-" Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
-
-" Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
-
-augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder.
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
-
-" Applying codeAction to the selected region.
-" Example: `<leader>aap` for current paragraph
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
-
-" Remap keys for applying codeAction to the current line.
-nmap <leader>ac  <Plug>(coc-codeaction)
-" Apply AutoFix to problem on the current line.
-nmap <leader>qf  <Plug>(coc-fix-current)
-
-" Introduce function text object
-" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
-xmap if <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
-omap if <Plug>(coc-funcobj-i)
-omap af <Plug>(coc-funcobj-a)
-
-" Use <TAB> for selections ranges.
-" NOTE: Requires 'textDocument/selectionRange' support from the language server.
-" coc-tsserver, coc-python are the examples of servers that support it.
-nmap <silent> <TAB> <Plug>(coc-range-select)
-xmap <silent> <TAB> <Plug>(coc-range-select)
-
-" Add `:Format` command to format current buffer.
-command! -nargs=0 Format :call CocAction('format')
-
-" Add `:Fold` command to fold current buffer.
-command! -nargs=? Fold :call     CocAction('fold', <f-args>)
-
-" Add `:OR` command for organize imports of the current buffer.
-command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
-
-" Add (Neo)Vim's native statusline support.
-" NOTE: Please see `:h coc-status` for integrations with external plugins that
-" provide custom statusline: lightline.vim, vim-airline.
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-
-" Mappings using CoCList:
-" Show all diagnostics.
-nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
-" Manage extensions.
-nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
-" Show commands.
-nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
-" Find symbol of current document.
-nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
-" Search workspace symbols.
-nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
-" Do default action for next item.
-nnoremap <silent> <space>j  :<C-u>CocNext<CR>
-" Do default action for previous item.
-nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
-" Resume latest coc list.
-nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
-
-function! SetupCommandAbbrs(from, to)
-  exec 'cnoreabbrev <expr> '.a:from
-        \ .' ((getcmdtype() ==# ":" && getcmdline() ==# "'.a:from.'")'
-        \ .'? ("'.a:to.'") : ("'.a:from.'"))'
-endfunction
-
-" Use C to open user's coc-settings.json
-call SetupCommandAbbrs('C', 'CocConfig')
-
-" Add `:isort` command to sort Python's imports
-command! -nargs=0 Isort :call CocAction('runCommand', 'python.sortImports')
-"
 " [gcmt/taboo.vim] + vim's built-in tabs navigation ==========================
 map <M-1> 1gt
 map <M-2> 2gt
@@ -403,29 +219,6 @@ augroup END
 " [jiangmiao/auto-pairs] =====================================================
 let g:AutoPairsMapCR=0
 
-" [junegunn/fzf.vim] =========================================================
-if executable('fzf')
-    nnoremap <silent> <C-t> :Files<CR>
-    " nnoremap <silent> <leader>f :BLines<CR>
-    " nnoremap <silent> <leader>F :Lines<CR>
-
-    " Use ripgrep
-    command! -bang -nargs=* Rg
-      \ call fzf#vim#grep(
-      \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
-      \   <bang>0 ? fzf#vim#with_preview('up:60%')
-      \           : fzf#vim#with_preview('right:50%:hidden', '?'),
-      \   <bang>0)
-end
-
-" [majutsushi/tagbar] ========================================================
-" let g:targar_compact=1
-" let g:tagbar_autofocus=1
-" let g:tagbar_sort=0
-" let g:tagbar_width=40
-" let g:tagbar_iconchars = ['▶', '▼']
-" nmap <silent> <leader>e :TagbarToggle<CR>
-
 " [liuchengxu/vista.vim] =====================================================
 let g:vista_fzf_preview = ['right:50%']
 let g:vista_sidebar_width = 40
@@ -433,7 +226,6 @@ let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
 let g:vista_default_executive = 'coc'
 let g:vista_executive_for = { 'pandoc': 'markdown' }
 nmap <silent> <leader>e :Vista!!<CR>
-
 
 " ['jsfaint/gen_tags.vim'] ===================================================
 let $GTAGSLIBPATH='/usr/include/'
