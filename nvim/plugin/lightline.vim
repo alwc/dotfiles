@@ -3,7 +3,7 @@ let g:lightline = {
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ],
     \             [ 'fugitive', 'readonly', 'filename', 'modified' ],
-    \             [ 'cocstatus', 'cocfunction', 'gutentags' ] ],
+    \             [ 'cocstatus', 'gutentags' ] ],
     \   'right': [ [ 'lineinfo' ],
     \              [ 'percent' ],
     \              [ 'filetype' ] ]
@@ -15,7 +15,7 @@ let g:lightline = {
     \ 'component_function': {
     \   'readonly': 'LightlineReadonly',
     \   'fugitive': 'LightlineFugitive',
-    \   'cocstatus': 'coc#status',
+    \   'cocstatus': 'StatusDiagnostic',
     \   'cocfunction': 'CocCurrentFunction',
     \   'gutentags': 'GutentagsStatus',
     \   'filetype': 'MyFiletype',
@@ -24,6 +24,20 @@ let g:lightline = {
     \ 'separator': { 'left': '', 'right': ' ' },
     \ 'subseparator': { 'left': '', 'right': '' }
     \ }
+
+" From: https://github.com/neoclide/coc.nvim/wiki/Statusline-integration#use-manual-function
+function! StatusDiagnostic() abort
+  let info = get(b:, 'coc_diagnostic_info', {})
+  if empty(info) | return '' | endif
+  let msgs = []
+  if get(info, 'error', 0)
+    call add(msgs, '' . '  ' . info['error'])
+  endif
+  if get(info, 'warning', 0)
+    call add(msgs, '' . '  ' . info['warning'])
+  endif
+  return join(msgs, ' '). ' ' . get(g:, 'coc_status', '')
+endfunction
 
 function! CocCurrentFunction()
     return get(b:, 'coc_current_function', '')
