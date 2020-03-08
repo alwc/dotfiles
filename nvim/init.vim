@@ -14,7 +14,6 @@ if has("unix")
     let g:python3_host_prog = $HOME.'/.pyenv/versions/neovim3/bin/python'
     let g:python3_host_skip_check=1
 endif
-
 "-----------------------------------------------------------------------------
 call plug#begin('~/dotfiles/nvim/plugged')
 Plug 'itchyny/lightline.vim'

@@ -1,4 +1,4 @@
-nvim/autoload
+nvim/autoload/plug.vim
 nvim/plugged
 nvim/swap
 nvim/undo
