@@ -17,8 +17,7 @@ endif
 
 "-----------------------------------------------------------------------------
 call plug#begin('~/dotfiles/nvim/plugged')
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
 
 if $TERM =~ 'xterm-kitty'
     Plug 'ryanoasis/vim-devicons'
@@ -126,27 +125,23 @@ set wildignore+=.git,.hg,.svn " Ignore version control repos
 set wildignore+=*.pyc         " Ignore Python compiled files
 set wildignore+=*.swp         " Ignore vim backups
 
-" GUI settings
-if has("gui_running") || has("nvim")
-    colorscheme apprentice
-    " colorscheme gruvbox
-    " set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h17
+" Color settings
+set background=dark
+colorscheme gruvbox9
+" let g:gruvbox_filetype_hi_groups = 1
+" let g:gruvbox_filetype_hi_groups = 1
+let g:gruvbox_plugin_hi_groups = 1
 
-    if exists("&fuopt")
-        set fuopt+=maxhorz
-    endif
-endif
+
+
+
 
 " Minimize the border width of vertical splits
 " Read: https://stackoverflow.com/a/17506425
-highlight! VertSplit  ctermfg=240 ctermbg=235 gui=NONE
-
-" Make the Sign Column and Line Numbers look nicer in Apprentice
-highlight! SignColumn ctermfg=101 ctermbg=235 gui=NONE
-highlight! LineNr     ctermfg=242 ctermbg=235 gui=NONE
+" highlight! VertSplit  ctermfg=240 ctermbg=235 gui=NONE
 
 " Change bright red to grey for colorcolumn
-highlight ColorColumn ctermbg=236
+" highlight ColorColumn ctermbg=236
 
 "-----------------------------------------------------------------------------
 " Key Mappings
@@ -407,18 +402,6 @@ map <M-[> :tabprevious<CR>
 map <M-]> :tabnext<CR>
 map <M-m> :TabooRename<Space>
 
-" [vim-airline/vim-airline-themes] ===========================================
-let g:airline_theme='tomorrow'
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#tab_nr_type = 1 " show tab number
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = ' '
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-" TODO: can't remove section y?
-" let g:airline_section_y=''
-" let g:airline_skip_empty_sections = 1
-
 " [lervag/vimtex]
 let g:tex_flavor='latex'
 let g:vimtex_quickfix_mode=0
@@ -456,6 +439,7 @@ end
 
 " [liuchengxu/vista.vim] =====================================================
 let g:vista_fzf_preview = ['right:50%']
+let g:vista_sidebar_width = 40
 let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
 let g:vista_default_executive = 'coc'
 let g:vista_executive_for = { 'pandoc': 'markdown' }
