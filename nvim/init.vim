@@ -130,13 +130,7 @@ set wildignore+=*.swp         " Ignore vim backups
 if has("gui_running") || has("nvim")
     colorscheme apprentice
     " colorscheme gruvbox
-    set guioptions=cegmt
-
-    if has("win32")
-        set guifont=Inconsolata:h11
-    else
-        set guifont=Inconsolata\ for\ Powerline:h14
-    endif
+    " set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h17
 
     if exists("&fuopt")
         set fuopt+=maxhorz
@@ -413,15 +407,17 @@ map <M-[> :tabprevious<CR>
 map <M-]> :tabnext<CR>
 map <M-m> :TabooRename<Space>
 
-let g:taboo_tab_format = " %N   %f%m "
-let g:taboo_renamed_tab_format = " %N   %l%m "
+" let g:taboo_tab_format = " %N   %f%m "
+" let g:taboo_renamed_tab_format = " %N   %l%m "
 
 " [vim-airline/vim-airline-themes] ===========================================
-" options: 'tomorrow', 'onedark', 'hybrid', 'ayu_mirage', 'angr'
 let g:airline_theme='tomorrow'
-" let g:airline#extensions#tabline#enabled = 1
-" let g:airline#extensions#tabline#left_sep = ''
-" let g:airline#extensions#tabline#left_alt_sep = ''
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#tab_nr_type = 1 " show tab number
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = ' '
+let g:airline#extensions#tabline#formatter = 'unique_tail'
 
 " [lervag/vimtex]
 let g:tex_flavor='latex'
