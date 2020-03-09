@@ -155,6 +155,8 @@ endfunction
 " Use C to open user's coc-settings.json
 call SetupCommandAbbrs('C', 'CocConfig')
 
-" Add `:isort` command to sort Python's imports
-command! -nargs=0 Isort :call CocAction('runCommand', 'python.sortImports')
-"
+" Use V to open nvim/init.vim
+call SetupCommandAbbrs('V', 'e ~/dotfiles/nvim/init.vim')
+
+" Use I to call isort for Python files
+call SetupCommandAbbrs('I', 'CocCommand python.sortImports')
