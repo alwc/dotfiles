@@ -12,9 +12,14 @@
   "git.topRemovedSign.text": "ﬢ",
   "git.changeRemovedSign.text": "≃",
 
+  "explorer.icon.enableNerdfont": true,
+  "explorer.icon.enableVimDevicons": true,
+  "explorer.openAction.changeDirectory": false,
+
   "tsserver.npm": "/Users/alexlee/n/bin/npm",
   "tsserver.trace.server": "verbose",
   "tsserver.log": "verbose",
+
   "prettier.trailingComma": "es5",
 
   //"python.autoComplete.showAdvancedMembers": false,
