@@ -72,7 +72,7 @@ set listchars=tab:›\ ,eol:¬,trail:⋅ "Set the characters for the invisibles
 set number
 set ruler                 " Show the line number and column in the status bar
 set t_Co=256              " Use 256 colors
-" set cursorline            " hightlight the line the cursor is on
+set cursorline            " hightlight the line the cursor is on
 set scrolloff=999         " Keep the cursor centered in the screen
 set showmatch             " Highlight matching braces
 set showmode              " Show the current mode on the open buffer
