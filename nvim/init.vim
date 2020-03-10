@@ -16,7 +16,6 @@ if has("unix")
 endif
 "-----------------------------------------------------------------------------
 call plug#begin('~/dotfiles/nvim/plugged')
-Plug 'itchyny/lightline.vim'
 
 if $TERM =~ 'xterm-kitty'
     Plug 'ryanoasis/vim-devicons'
@@ -29,32 +28,50 @@ endif
 " Disabled because of the chdir problem: https://github.com/vim-pandoc/vim-pandoc/issues/272
 " Plug 'vim-pandoc/vim-pandoc'
 " Plug 'vim-pandoc/vim-pandoc-syntax'
-Plug 'gcmt/taboo.vim'
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-commentary'
-Plug 'lervag/vimtex', { 'for': ['latex', 'tex'] }
-Plug 'skywind3000/asyncrun.vim'
 Plug 'jiangmiao/auto-pairs'
+Plug 'kshenoy/vim-signature'
+
+" A light and configurable statusline/tabline plugin
+Plug 'itchyny/lightline.vim'
+" Few utilities for pretty tabs
+Plug 'gcmt/taboo.vim'
+" Vim sugar for the UNIX shell commands
+Plug 'tpope/vim-eunuch'
+" Git wrapper
+Plug 'tpope/vim-fugitive'
+" Comment stuff out
+Plug 'tpope/vim-commentary'
+" For editing LaTeX files
+Plug 'lervag/vimtex', { 'for': ['latex', 'tex'] }
+" Run Async Shell Commands in Neovim
+Plug 'skywind3000/asyncrun.vim'
+" Git commit browser
 Plug 'junegunn/gv.vim'
+" Fuzzy search
 if has('mac')
     Plug '/usr/local/opt/fzf'
 else
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 endif
 Plug 'junegunn/fzf.vim'
+" Create a sidebar that shows the contents of the registers.
 Plug 'junegunn/vim-peekaboo'
-Plug 'kshenoy/vim-signature'
-
+" Generate proper code documentation skeletons with a single keypress
+Plug 'kkoomen/vim-doge'
+" Jsonnet filetype plugin
 Plug 'google/vim-jsonnet'
+" Collection of language packs
 Plug 'sheerun/vim-polyglot'
-
+" Manages your c-tags files
 Plug 'ludovicchabant/vim-gutentags'
+" Manages your g-tags files
 Plug 'skywind3000/gutentags_plus'
+" Viewer & Finder for LSP symbols and tags
 Plug 'liuchengxu/vista.vim'
-
-" Plug 'dense-analysis/ale'
+" Intellisense engine with full LSP support as VSCode
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Check syntax asynchronously and fix files
+" Plug 'dense-analysis/ale'
 
 call plug#end()
 
