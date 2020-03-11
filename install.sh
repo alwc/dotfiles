@@ -77,7 +77,7 @@ fi
 
 # - https://github.com/zchee/deoplete-jedi/wiki/Setting-up-Python-for-Neovim
 # Check the available python version using `pyenv install --list`
-PYENV_3=3.7.7
+PYENV_3=3.6.7
 
 pyenv install $PYENV_3
 
@@ -89,7 +89,7 @@ pip install neovim
 pyenv which python
 
 # Install Python library for neovim
-pip install black mypy pylama bandit rope jedi
+pip install black mypy pylama bandit rope jedi isort
 
 source deactivate neovim3
 
