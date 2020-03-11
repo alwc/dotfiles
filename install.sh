@@ -77,7 +77,7 @@ fi
 
 # - https://github.com/zchee/deoplete-jedi/wiki/Setting-up-Python-for-Neovim
 # Check the available python version using `pyenv install --list`
-PYENV_3=3.8.0
+PYENV_3=3.7.7
 
 pyenv install $PYENV_3
 
