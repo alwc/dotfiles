@@ -3,13 +3,22 @@ let g:lightline = {
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ],
     \             [ 'fugitive', 'readonly', 'filename', 'modified' ],
+    \             [ 'buffernumber' ],
     \             [ 'cocstatus', 'gutentags' ] ],
+    \   'right': [ [ 'lineinfo' ],
+    \              [ 'percent' ],
+    \              [ 'filetype' ] ]
+    \ },
+    \ 'inactive': {
+    \   'left': [ [ 'filename' ],
+    \             [ 'buffernumber' ] ],
     \   'right': [ [ 'lineinfo' ],
     \              [ 'percent' ],
     \              [ 'filetype' ] ]
     \ },
     \ 'component': {
     \   'space': ' ',
+    \   'buffernumber': '%n',
     \   'lineinfo': ' %3l:%-2v',
     \ },
     \ 'component_function': {
@@ -23,6 +32,20 @@ let g:lightline = {
     \ },
     \ 'separator': { 'left': '', 'right': ' ' },
     \ 'subseparator': { 'left': '', 'right': '' }
+    \ }
+
+let g:lightline.mode_map = {
+    \ 'n' : 'N',
+    \ 'i' : 'I',
+    \ 'R' : 'R',
+    \ 'v' : 'V',
+    \ 'V' : 'V-L',
+    \ "\<C-v>": 'V-B',
+    \ 'c' : 'C',
+    \ 's' : 'S',
+    \ 'S' : 'S-L',
+    \ "\<C-s>": 'S-B',
+    \ 't': 'T',
     \ }
 
 " From: https://github.com/neoclide/coc.nvim/wiki/Statusline-integration#use-manual-function
