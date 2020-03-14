@@ -69,6 +69,9 @@ clone_dotfiles() {
 
 install_homebrew_bundle() {
     brew bundle --file=$DOTFILES_DIR/$OS_DIR/Brewfile
+
+    # To install useful FZF key bindings and fuzzy completion:
+    (brew --prefix)/opt/fzf/install
 }
 
 _setup_osx_default_settings() {

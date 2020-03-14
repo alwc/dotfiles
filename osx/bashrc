@@ -65,9 +65,9 @@ alias icat="kitty +kitten icat"
 export VISUAL=nvim
 export EDITOR=nvim
 
-##############################################################################
-# pyenv
-##############################################################################
+# +----------------------------------------------------------------------------
+# | pyenv
+# +----------------------------------------------------------------------------
 # According to DOC, it should be placed toward the end of the shell
 # configuration file since it manipulates PATH during the initialization.
 if command -v pyenv 1>/dev/null 2>&1; then
@@ -75,7 +75,9 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv virtualenv-init -)"
 fi
 
-## fzf
+# +----------------------------------------------------------------------------
+# | fzf
+# +----------------------------------------------------------------------------
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # --files: List files that would be searched but do not search
