@@ -1,0 +1,42 @@
+{
+  //"coc.preferences.formatOnSaveFiletypes": ["python"],
+
+  //"diagnostic.displayByAle": true,
+  "diagnostic.warningSign": "",
+  "diagnostic.errorSign": "",
+  "diagnostic.infoSign": "",
+
+  "git.changedSign.text": "",
+  "git.addedSign.text": "",
+  "git.removedSign.text": "",
+  "git.topRemovedSign.text": "ﬢ",
+  "git.changeRemovedSign.text": "≃",
+
+  "explorer.icon.enableNerdfont": true,
+  "explorer.icon.enableVimDevicons": true,
+  "explorer.openAction.changeDirectory": false,
+
+  "tsserver.npm": "~/n/bin/npm",
+  "tsserver.trace.server": "verbose",
+  "tsserver.log": "verbose",
+
+  "prettier.trailingComma": "es5",
+
+  //"python.autoComplete.showAdvancedMembers": false,
+  //"python.pythonPath": "/Users/alexlee/.pyenv/versions/neovim3/bin/python",
+  "python.trace.server": "verbose",
+  "python.venvPath": "~/.pyenv",
+  "python.jediEnabled": true,
+  "python.jediPath": "~/.pyenv/versions/3.7.1/envs/neovim3/lib/python3.7/site-packages",
+  "python.formatting.provider": "black",
+  "python.formatting.blackPath": "~/.pyenv/versions/neovim3/bin/black",
+  "python.sortImports.path": "/Users/alexlee/.pyenv/versions/neovim3/bin/isort",
+  "python.linting.pylintEnabled": false,
+  "python.linting.mypyEnabled": true,
+  "python.linting.mypyPath": "~/.pyenv/versions/neovim3/bin/mypy",
+  "python.linting.pylamaEnabled": true,
+  "python.linting.pylamaPath": "~/.pyenv/versions/neovim3/bin/pylama",
+  "python.linting.pylamaArgs": ["-i", "E501"],
+  "python.linting.banditEnabled": true,
+  "python.linting.banditPath": "~/.pyenv/versions/neovim3/bin/bandit"
+}

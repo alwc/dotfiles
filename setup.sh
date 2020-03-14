@@ -90,6 +90,10 @@ symlink_dotfiles() {
 
         # Setup OSX default settings
         _setup_osx_default_settings
+
+        ln -sf $DOTFILES_DIR/nvim/coc/coc-settings-osx.json $CONFIG_DIR/nvim/coc-settings.json
+    elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+        ln -sf $DOTFILES_DIR/nvim/coc/coc-settings-ubuntu.json $CONFIG_DIR/nvim/coc-settings.json
     fi
 
     ln -sf $DOTFILES_DIR/osx/shared_bashrc ~/.shared_bashrc
