@@ -27,7 +27,7 @@
   "python.trace.server": "verbose",
   "python.venvPath": "~/.pyenv",
   "python.jediEnabled": true,
-  "python.jediPath": "~/.pyenv/versions/3.7.1/envs/neovim3/lib/python3.7/site-packages",
+  "python.jediPath": "~/.pyenv/versions/3.7.6/envs/neovim3/lib/python3.7/site-packages",
   "python.formatting.provider": "black",
   "python.formatting.blackPath": "~/.pyenv/versions/neovim3/bin/black",
   "python.sortImports.path": "/home/alex/.pyenv/versions/neovim3/bin/isort",
