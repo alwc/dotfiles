@@ -51,7 +51,7 @@ Plug 'junegunn/gv.vim'
 if has('mac')
     Plug '/usr/local/opt/fzf'
 else
-    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+    Plug '/home/linuxbrew/.linuxbrew/opt/fzf'
 endif
 Plug 'junegunn/fzf.vim'
 " Create a sidebar that shows the contents of the registers.
