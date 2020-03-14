@@ -1,33 +1,7 @@
 #------------------------------------------------------------------------------
 # Aliases setup
 #------------------------------------------------------------------------------
-
-alias vim="nvim"
-
-if [ "$(uname)" == "Darwin" ]; then
-    alias git="hub"
-fi
-
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
-#export BROWSER=chrome
-
-## Safety
-alias rm="rm -i"
-alias mv="mv -i"
-alias cp="cp -i"
-set -o noclobber
-
-## Listing, directories, and motion
-alias ll="ls -alrtF"
-alias la="ls -A"
-alias l="ls -CF"
-alias m='less'
-alias ..="cd .."
-alias ...="cd ..; cd .."
-alias md="mkdir"
-alias cl="clear"
-alias du="du -ch"
-alias treeacl="tree -A -C -L 2"
 
 ## Folder direct access
 alias study="cd ~/Google\ Drive/_study_materials"
@@ -46,44 +20,8 @@ alias mlnn="cd ~/Google\ Drive/_ml_notes"
 alias clsn="cd ~/Google\ Drive/_class_notes"
 alias codn="cd ~/Google\ Drive/_coding_notes"
 
-alias brew-all="brew update && brew upgrade && brew cleanup"
-# `brew cu` command comes from 'https://github.com/buo/homebrew-cask-upgrade'
-alias brew-cask-all="brew cu -a -y --cleanup"
-
-## Network
-alias lsp="lsof -i -n -P | grep LISTEN"
-
-## grep options
-export GREP_OPTIONS="--color=auto"
-export GREP_COLOR="1;31"
-
 ## kitty
 alias icat="kitty +kitten icat"
 
-## Git
-# export GIT_EDITOR="nvim"
-export VISUAL=nvim
-export EDITOR=nvim
-
-# +----------------------------------------------------------------------------
-# | pyenv
-# +----------------------------------------------------------------------------
-# According to DOC, it should be placed toward the end of the shell
-# configuration file since it manipulates PATH during the initialization.
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-  eval "$(pyenv virtualenv-init -)"
-fi
-
-# +----------------------------------------------------------------------------
-# | fzf
-# +----------------------------------------------------------------------------
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
-# --files: List files that would be searched but do not search
-# --no-ignore: Do not respect .gitignore, etc...
-# --hidden: Search hidden files and folders
-# --follow: Follow symlinks
-# --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!{.git,node_modules,.mypy_cache,__pycache__}/*" 2> /dev/null'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+# Load other bashrc settings that is shared between macOS and Ubuntu
+[ -f "$HOME/.shared_bashrc.sh" ] && source "$HOME/.shared_bashrc.sh"

@@ -92,6 +92,8 @@ symlink_dotfiles() {
         _setup_osx_default_settings
     fi
 
+    ln -sf $DOTFILES_DIR/osx/shared_bashrc.sh ~/.shared_bashrc.sh
+    ln -sf $DOTFILES_DIR/osx/shared_profile.sh ~/.shared_profile.sh
     ln -sf $DOTFILES_DIR/bash_profile ~/.bash_profile
     ln -sf $DOTFILES_DIR/$OS_DIR/bashrc ~/.bashrc
     ln -sf $DOTFILES_DIR/$OS_DIR/profile ~/.profile
@@ -119,6 +121,8 @@ setup_neovim_env() {
 
     # - https://github.com/zchee/deoplete-jedi/wiki/Setting-up-Python-for-Neovim
     # Check the available python version using `pyenv install --list`
+    PYENV_2=2.7.16
+
     PYENV_3=3.7.6
     pyenv install $PYENV_3
     pyenv virtualenv $PYENV_3 neovim3

@@ -91,11 +91,6 @@ fi
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -120,50 +115,14 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# >>>>>>>
-alias git="hub"
-alias vim="nvim"
-
-export VISUAL=nvim
-export EDITOR=nvim
-
 # +----------------------------------------------------------------------------
-# | fzf
+# | Internal Ports
 # +----------------------------------------------------------------------------
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-# --files: List files that would be searched but do not search¬
-# --no-ignore: Do not respect .gitignore, etc...¬
-# --hidden: Search hidden files and folders¬
-# --follow: Follow symlinks¬
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!{.git,node_modules,.mypy_cache,__pycache__}/*" 2> /dev/null'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
-# +----------------------------------------------------------------------------
-# | pyenv
-# +----------------------------------------------------------------------------
-# According to DOC, it should be placed toward the end of the shell
-# configuration file since it manipulates PATH during the initialization.
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-  eval "$(pyenv virtualenv-init -)"
-fi
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/alex/google-cloud-sdk/path.bash.inc' ]; then source '/home/alex/google-cloud-sdk/path.bash.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/alex/google-cloud-sdk/completion.bash.inc' ]; then source '/home/alex/google-cloud-sdk/completion.bash.inc'; fi
-
 # For Docker container's Jupyter notebook port
 export JUPYTER_NOTEBOOK_PORT=8845
 
 # For Tensorboard port
 export TENSORBOARD_PORT=6015
 
-# For `gcloud` since it uses python2 Read:
-# - https://github.com/pyenv/pyenv/issues/1159#issuecomment-549235372
-# - https://github.com/pyenv/pyenv-virtualenv/issues/267#issuecomment-395932404
-export CLOUDSDK_PYTHON=~/.pyenv/shims/python2
-
+# Load other bashrc settings that is shared between macOS and Ubuntu
+[ -f "$HOME/.shared_bashrc.sh" ] && source "$HOME/.shared_bashrc.sh"

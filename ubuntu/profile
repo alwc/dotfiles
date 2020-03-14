@@ -19,8 +19,27 @@ fi
 # set PATH so it includes user's private bin directories
 PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 
-# Homebrew
+# +----------------------------------------------------------------------------
+# | Homebrew
+# +----------------------------------------------------------------------------
 eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
-# Added by n-install (see http://git.io/n-install-repo).
-export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"
+# +----------------------------------------------------------------------------
+# | Google Cloud SDk
+# +----------------------------------------------------------------------------
+if [ -f '~/google-cloud-sdk/path.bash.inc' ]; then
+    source '/home/alex/google-cloud-sdk/path.bash.inc';
+fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '~/google-cloud-sdk/completion.bash.inc' ]; then
+    source '/home/alex/google-cloud-sdk/completion.bash.inc';
+fi
+
+# For `gcloud` since it uses python2 Read:
+# - https://github.com/pyenv/pyenv/issues/1159#issuecomment-549235372
+# - https://github.com/pyenv/pyenv-virtualenv/issues/267#issuecomment-395932404
+export CLOUDSDK_PYTHON=~/.pyenv/shims/python2
+
+# Load other profile settings that is shared between macOS and Ubuntu
+[ -f "$HOME/.shared_profile.sh" ] && source "$HOME/.shared_profile.sh"

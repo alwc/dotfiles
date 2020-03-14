@@ -1,0 +1,54 @@
+# +----------------------------------------------------------------------------
+# | Aliases setup
+# +----------------------------------------------------------------------------
+## Editor
+alias git="hub"
+alias vim="nvim"
+
+## Safety
+alias rm="rm -i"
+alias mv="mv -i"
+alias cp="cp -i"
+set -o noclobber
+
+## Listing, directories, and motion
+alias ll="ls -alrtF"
+alias la="ls -A"
+alias l="ls -CF"
+alias ..="cd .."
+alias ...="cd ..; cd .."
+alias md="mkdir"
+alias cl="clear"
+alias du="du -ch"
+alias treeacl="tree -A -C -L 2"
+
+## Homebrew
+alias brew-all="brew update && brew upgrade && brew cleanup"
+# `brew cu` command comes from 'https://github.com/buo/homebrew-cask-upgrade'
+alias brew-cask-all="brew cu -a -y --cleanup"
+
+## Network
+alias lsp="lsof -i -n -P | grep LISTEN"
+
+# +----------------------------------------------------------------------------
+# | fzf
+# +----------------------------------------------------------------------------
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# --files: List files that would be searched but do not search
+# --no-ignore: Do not respect .gitignore, etc...
+# --hidden: Search hidden files and folders
+# --follow: Follow symlinks
+# --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!{.git,node_modules,.mypy_cache,__pycache__}/*" 2> /dev/null'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+# +----------------------------------------------------------------------------
+# | pyenv
+# +----------------------------------------------------------------------------
+# According to DOC, it should be placed toward the end of the shell
+# configuration file since it manipulates PATH during the initialization.
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+fi
