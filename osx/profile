@@ -3,6 +3,10 @@
 # +----------------------------------------------------------------------------
 # | Environment variables
 # +----------------------------------------------------------------------------
+# Silence the warning in macOS Catalina
+# Read: https://support.apple.com/en-hk/HT208050
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
 # Tell ls to be colourful
 export CLICOLOR=1
 export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
