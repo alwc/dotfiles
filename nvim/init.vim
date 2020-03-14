@@ -17,10 +17,6 @@ endif
 "-----------------------------------------------------------------------------
 call plug#begin('~/dotfiles/nvim/plugged')
 
-if $TERM =~ 'xterm-kitty'
-    Plug 'ryanoasis/vim-devicons'
-endif
-
 " Plug 'plasticboy/vim-markdown'
 " "Plug 'mhinz/vim-startify'
 " "Plug 'vim-pandoc/vim-pandoc', { 'for': [ 'pandoc', 'markdown' ] }
@@ -31,6 +27,8 @@ endif
 Plug 'jiangmiao/auto-pairs'
 Plug 'kshenoy/vim-signature'
 
+" Adds file type icons to Vim plugins
+Plug 'ryanoasis/vim-devicons'
 " A light and configurable statusline/tabline plugin
 Plug 'itchyny/lightline.vim'
 " Few utilities for pretty tabs
