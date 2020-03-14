@@ -55,4 +55,4 @@ export PATH="$PATH:$HOME/.rvm/bin"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # Load other profile settings that is shared between macOS and Ubuntu
-[ -f "$HOME/.shared_profile.sh" ] && source "$HOME/.shared_profile.sh"
+[ -f "$HOME/.shared_profile" ] && source "$HOME/.shared_profile"

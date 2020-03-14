@@ -125,4 +125,4 @@ export JUPYTER_NOTEBOOK_PORT=8845
 export TENSORBOARD_PORT=6015
 
 # Load other bashrc settings that is shared between macOS and Ubuntu
-[ -f "$HOME/.shared_bashrc.sh" ] && source "$HOME/.shared_bashrc.sh"
+[ -f "$HOME/.shared_bashrc" ] && source "$HOME/.shared_bashrc"

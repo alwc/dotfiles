@@ -24,4 +24,4 @@ alias codn="cd ~/Google\ Drive/_coding_notes"
 alias icat="kitty +kitten icat"
 
 # Load other bashrc settings that is shared between macOS and Ubuntu
-[ -f "$HOME/.shared_bashrc.sh" ] && source "$HOME/.shared_bashrc.sh"
+[ -f "$HOME/.shared_bashrc" ] && source "$HOME/.shared_bashrc"
