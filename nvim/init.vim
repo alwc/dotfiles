@@ -37,7 +37,7 @@ Plug 'ryanoasis/vim-devicons'
 " A light and configurable statusline/tabline plugin
 Plug 'itchyny/lightline.vim'
 " Few utilities for pretty tabs
-Plug 'gcmt/taboo.vim'
+" Plug 'gcmt/taboo.vim'
 " Vim sugar for the UNIX shell commands
 Plug 'tpope/vim-eunuch'
 " Git wrapper
@@ -222,12 +222,12 @@ if has('mac')
     map <M-8> 8gt
     map <M-9> 9gt
     map <M-0> :tablast<CR>
-    "map <M-t> :tabnew<CR>
-    map <M-t> :TabooOpen<Space>
+    map <M-t> :tabnew<CR>
     map <M-c> :tabclose<CR>
     map <M-[> :tabprevious<CR>
     map <M-]> :tabnext<CR>
-    map <M-m> :TabooRename<Space>
+    " map <M-t> :TabooOpen<Space>
+    " map <M-m> :TabooRename<Space>
 else
     map <A-1> 1gt
     map <A-2> 2gt
@@ -239,12 +239,12 @@ else
     map <A-8> 8gt
     map <A-9> 9gt
     map <A-0> :tablast<CR>
-    "map <A-t> :tabnew<CR>
-    map <A-t> :TabooOpen<Space>
+    map <A-t> :tabnew<CR>
     map <A-c> :tabclose<CR>
     map <A-[> :tabprevious<CR>
     map <A-]> :tabnext<CR>
-    map <A-m> :TabooRename<Space>
+    " map <A-t> :TabooOpen<Space>
+    " map <A-m> :TabooRename<Space>
 endif
 
 " [lervag/vimtex]
