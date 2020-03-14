@@ -211,22 +211,41 @@ autocmd BufWinEnter * set foldlevel=999999
 "-----------------------------------------------------------------------------
 
 " [gcmt/taboo.vim] + vim's built-in tabs navigation ==========================
-map <M-1> 1gt
-map <M-2> 2gt
-map <M-3> 3gt
-map <M-4> 4gt
-map <M-5> 5gt
-map <M-6> 6gt
-map <M-7> 7gt
-map <M-8> 8gt
-map <M-9> 9gt
-map <M-0> :tablast<CR>
-"map <M-t> :tabnew<CR>
-map <M-t> :TabooOpen<Space>
-map <M-c> :tabclose<CR>
-map <M-[> :tabprevious<CR>
-map <M-]> :tabnext<CR>
-map <M-m> :TabooRename<Space>
+if has('mac')
+    map <M-1> 1gt
+    map <M-2> 2gt
+    map <M-3> 3gt
+    map <M-4> 4gt
+    map <M-5> 5gt
+    map <M-6> 6gt
+    map <M-7> 7gt
+    map <M-8> 8gt
+    map <M-9> 9gt
+    map <M-0> :tablast<CR>
+    "map <M-t> :tabnew<CR>
+    map <M-t> :TabooOpen<Space>
+    map <M-c> :tabclose<CR>
+    map <M-[> :tabprevious<CR>
+    map <M-]> :tabnext<CR>
+    map <M-m> :TabooRename<Space>
+else
+    map <A-1> 1gt
+    map <A-2> 2gt
+    map <A-3> 3gt
+    map <A-4> 4gt
+    map <A-5> 5gt
+    map <A-6> 6gt
+    map <A-7> 7gt
+    map <A-8> 8gt
+    map <A-9> 9gt
+    map <A-0> :tablast<CR>
+    "map <A-t> :tabnew<CR>
+    map <A-t> :TabooOpen<Space>
+    map <A-c> :tabclose<CR>
+    map <A-[> :tabprevious<CR>
+    map <A-]> :tabnext<CR>
+    map <A-m> :TabooRename<Space>
+endif
 
 " [lervag/vimtex]
 let g:tex_flavor='latex'
