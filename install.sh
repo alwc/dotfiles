@@ -101,3 +101,5 @@ echo ">>>>> Install latex misc tool"
 
 echo ">>>>> Install N"
 curl -L https://git.io/n-install | bash -s -- -y
+# This is done after neovim is installed
+npm install -g neovim
