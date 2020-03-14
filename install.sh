@@ -68,12 +68,8 @@ echo ">>>>> Install Tmux Plugin Manager (TPM)..."
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 tmux source ~/.tmux.conf
 
-# https://github.com/pyenv/pyenv-installer
+# TODO Alex: Install it via homebrew
 echo ">>>>> Install pyenv (mainly for neovim)..."
-if [ "$OS_DIR" = ubuntu ] ; then
-    curl https://pyenv.run | bash
-    sudo apt-get update; sudo apt-get install --no-install-recommends make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
-fi
 
 # - https://github.com/zchee/deoplete-jedi/wiki/Setting-up-Python-for-Neovim
 # Check the available python version using `pyenv install --list`
