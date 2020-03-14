@@ -92,8 +92,8 @@ symlink_dotfiles() {
         _setup_osx_default_settings
     fi
 
-    ln -sf $DOTFILES_DIR/osx/shared_bashrc.sh ~/.shared_bashrc.sh
-    ln -sf $DOTFILES_DIR/osx/shared_profile.sh ~/.shared_profile.sh
+    ln -sf $DOTFILES_DIR/osx/shared_bashrc ~/.shared_bashrc
+    ln -sf $DOTFILES_DIR/osx/shared_profile ~/.shared_profile
     ln -sf $DOTFILES_DIR/bash_profile ~/.bash_profile
     ln -sf $DOTFILES_DIR/$OS_DIR/bashrc ~/.bashrc
     ln -sf $DOTFILES_DIR/$OS_DIR/profile ~/.profile
