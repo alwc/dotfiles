@@ -1,4 +1,5 @@
 nvim/autoload/plug.vim
+nvim/coc-settings.json
 nvim/plugged
 nvim/swap
 nvim/undo
