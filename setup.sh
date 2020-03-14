@@ -136,6 +136,9 @@ setup_neovim_env() {
     pip install black mypy pylama bandit rope jedi isort
 
     source deactivate neovim3
+
+    # Set the system python
+    pyenv global $PYENV_3
 }
 
 # install_latex_misc_tools() {
