@@ -1,8 +1,3 @@
-" Installation instructions:
-"
-"   1. Install vim-plug: curl -fLo ~/dotfiles/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-"   2. :PlugInstall
-
 scriptencoding utf-8
 set encoding=utf-8
 
@@ -14,8 +9,18 @@ if has("unix")
     let g:python3_host_prog = $HOME.'/.pyenv/versions/neovim3/bin/python'
     let g:python3_host_skip_check=1
 endif
+
 "-----------------------------------------------------------------------------
-call plug#begin('~/dotfiles/nvim/plugged')
+" vim-pLug
+"-----------------------------------------------------------------------------
+" Install vim-plug if not found
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.config/nvim/plugged')
 
 " Plug 'plasticboy/vim-markdown'
 " "Plug 'mhinz/vim-startify'
