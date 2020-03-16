@@ -123,6 +123,7 @@ setup_neovim_env() {
     # - https://github.com/zchee/deoplete-jedi/wiki/Setting-up-Python-for-Neovim
     # Check the available python version using `pyenv install --list`
     PYENV_2=2.7.16
+    pyenv install $PYENV_2
 
     PYENV_3=3.7.6
     pyenv install $PYENV_3
