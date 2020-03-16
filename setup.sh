@@ -81,7 +81,7 @@ _setup_osx_default_settings() {
 
 symlink_dotfiles() {
     CONFIG_DIR=~/.config
-    mkdir $CONFIG_DIR
+    mkdir -p $CONFIG_DIR
 
     if [ "$(uname)" == "Darwin" ]; then
         ln -sf $DOTFILES_DIR/karabiner $CONFIG_DIR/karabiner
