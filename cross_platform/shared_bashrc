@@ -4,6 +4,7 @@
 ## Editor
 alias git="hub"
 alias vim="nvim"
+alias vi="nvim"
 
 ## Safety
 alias rm="rm -i"
