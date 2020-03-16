@@ -21,6 +21,7 @@
   "tsserver.log": "verbose",
 
   "prettier.trailingComma": "es5",
+  "prettier.semi": false,
 
   //"python.autoComplete.showAdvancedMembers": false,
   //"python.pythonPath": "/Users/alexlee/.pyenv/versions/neovim3/bin/python",
