@@ -39,8 +39,6 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     OS_DIR=ubuntu
 fi
 
-cd DOTFILES_DIR
-
 # Exit script without exiting shell. This is like press `Ctrl-C`
 # Read: https://stackoverflow.com/a/17153661
 exit_script() {
