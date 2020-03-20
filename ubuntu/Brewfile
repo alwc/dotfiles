@@ -1,6 +1,8 @@
 tap "homebrew/bundle"
 tap "homebrew/core"
 tap "universal-ctags/universal-ctags"
+brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD", "with-jansson", "without-xml"]
+brew "global"
 brew "bat"
 brew "fzf"
 brew "htop"
@@ -12,5 +14,3 @@ brew "ripgrep"
 brew "tmux"
 brew "tree"
 brew "unrar"
-brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD", "with-jansson"]
-brew "global"
