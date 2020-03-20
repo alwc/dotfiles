@@ -21,6 +21,7 @@
   "tsserver.log": "verbose",
 
   "prettier.trailingComma": "es5",
+  "prettier.semi": false,
 
   //"python.autoComplete.showAdvancedMembers": false,
   //"python.pythonPath": "/home/alex/.pyenv/versions/neovim3/bin/python",
@@ -38,5 +39,6 @@
   "python.linting.pylamaPath": "~/.pyenv/versions/neovim3/bin/pylama",
   "python.linting.pylamaArgs": ["-i", "E501"],
   "python.linting.banditEnabled": true,
-  "python.linting.banditPath": "~/.pyenv/versions/neovim3/bin/bandit"
+  "python.linting.banditPath": "~/.pyenv/versions/neovim3/bin/bandit",
+  "python.linting.banditArgs": ["-s", "B101"],
 }
