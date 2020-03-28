@@ -1373,7 +1373,8 @@ if s:t_Co >= 256
     hi SpellRare ctermfg=175 ctermbg=NONE cterm=italic,underline
     hi StatusLine ctermfg=239 ctermbg=187 cterm=reverse
     hi StatusLineNC ctermfg=237 ctermbg=137 cterm=reverse
-    hi TabLineFill ctermfg=243 ctermbg=237 cterm=NONE
+    " hi TabLineFill ctermfg=243 ctermbg=237 cterm=NONE
+    hi TabLineFill ctermfg=243 ctermbg=236 cterm=NONE
     hi TabLineSel ctermfg=142 ctermbg=237 cterm=NONE
     hi Title ctermfg=142 ctermbg=NONE cterm=bold
     hi Visual ctermfg=NONE ctermbg=59 cterm=NONE
