@@ -145,14 +145,14 @@ let g:gruvbox_plugin_hi_groups = 1
 " Remap a key sequence in insert mode to kick me out to normal
 " mode. This makes it so this key sequence can never be typed
 " again in insert mode, so it has to be unique.
-inoremap jj <esc>
-inoremap jJ <esc>
-inoremap Jj <esc>
-inoremap JJ <esc>
-inoremap jk <esc>
-inoremap jK <esc>
-inoremap Jk <esc>
-inoremap JK <esc>
+" inoremap jj <esc>
+" inoremap jJ <esc>
+" inoremap Jj <esc>
+" inoremap JJ <esc>
+" inoremap jk <esc>
+" inoremap jK <esc>
+" inoremap Jk <esc>
+" inoremap JK <esc>
 
 " Make j/k visual down and up instead of whole lines. This makes word
 " wrapping a lot more pleasent.
