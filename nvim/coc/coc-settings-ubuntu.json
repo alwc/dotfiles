@@ -14,7 +14,7 @@
 
   "explorer.icon.enableNerdfont": true,
   "explorer.icon.enableVimDevicons": true,
-  "explorer.openAction.changeDirectory": false,
+  // "explorer.openAction.changeDirectory": false,
 
   "tsserver.npm": "~/n/bin/npm",
   "tsserver.trace.server": "verbose",
@@ -40,5 +40,5 @@
   "python.linting.pylamaArgs": ["-i", "E501"],
   "python.linting.banditEnabled": true,
   "python.linting.banditPath": "~/.pyenv/versions/neovim3/bin/bandit",
-  "python.linting.banditArgs": ["-s", "B101"],
+  "python.linting.banditArgs": ["-s", "B101,B322"],
 }
