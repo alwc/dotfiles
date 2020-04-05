@@ -12,6 +12,10 @@
   "git.topRemovedSign.text": "ﬢ",
   "git.changeRemovedSign.text": "≃",
 
+  "todolist.monitor": true,
+  "todolist.notify": "floating",
+  "todolist.autoUpload": false,
+
   "explorer.icon.enableNerdfont": true,
   "explorer.icon.enableVimDevicons": true,
   // "explorer.openAction.changeDirectory": false,

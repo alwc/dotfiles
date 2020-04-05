@@ -7,6 +7,7 @@ let g:coc_global_extensions = [
   \ 'coc-html',
   \ 'coc-css',
   \ 'coc-python',
+  \ 'coc-todolist',
   \ ]
 
 " Some servers have issues with backup files, see #649.
@@ -14,9 +15,7 @@ set nobackup
 set nowritebackup
 
 " Give more space for displaying messages at the bottom row of Neovim.
-set cmdheight=2
-
-" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+set cmdheight=2 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
 " set updatetime=300
 
@@ -163,7 +162,14 @@ call SetupCommandAbbrs('V', 'e ~/dotfiles/nvim/init.vim')
 " Use I to call isort for Python files
 call SetupCommandAbbrs('I', 'CocCommand python.sortImports')
 
-" ['weirongxu/coc-explorer'] ==================================================
+" ['weirongxu/coc-explorer'] =================================================
 "
 " Open coc-explorer
 :nmap <leader>w :CocCommand explorer<CR>
+
+" ['voldikss/coc-todolist'] ==================================================
+nnoremap <silent> <space>t  :<C-u>CocList todolist<cr>
+call SetupCommandAbbrs('TC',  'CocCommand todolist.create')
+call SetupCommandAbbrs('TU',  'CocCommand todolist.upload')
+call SetupCommandAbbrs('TD',  'CocCommand todolist.download')
+call SetupCommandAbbrs('TCC', 'CocCommand todolist.clearNotice')
