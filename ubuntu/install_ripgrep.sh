@@ -19,7 +19,7 @@
 #
 # Author: Stanimir Karoserov ( demosten@gmail.com )
 
-PKG_NAME=ripggrep
+PKG_NAME=ripgrep
 VERSION=11.0.2
 
 git -C "$(brew --repo homebrew/core)" fetch --unshallow || echo "Homebrew repo already unshallowed"
