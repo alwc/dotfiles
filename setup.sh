@@ -179,10 +179,10 @@ select opt in "${options[@]}" "QUIT"; do
   case "$REPLY" in
 
   1) install_osx_basics && exit_script ;;
-  2) install_homebrew_and_git && exit_script ;;
-  3) clone_dotfiles && exit_script ;;
-  4) install_homebrew_bundle && exit_script ;;
-  5) symlink_dotfiles && exit_script ;;
+  2) clone_dotfiles && exit_script ;;
+  3) symlink_dotfiles && exit_script ;;
+  4) install_homebrew_and_git && exit_script ;;
+  5) install_homebrew_bundle && exit_script ;;
   6) install_tmux_plugin_manager && exit_script ;;
   7) setup_neovim_env && exit_script ;;
 
