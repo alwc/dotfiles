@@ -126,7 +126,8 @@ install_tmux_plugin_manager() {
     tmux source ~/.tmux.conf
 }
 
-_install_n() {
+install_n() {
+    # Install N (Node version management)
     echo ">>>>> Install N"
     curl -L https://git.io/n-install | bash -s -- -y
 }
@@ -134,9 +135,6 @@ _install_n() {
 setup_neovim_env() {
     # Automatic exit from bash shell script on error
     set -e
-
-    # Install N (Node version management)
-    _install_n
 
     # - https://github.com/zchee/deoplete-jedi/wiki/Setting-up-Python-for-Neovim
     # Check the available python version using `pyenv install --list`
@@ -177,6 +175,7 @@ options=(
   "Install Homebrew bundle"
   "Create symlink to my dotfiles"
   "Install Tmux plugin manager"
+  "Install n (Node version management)"
   "Setup Neovim environment"
 )
 
@@ -202,7 +201,8 @@ select opt in "${options[@]}" "QUIT"; do
   4) install_homebrew_bundle && exit_script ;;
   5) symlink_dotfiles && exit_script ;;
   6) install_tmux_plugin_manager && exit_script ;;
-  7) setup_neovim_env && exit_script ;;
+  7) install_n && exit_script ;;
+  8) setup_neovim_env && exit_script ;;
 
   $((${#options[@]} + 1)))
     echo "Goodbye!"
