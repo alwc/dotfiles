@@ -118,6 +118,11 @@ install_tmux_plugin_manager() {
     echo ">>>>> Install Tmux Plugin Manager (TPM)..."
     # https://github.com/tmux-plugins/tpm#installing-plugins
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+    # Note that if you are getting "open terminal failed: missing or unsuitable
+    # terminal: xterm-kitty". You need to ssh in using the following command first
+    # `$ kitty +kitten ssh myserver`
+    # Read: https://github.com/kovidgoyal/kitty/issues/320
     tmux source ~/.tmux.conf
 }
 
