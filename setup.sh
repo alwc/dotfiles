@@ -69,6 +69,7 @@ install_homebrew_and_git() {
 
 clone_dotfiles() {
     git clone git@github.com:alwc/dotfiles.git ~/dotfiles
+    cd ~/dotfiles
 }
 
 install_homebrew_bundle() {
