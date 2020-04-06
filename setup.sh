@@ -154,10 +154,10 @@ setup_neovim_env() {
 # Read: https://askubuntu.com/a/55901
 options=(
   "Install OSX basics"
-  "Install Homebrew and Git"
   "Clone my dotfiles"
-  "Install Homebrew bundle"
   "Create symlink to my dotfiles"
+  "Install Homebrew bundle"
+  "Install Homebrew and Git"
   "Install Tmux plugin manager"
   "Setup Neovim environment"
 )
