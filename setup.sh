@@ -68,8 +68,8 @@ install_homebrew_and_git() {
 }
 
 clone_dotfiles() {
-    git clone git@github.com:alwc/dotfiles.git ~/dotfiles
-    cd ~/dotfiles
+    git clone git@github.com:alwc/dotfiles.git $DOTFILES_DIR
+    cd $DOTFILES_DIR
 }
 
 install_homebrew_bundle() {
@@ -82,6 +82,7 @@ install_homebrew_bundle() {
     if [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
         . $DOTFILES_DIR/$OS_DIR/install_ripgrep.sh
     fi
+    cd $DOTFILES_DIR
 }
 
 _setup_osx_default_settings() {
