@@ -10,7 +10,7 @@ brew "navi"
 brew "neovim"
 brew "pyenv"
 brew "pyenv-virtualenv"
-brew "ripgrep"
+# brew "ripgrep"  Read: https://github.com/Homebrew/linuxbrew-core/issues/19885
 brew "tmux"
 brew "tree"
 brew "unrar"
