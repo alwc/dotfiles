@@ -120,7 +120,7 @@ install_tmux_plugin_manager() {
     # https://github.com/tmux-plugins/tpm#installing-plugins
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-    # Note that if you are getting "open terminal failed: missing or unsuitable
+    # Note: if you are getting "open terminal failed: missing or unsuitable
     # terminal: xterm-kitty". You need to ssh in using the following command first
     # `$ kitty +kitten ssh myserver`
     # Read: https://github.com/kovidgoyal/kitty/issues/320
@@ -134,6 +134,8 @@ install_n() {
 }
 
 setup_neovim_env() {
+    # Note: if build failed, read https://github.com/pyenv/pyenv/wiki/common-build-problems
+
     # Automatic exit from bash shell script on error
     set -e
 
