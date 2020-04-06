@@ -2,7 +2,6 @@
 # | Aliases setup
 # +----------------------------------------------------------------------------
 ## Editor
-alias git="hub"
 alias vim="nvim"
 alias vi="nvim"
 

@@ -1,6 +1,7 @@
 #------------------------------------------------------------------------------
 # Aliases setup
 #------------------------------------------------------------------------------
+alias git="hub"
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 
 ## Folder direct access
