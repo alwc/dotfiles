@@ -79,7 +79,7 @@ install_homebrew_bundle() {
     $(brew --prefix)/opt/fzf/install
 
     # TEMP fix for ripgrep on Ubuntu
-    elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+    if [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
         . $DOTFILES_DIR/$OS_DIR/install_ripgrep.sh
     fi
 }
