@@ -132,6 +132,9 @@ _install_n() {
 }
 
 setup_neovim_env() {
+    # Automatic exit from bash shell script on error
+    set -e
+
     # Install N (Node version management)
     _install_n
 
