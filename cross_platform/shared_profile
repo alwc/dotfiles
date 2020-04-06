@@ -1,9 +1,9 @@
 # +----------------------------------------------------------------------------
 # | Environment variables
 # +----------------------------------------------------------------------------
-# export GIT_EDITOR=nvim
-# export VISUAL=nvim
-# export EDITOR=nvim
+export GIT_EDITOR=nvim
+export VISUAL=nvim
+export EDITOR=nvim
 
 # +----------------------------------------------------------------------------
 # | N (Node version management)
