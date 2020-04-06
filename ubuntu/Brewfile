@@ -5,6 +5,7 @@ brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD", "with-jan
 brew "global"
 brew "bat"
 brew "fzf"
+brew "fd"
 brew "htop"
 brew "navi"
 brew "neovim"
