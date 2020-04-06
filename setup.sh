@@ -58,6 +58,10 @@ install_homebrew_and_git() {
     echo ">>>>> Install Homebrew..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
+    # Need to eval it first before `brew` works
+    test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
+    test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+
     echo ">>>>> Install git"
     brew update && brew upgrade
     brew install git
