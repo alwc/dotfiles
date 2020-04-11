@@ -109,11 +109,12 @@ xmap af <Plug>(coc-funcobj-a)
 omap if <Plug>(coc-funcobj-i)
 omap af <Plug>(coc-funcobj-a)
 
-" Use <TAB> for selections ranges.
+" For selections ranges.
 " NOTE: Requires 'textDocument/selectionRange' support from the language server.
-" coc-tsserver, coc-python are the examples of servers that support it.
-nmap <silent> <TAB> <Plug>(coc-range-select)
-xmap <silent> <TAB> <Plug>(coc-range-select)
+" coc-tsserver is an example that supports it.
+" Alex: Change it to `<TAB>` (i.e. `<C-i>`) to `<C-l>`
+nmap <silent> <C-l> <Plug>(coc-range-select)
+xmap <silent> <C-l> <Plug>(coc-range-select)
 
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
