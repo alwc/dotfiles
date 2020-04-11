@@ -112,9 +112,9 @@ omap af <Plug>(coc-funcobj-a)
 " For selections ranges.
 " NOTE: Requires 'textDocument/selectionRange' support from the language server.
 " coc-tsserver is an example that supports it.
-" Alex: Change it to `<TAB>` (i.e. `<C-i>`) to `<C-l>`
-nmap <silent> <C-l> <Plug>(coc-range-select)
-xmap <silent> <C-l> <Plug>(coc-range-select)
+" Alex: Change it to `<TAB>` (i.e. `<C-i>`) to `<C-p>`
+nmap <silent> <C-p> <Plug>(coc-range-select)
+xmap <silent> <C-p> <Plug>(coc-range-select)
 
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
