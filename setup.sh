@@ -131,7 +131,6 @@ install_n() {
     # Install N (Node version management)
     echo ">>>>> Install N"
     curl -L https://git.io/n-install | bash -s -- -y
-    npm install -g neovim
 }
 
 setup_neovim_env() {
@@ -160,6 +159,9 @@ setup_neovim_env() {
 
     # Set the system python
     pyenv global $PYENV_3
+
+    # Install Node's neovim plugin
+    [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || npm install -g neovim
 }
 
 # install_latex_misc_tools() {
