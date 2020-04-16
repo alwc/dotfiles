@@ -131,6 +131,7 @@ install_n() {
     # Install N (Node version management)
     echo ">>>>> Install N"
     curl -L https://git.io/n-install | bash -s -- -y
+    npm install -g neovim
 }
 
 setup_neovim_env() {
