@@ -100,5 +100,6 @@ cask "wechat"
 cask "xquartz"
 cask "zoomus"
 cask "zotero"
-mas "GoodNotes", id: 1480793815
+mas "GoodNotes", id: 1444383602
 mas "Xcode", id: 497799835
+mas "Keynote", id: 409183694
