@@ -167,6 +167,8 @@ setup_zotero_sym_link() {
     local ZOTERO_PATH=~/Zotero
     local ATTACHMENT_PATH=~/Google\ Drive/references/attachments
 
+    # Alex: For some reasons it doesn't work in bash script, but it works
+    # when I run `ln -sf` command in shell.
     [ -d "`eval echo ${ZOTERO_PATH}`" ] && [ -d "`eval echo ${ATTACHMENT_PATH}`" ] && \
         ln -sf ${ATTACHMENT_PATH} ${ZOTERO_PATH}/storage
 }
