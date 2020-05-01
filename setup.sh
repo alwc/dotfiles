@@ -102,8 +102,7 @@ symlink_dotfiles() {
         # Setup OSX default settings
         _setup_osx_default_settings
     fi
-
-    ln -sf $DOTFILES_DIR/cross_platform/shared_bashrc ~/.shared_bashrc
+ln -sf $DOTFILES_DIR/cross_platform/shared_bashrc ~/.shared_bashrc
     ln -sf $DOTFILES_DIR/cross_platform/shared_profile ~/.shared_profile
     ln -sf $DOTFILES_DIR/cross_platform/bash_profile ~/.bash_profile
     ln -sf $DOTFILES_DIR/$OS_DIR/bashrc ~/.bashrc
@@ -164,6 +163,14 @@ setup_neovim_env() {
     [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || npm install -g neovim
 }
 
+setup_zotero_sym_link() {
+    local ZOTERO_PATH=~/Zotero
+    local ATTACHMENT_PATH=~/Google\ Drive/references/attachments
+
+    [ -d "`eval echo ${ZOTERO_PATH}`" ] && [ -d "`eval echo ${ATTACHMENT_PATH}`" ] && \
+        ln -sf ${ATTACHMENT_PATH} ${ZOTERO_PATH}/storage
+}
+
 # install_latex_misc_tools() {
 #     echo ">>>>> Install latex misc tool"
 #     # Read
@@ -183,6 +190,7 @@ options=(
   "Install Tmux plugin manager"
   "Install n (Node version management)"
   "Setup Neovim environment"
+  "Setup Zotero storage symlink"
 )
 
 # Make each menu selections in 1 line instead of multiple selections in 1 line
@@ -209,6 +217,7 @@ select opt in "${options[@]}" "QUIT"; do
   6) install_tmux_plugin_manager && exit_script ;;
   7) install_n && exit_script ;;
   8) setup_neovim_env && exit_script ;;
+  9) setup_zotero_sym_link && exit_script ;;
 
   $((${#options[@]} + 1)))
     echo "Goodbye!"
