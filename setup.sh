@@ -165,7 +165,7 @@ setup_neovim_env() {
 
 setup_zotero_sym_link() {
     local ZOTERO_PATH=~/Zotero
-    local ATTACHMENT_PATH=~/Google\ Drive/references/attachments
+    local ATTACHMENT_PATH=~/Dropbox/references/attachments
 
     # Alex: For some reasons it doesn't work in bash script, but it works
     # when I run `ln -sf` command in shell.
