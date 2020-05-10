@@ -32,8 +32,16 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'jiangmiao/auto-pairs'
 Plug 'kshenoy/vim-signature'
 
-" A lightweight version of vimwiki
-Plug 'lervag/wiki.vim'
+if has('mac')
+    " A lightweight version of vimwiki
+    Plug 'lervag/wiki.vim'
+    " Fuzzy search
+    Plug '/usr/local/opt/fzf'
+else
+    " Fuzzy search
+    Plug '/home/linuxbrew/.linuxbrew/opt/fzf'
+endif
+Plug 'junegunn/fzf.vim'
 " Adds file type icons to Vim plugins
 Plug 'ryanoasis/vim-devicons'
 " A light and configurable statusline/tabline plugin
@@ -52,13 +60,6 @@ Plug 'lervag/vimtex', { 'for': ['latex', 'tex'] }
 Plug 'skywind3000/asyncrun.vim'
 " Git commit browser
 Plug 'junegunn/gv.vim'
-" Fuzzy search
-if has('mac')
-    Plug '/usr/local/opt/fzf'
-else
-    Plug '/home/linuxbrew/.linuxbrew/opt/fzf'
-endif
-Plug 'junegunn/fzf.vim'
 " Create a sidebar that shows the contents of the registers.
 Plug 'junegunn/vim-peekaboo'
 " Generate proper code documentation skeletons with a single keypress
