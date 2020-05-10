@@ -32,6 +32,8 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'jiangmiao/auto-pairs'
 Plug 'kshenoy/vim-signature'
 
+" A lightweight version of vimwiki
+Plug 'lervag/wiki.vim'
 " Adds file type icons to Vim plugins
 Plug 'ryanoasis/vim-devicons'
 " A light and configurable statusline/tabline plugin
