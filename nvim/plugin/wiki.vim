@@ -1,10 +1,9 @@
-let g:wiki_root='~/Dropbox/wiki'
+let g:wiki_root='~/Dropbox/memex'
+" let g:wiki_root='~/Dropbox/wiki'
 let g:wiki_zotero_root='~/Dropbox/references'
 let g:wiki_template_title_month='# %(year) %(month-name)'
 let g:wiki_template_title_week='# %(year) week %(week)'
 let g:wiki_filetypes=['md']
-" let g:wiki_filetypes=['wiki', 'md']
-let g:wiki_link_extension = '.md'
 let g:wiki_date_exe='gdate'
 
 " Add date
