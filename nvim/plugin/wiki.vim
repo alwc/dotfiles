@@ -12,7 +12,7 @@ nmap <silent> <leader>date a<C-R>=strftime(" %a %d %b %Y %I:%M:%S %p %Z")<CR><ES
 " From:
 " - https://www.reddit.com/r/vim/comments/2hxxxy/how_to_autoupdate_time_stamp_field_in_a_file/
 " - https://gist.github.com/jelera/7838011
-autocmd! BufWritePre * :call s:timestamp()
+autocmd! BufWritePre ~/Dropbox/memex/* :call s:timestamp()
 
 " to update timestamp when saving if its in the first 20 lines of a file
 function! s:timestamp()
