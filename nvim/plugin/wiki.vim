@@ -6,7 +6,7 @@ let g:wiki_template_title_week='# %(year) week %(week)'
 let g:wiki_filetypes=['md']
 let g:wiki_date_exe='gdate'
 
-" Add date
+" [Add date]
 nmap <silent> <leader>date a<C-R>=strftime(" %a %d %b %Y %I:%M:%S %p %Z")<CR><ESC>
 
 " From:
@@ -14,7 +14,7 @@ nmap <silent> <leader>date a<C-R>=strftime(" %a %d %b %Y %I:%M:%S %p %Z")<CR><ES
 " - https://gist.github.com/jelera/7838011
 autocmd! BufWritePre ~/Dropbox/memex/* :call s:timestamp()
 
-" to update timestamp when saving if its in the first 20 lines of a file
+" [To update timestamp when saving if its in the first 20 lines of a file]
 function! s:timestamp()
     let pat = '\(\(Last\)\?\s*\([Cc]hanged\?\|[Mm]odified\|[Uu]pdated\?\)\s*:\s*\).*'
     let rep = '\1' . strftime("%a %d %b %Y %I:%M:%S %p %Z")
