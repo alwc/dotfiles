@@ -1,10 +1,15 @@
 let g:wiki_root='~/Dropbox/memex'
-" let g:wiki_root='~/Dropbox/wiki'
 let g:wiki_zotero_root='~/Dropbox/references'
 let g:wiki_template_title_month='# %(year) %(month-name)'
 let g:wiki_template_title_week='# %(year) week %(week)'
 let g:wiki_filetypes=['md']
 let g:wiki_date_exe='gdate'
+
+let g:wiki_map_link_create = 'LinkNameScheme'
+
+function LinkNameScheme(text) abort
+  return substitute(tolower(a:text), '\s\+', '_', 'g')
+endfunction
 
 " [Add date]
 nmap <silent> <leader>date a<C-R>=strftime(" %a %d %b %Y %I:%M:%S %p %Z")<CR><ESC>
