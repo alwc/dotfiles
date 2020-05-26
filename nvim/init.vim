@@ -20,6 +20,9 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+" TODO: Remove after done reading VimL Primer
+set runtimepath+=~/Dropbox/tutorials/vim/benjamin.klein-viml_primer/mpc/
+
 call plug#begin('~/.config/nvim/plugged')
 
 " Plug 'plasticboy/vim-markdown'
@@ -241,6 +244,10 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 " Don't fold anything.
 autocmd BufWinEnter * set foldlevel=999999
+
+" Reload stale-but-unmodified buffers whenever we gain focus
+" https://stackoverflow.com/questions/1272007/refresh-all-files-in-buffer-from-disk-in-vim
+autocmd FocusGained * checktime
 
 "-----------------------------------------------------------------------------
 " Plugins
