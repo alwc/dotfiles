@@ -8,7 +8,6 @@ let g:coc_global_extensions = [
   \ 'coc-html',
   \ 'coc-css',
   \ 'coc-python',
-  \ 'coc-todolist',
   \ ]
 
 " Some servers have issues with backup files, see #649.
@@ -169,16 +168,8 @@ call SetupCommandAbbrs('I', 'CocCommand python.sortImports')
 " Open coc-explorer
 :nmap <leader>w :CocCommand explorer<CR>
 
-" ['voldikss/coc-todolist'] ==================================================
-nnoremap <silent> <space>t  :<C-u>CocList todolist<cr>
-call SetupCommandAbbrs('TC',  'CocCommand todolist.create')
-call SetupCommandAbbrs('TU',  'CocCommand todolist.upload')
-call SetupCommandAbbrs('TD',  'CocCommand todolist.download')
-call SetupCommandAbbrs('TCC', 'CocCommand todolist.clearNotice')
-
-
 " ['neoclide/coc-git'] ==================================================
-
-" " navigate chunks of current buffer
+"
+" navigate chunks of current buffer
 nmap <silent> [c <Plug>(coc-git-prevchunk)
 nmap <silent> ]c <Plug>(coc-git-nextchunk)
