@@ -175,3 +175,10 @@ call SetupCommandAbbrs('TC',  'CocCommand todolist.create')
 call SetupCommandAbbrs('TU',  'CocCommand todolist.upload')
 call SetupCommandAbbrs('TD',  'CocCommand todolist.download')
 call SetupCommandAbbrs('TCC', 'CocCommand todolist.clearNotice')
+
+
+" ['neoclide/coc-git'] ==================================================
+
+" " navigate chunks of current buffer
+nmap <silent> [c <Plug>(coc-git-prevchunk)
+nmap <silent> ]c <Plug>(coc-git-nextchunk)
