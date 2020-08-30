@@ -124,5 +124,8 @@ export JUPYTER_NOTEBOOK_PORT=8845
 # For Tensorboard port
 export TENSORBOARD_PORT=6015
 
+# For Netron
+export NETRON_PORT=8088
+
 # Load other bashrc settings that is shared between macOS and Ubuntu
 [ -f "$HOME/.shared_bashrc" ] && source "$HOME/.shared_bashrc"
