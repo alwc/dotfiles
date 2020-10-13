@@ -1,5 +1,5 @@
 if executable('fzf')
-    nnoremap <silent> <C-t> :Files<CR>
+    nnoremap <silent> <C-t> :GFiles<CR>
     nnoremap <silent> <C-f> :Commands<CR>
     " nnoremap <silent> <leader>f :BLines<CR>
     " nnoremap <silent> <leader>F :Lines<CR>
