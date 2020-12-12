@@ -41,4 +41,6 @@
   "python.linting.banditEnabled": true,
   "python.linting.banditPath": "~/.pyenv/versions/neovim3/bin/bandit",
   "python.linting.banditArgs": ["-s", "B101,B322,B404"],
+
+  "snippets.userSnippetsDirectory": "~/dotfiles/nvim/snippets",
 }
