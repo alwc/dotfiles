@@ -9,10 +9,10 @@ let g:wiki_list_todos= ['TODO', 'DOING', 'DONE']
 
 let g:wiki_map_link_create = 'LinkNameScheme'
 
-if executable('fzf')
-    let g:wiki_tags_scan_num_lines = 99999
-    nnoremap <silent> <C-g> :WikiFzfTags<CR>
-end
+" if executable('fzf')
+"     let g:wiki_tags_scan_num_lines = 99999
+"     nnoremap <silent> <C-g> :WikiFzfTags<CR>
+" end
 
 function LinkNameScheme(text) abort
   return substitute(tolower(a:text), '\s\+', '_', 'g')
