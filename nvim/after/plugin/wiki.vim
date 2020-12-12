@@ -49,3 +49,6 @@ function! s:subst(start, end, pat, rep)
         let lineno = lineno + 1
     endwhile
 endfunction
+
+" From: https://github.com/lervag/wiki.vim/issues/46#issuecomment-617158322¬
+"autocmd BufNewFile ~/Dropbox/memex/*.md put! =strftime('# %Y-%d-%m') | call append(2, '') | norm G
