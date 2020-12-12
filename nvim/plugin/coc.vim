@@ -8,6 +8,7 @@ let g:coc_global_extensions = [
   \ 'coc-html',
   \ 'coc-css',
   \ 'coc-python',
+  \ 'coc-snippets',
   \ ]
 
 " Some servers have issues with backup files, see #649.
