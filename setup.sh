@@ -157,7 +157,7 @@ setup_neovim_env() {
     pyenv virtualenv $PYENV_3 neovim3
     pyenv activate neovim3
     pip install --upgrade pip
-    pip install neovim
+    pip install pynvim
     pyenv which python
 
     # Install Python library for neovim
