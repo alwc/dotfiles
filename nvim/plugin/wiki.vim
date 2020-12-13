@@ -50,19 +50,20 @@ function! s:subst(start, end, pat, rep)
     endwhile
 endfunction
 
-" From: https://github.com/lervag/wiki.vim/issues/46#issuecomment-617158322¬
-" autocmd BufNewFile ~/Dropbox/memkx/*.md put! =strftime('# %Y-%d-%m') | call append(2, '') | norm G
-autocmd BufNewFile ~/Dropbox/memex/*.md call SetWikiTemplate() | norm G
+" Modified from: https://github.com/lervag/wiki.vim/issues/46#issuecomment-617158322¬
+autocmd BufNewFile ~/Dropbox/memex/*.md call SetWikiMarkdownTemplate() | norm G
 
-func SetWikiTemplate()
+func SetWikiMarkdownTemplate()
     if expand("%:e") == 'md'
-        call setline(1, tr(toupper("# ".expand("%:t:r")), "_", " "))
+        " READ: https://taptoe.wordpress.com/2013/02/06/vim-capitalize-every-first-character-of-every-word-in-a-sentence/
+        let filename = tr(tolower("# ".expand("%:t:r")), "_", " ")
+        let title = substitute(filename, '\v^\a|\:\s\a|<%(in>|the>|at>|with>|a>|and>|for>|of>|on>|from>|by>)@!\a', '\U&', "g")
+
+        call setline(1, title)
         call setline(2, "")
         call setline(3, "Modified:".strftime(" %a %d %b %Y %I:%M:%S %p %Z"))
         call setline(4, "Created: ".strftime(" %a %d %b %Y %I:%M:%S %p %Z"))
         call setline(5, "")
         call setline(6, "")
-        # https://taptoe.wordpress.com/2013/02/06/vim-capitalize-every-first-character-of-every-word-in-a-sentence/
-        " 1s/\v^\a|\:\s\a|<%(in>|the>|at>|with>|a>|and>|for>|of>|on>|from>|by>)@!\a/\U&/g
     endif
 endfunc
