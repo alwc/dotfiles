@@ -166,7 +166,7 @@ setup_neovim_env() {
     source deactivate neovim3
 
     # Set the system python
-    pyenv global $PYENV_3
+    pyenv global $PYENV_3 $PYENV_2
 
     # Install Node's neovim plugin
     [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || npm install -g neovim
