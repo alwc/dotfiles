@@ -24,11 +24,30 @@
 #
 # Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
 
-snippet wiki "Wiki entry" b
-# ${1:Wiki Name}
+# snippet wiki "Wiki entry" b
+# # ${1:Wiki Name}
 
-Modified:`!v strftime(" %a %d %b %Y %I:%M:%S %p %Z")`
-Created: `!v strftime(" %a %d %b %Y %I:%M:%S %p %Z")`
+# Modified:`!v strftime(" %a %d %b %Y %I:%M:%S %p %Z")`
+# Created: `!v strftime(" %a %d %b %Y %I:%M:%S %p %Z")`
 
+# $0
+# endsnippet
+
+snippet link "Link to something"
+[${1:${VISUAL:Text}}](${3:https://${2:www.url.com}})$0
+endsnippet
+
+snippet book "Book entry"
+- [${1:Book Name}](${2:URL})
+	- Date: ${3:Date}
+	- Author(s): ${4:Author(s)}
 $0
+endsnippet
+
+snippet tweet "Tweet entry"
+- [${1:Tweet Description}](${2:URL})
+	- Date: ${3:Date}
+	- Author(s): ${4:Author(s)}
+	- Takeaways:
+		- $0
 endsnippet

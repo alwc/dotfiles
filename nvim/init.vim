@@ -73,14 +73,15 @@ Plug 'kkoomen/vim-doge'
 Plug 'google/vim-jsonnet'
 " Collection of language packs
 Plug 'sheerun/vim-polyglot'
-" Manages your c-tags files
+" Manage your c-tags files
 Plug 'ludovicchabant/vim-gutentags'
-" Manages your g-tags files
+" Manage your g-tags files
 Plug 'skywind3000/gutentags_plus'
 " Viewer & Finder for LSP symbols and tags
 Plug 'liuchengxu/vista.vim'
 " Intellisense engine with full LSP support as VSCode
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 " Check syntax asynchronously and fix files
 " Plug 'dense-analysis/ale'
 
