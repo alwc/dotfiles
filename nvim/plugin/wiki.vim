@@ -61,14 +61,14 @@ autocmd BufNewFile ~/Dropbox/memex/*.md call SetWikiMarkdownTemplate() | norm G
 func SetWikiMarkdownTemplate()
     if expand("%:e") == 'md'
         " READ: https://taptoe.wordpress.com/2013/02/06/vim-capitalize-every-first-character-of-every-word-in-a-sentence/
-        let filename = tr(tolower("# ".expand("%:t:r")), "_", " ")
+        let filename = tr(tolower("".expand("%:t:r")), "_", " ")
         let title = substitute(filename, '\v^\a|\:\s\a|<%(in>|the>|at>|with>|a>|and>|for>|of>|on>|from>|by>)@!\a', '\U&', "g")
 
-        call setline(1, title)
-        call setline(2, "")
-        call setline(3, "- Modified:".strftime(" %a %d %b %Y %I:%M:%S %p %Z"))
-        call setline(4, "- Created: ".strftime(" %a %d %b %Y %I:%M:%S %p %Z"))
-        call setline(5, "")
+        call setline(1, "---")
+        call setline(2, "title: " . title)
+        call setline(3, "modified:".strftime(" %a %d %b %Y %I:%M:%S %p %Z"))
+        call setline(4, "created: ".strftime(" %a %d %b %Y %I:%M:%S %p %Z"))
+        call setline(5, "---")
         call setline(6, "")
     endif
 endfunc
