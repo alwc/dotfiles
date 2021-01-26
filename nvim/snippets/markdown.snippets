@@ -37,6 +37,13 @@ snippet url "URL entry"
 [${1:${VISUAL:Text}}](${2})$0
 endsnippet
 
+snippet link "Link entry"
+- [${1:Title}](${2:URL})
+	- Date: ${3:${VISUAL:DD MM YYYY}}
+	- Authors: ${4:}
+	- Tags: ${5:}
+endsnippet
+
 snippet book "Book entry"
 - [${1:Book Name}](${2:URL})
 	- Date: ${3:${VISUAL:DD MM YYYY}}
