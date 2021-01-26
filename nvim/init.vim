@@ -31,7 +31,7 @@ call plug#begin('~/.config/nvim/plugged')
 " "Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': [ 'pandoc', 'markdown' ] }
 " Disabled because of the chdir problem: https://github.com/vim-pandoc/vim-pandoc/issues/272
 " Plug 'vim-pandoc/vim-pandoc'
-" Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'jiangmiao/auto-pairs'
 Plug 'kshenoy/vim-signature'
 

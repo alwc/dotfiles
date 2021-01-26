@@ -50,6 +50,11 @@ function! s:subst(start, end, pat, rep)
     endwhile
 endfunction
 
+" Use `vim-pandoc-syntax` without `vim-pandoc`
+augroup pandoc_syntax
+    au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
+augroup END
+
 " Modified from: https://github.com/lervag/wiki.vim/issues/46#issuecomment-617158322¬
 autocmd BufNewFile ~/Dropbox/memex/*.md call SetWikiMarkdownTemplate() | norm G
 
