@@ -61,8 +61,8 @@ func SetWikiMarkdownTemplate()
 
         call setline(1, title)
         call setline(2, "")
-        call setline(3, "Modified:".strftime(" %a %d %b %Y %I:%M:%S %p %Z"))
-        call setline(4, "Created: ".strftime(" %a %d %b %Y %I:%M:%S %p %Z"))
+        call setline(3, "- Modified:".strftime(" %a %d %b %Y %I:%M:%S %p %Z"))
+        call setline(4, "- Created: ".strftime(" %a %d %b %Y %I:%M:%S %p %Z"))
         call setline(5, "")
         call setline(6, "")
     endif

@@ -57,6 +57,8 @@ Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 " Comment stuff out
 Plug 'tpope/vim-commentary'
+" Autosave session
+Plug 'tpope/vim-obsession'
 " For editing LaTeX files
 Plug 'lervag/vimtex', { 'for': ['latex', 'tex'] }
 " Run Async Shell Commands in Neovim
