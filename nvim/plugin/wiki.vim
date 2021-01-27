@@ -52,7 +52,7 @@ endfunction
 
 " Use `vim-pandoc-syntax` without `vim-pandoc`
 augroup pandoc_syntax
-    au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
+    au! BufNewFile,BufFilePre,BufRead *.md set filetype=pandoc
 augroup END
 
 " Modified from: https://github.com/lervag/wiki.vim/issues/46#issuecomment-617158322¬
