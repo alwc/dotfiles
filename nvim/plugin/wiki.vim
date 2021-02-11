@@ -53,10 +53,12 @@ endfunction
 " Use `vim-pandoc-syntax` without `vim-pandoc`
 augroup pandoc_syntax
     au! BufNewFile,BufFilePre,BufRead *.md set filetype=pandoc
+
+    " Modified from: https://github.com/lervag/wiki.vim/issues/46#issuecomment-617158322¬
+    autocmd BufNewFile ~/Dropbox/memex/*.md call SetWikiMarkdownTemplate() | norm G
 augroup END
 
-" Modified from: https://github.com/lervag/wiki.vim/issues/46#issuecomment-617158322¬
-autocmd BufNewFile ~/Dropbox/memex/*.md call SetWikiMarkdownTemplate() | norm G
+" autocmd BufNewFile ~/Dropbox/memex/*.md call SetWikiMarkdownTemplate() | norm G
 
 func SetWikiMarkdownTemplate()
     if expand("%:e") == 'md'
