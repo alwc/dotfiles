@@ -68,7 +68,7 @@ Plug 'junegunn/gv.vim'
 " Create a sidebar that shows the contents of the registers.
 Plug 'junegunn/vim-peekaboo'
 " Generate proper code documentation skeletons with a single keypress
-Plug 'kkoomen/vim-doge'
+Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 " Jsonnet filetype plugin
 Plug 'google/vim-jsonnet'
 " Collection of language packs
