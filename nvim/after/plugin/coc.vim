@@ -7,7 +7,7 @@ let g:coc_global_extensions = [
   \ 'coc-json',
   \ 'coc-html',
   \ 'coc-css',
-  \ 'coc-python',
+  \ 'coc-pyright',
   \ 'coc-snippets',
   \ ]
 
