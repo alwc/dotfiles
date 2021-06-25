@@ -81,6 +81,8 @@ Plug 'skywind3000/gutentags_plus'
 Plug 'liuchengxu/vista.vim'
 " Intellisense engine with full LSP support as VSCode
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Preview markdown on your browser with synchronised scrolling
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
 " Check syntax asynchronously and fix files
 " Plug 'dense-analysis/ale'
