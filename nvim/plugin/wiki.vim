@@ -5,7 +5,6 @@ let g:wiki_template_title_week='# %(year) week %(week)'
 let g:wiki_filetypes=['md']
 let g:wiki_date_exe='gdate'
 let g:wiki_tags_format_pattern='\v%(^|\s)#\zs[^# ]+'
-let g:wiki_list_todos= ['TODO', 'DOING', 'DONE']
 
 let g:wiki_map_link_create = 'LinkNameScheme'
 
