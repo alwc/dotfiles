@@ -42,8 +42,8 @@
   // "python.linting.banditPath": "~/.pyenv/versions/neovim3/bin/bandit",
   // "python.linting.banditArgs": ["-s", "B101,B322,B404"],
 
-  "python.pythonPath": "~/.pyenv/versions/neovim3/bin/python",
-  "python.venvPath": "~/.pyenv/versions",
+  // "python.pythonPath": "~/.pyenv/versions/neovim3/bin/python",
+  //"python.venvPath": "~/.pyenv/versions",
   "python.formatting.provider": "black",
   "python.linting.mypyEnabled": true,
   "python.linting.pylamaEnabled": true,

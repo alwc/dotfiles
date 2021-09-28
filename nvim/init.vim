@@ -38,6 +38,8 @@ Plug 'kshenoy/vim-signature'
 if has('mac')
     " A lightweight version of vimwiki
     Plug 'lervag/wiki.vim'
+    " Manage text based lists
+    Plug 'lervag/lists.vim'
     " Fuzzy search
     Plug '/usr/local/opt/fzf'
 else
@@ -268,7 +270,7 @@ augroup latexsettings
 augroup END
 
 " [jiangmiao/auto-pairs] =====================================================
-let g:AutoPairsMapCR=0
+" let g:AutoPairsMapCR=0
 
 " ['kshenoy/vim-signature'] ==================================================
 nmap <silent> <leader>m :SignatureToggle<CR>

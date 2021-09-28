@@ -90,6 +90,6 @@ let g:mkdp_page_title = '「${name}」'
 let g:mkdp_filetypes = ['markdown', 'pandoc']
 
 " Shortcuts
-nmap <C-s> <Plug>MarkdownPreview
-nmap <M-s> <Plug>MarkdownPreviewStop
+" nmap <C-s> <Plug>MarkdownPreview
+" nmap <M-s> <Plug>MarkdownPreviewStop
 nmap <C-p> <Plug>MarkdownPreviewToggle
