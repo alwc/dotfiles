@@ -12,7 +12,7 @@
   "git.topRemovedSign.text": "ﬢ",
   "git.changeRemovedSign.text": "≃",
 
-  "explorer.icon.enabledNerdFont": true,
+  "explorer.icon.enableNerdfont": true,
   "explorer.icon.source": "vim-devicons",
   "explorer.file.hiddenRules": {
       "extensions": ["o", "a", "obj", "pyc"],
