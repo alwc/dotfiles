@@ -58,14 +58,16 @@ install_homebrew_and_git() {
     echo ">>>>> Install Homebrew..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
-    echo ">>>>> Install git"
+    # Temporarily export the Homebrew path
     if [ "$(uname)" == "Darwin" ]; then
-        /opt/homebrew/bin/brew update && /opt/homebrew/bin/brew upgrade
-        /opt/homebrew/bin/brew install git
+        export PATH=/opt/homebrew/bin:$PATH
     else
-        /home/linuxbrew/.linuxbrew/bin/brew update && /home/linuxbrew/.linuxbrew/bin/brew upgrade
-        /home/linuxbrew/.linuxbrew/bin/brew install git
+        export PATH=/home/linuxbrew/.linuxbrew/bin/:$PATH
     fi
+
+    echo ">>>>> Install git"
+    brew update && brew upgrade
+    brew install git
 }
 
 clone_dotfiles() {
@@ -74,6 +76,13 @@ clone_dotfiles() {
 }
 
 install_homebrew_bundle() {
+    # Temporarily export the Homebrew path
+    if [ "$(uname)" == "Darwin" ]; then
+        export PATH=/opt/homebrew/bin:$PATH
+    else
+        export PATH=/home/linuxbrew/.linuxbrew/bin/:$PATH
+    fi
+
     brew bundle --file=$DOTFILES_DIR/$OS_DIR/Brewfile
 
     # To install useful FZF key bindings and fuzzy completion:
