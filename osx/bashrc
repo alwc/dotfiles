@@ -26,3 +26,7 @@ alias icat="kitty +kitten icat"
 
 # Load other bashrc settings that is shared between macOS and Ubuntu
 [ -f "$HOME/.shared_bashrc" ] && source "$HOME/.shared_bashrc"
+
+# BEGIN_KITTY_SHELL_INTEGRATION
+if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; then source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; fi
+# END_KITTY_SHELL_INTEGRATION

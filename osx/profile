@@ -60,3 +60,9 @@ export PATH="$PATH:$HOME/.rvm/bin"
 
 # Load other profile settings that is shared between macOS and Ubuntu
 [ -f "$HOME/.shared_profile" ] && source "$HOME/.shared_profile"
+
+# +----------------------------------------------------------------------------
+# | Homebrew on M1
+# +----------------------------------------------------------------------------
+# https://stackoverflow.com/a/68494567/2282592
+export PATH=/opt/homebrew/bin:$PATH

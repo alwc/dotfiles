@@ -59,8 +59,13 @@ install_homebrew_and_git() {
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
     echo ">>>>> Install git"
-    /opt/homebrew/bin/brew update && /opt/homebrew/bin/brew upgrade
-    /opt/homebrew/bin/brew install git
+    if [ "$(uname)" == "Darwin" ]; then
+        /opt/homebrew/bin/brew update && /opt/homebrew/bin/brew upgrade
+        /opt/homebrew/bin/brew install git
+    else
+        /home/linuxbrew/.linuxbrew/bin/brew update && /home/linuxbrew/.linuxbrew/bin/brew upgrade
+        /home/linuxbrew/.linuxbrew/bin/brew install git
+    fi
 }
 
 clone_dotfiles() {
@@ -107,7 +112,7 @@ symlink_dotfiles() {
         # Setup OSX default settings
         _setup_osx_default_settings
     fi
-ln -sf $DOTFILES_DIR/cross_platform/shared_bashrc ~/.shared_bashrc
+    ln -sf $DOTFILES_DIR/cross_platform/shared_bashrc ~/.shared_bashrc
     ln -sf $DOTFILES_DIR/cross_platform/shared_profile ~/.shared_profile
     ln -sf $DOTFILES_DIR/cross_platform/bash_profile ~/.bash_profile
     ln -sf $DOTFILES_DIR/$OS_DIR/bashrc ~/.bashrc
@@ -219,8 +224,8 @@ select opt in "${options[@]}" "QUIT"; do
   1) install_osx_basics && exit_script ;;
   2) clone_dotfiles && exit_script ;;
   3) install_homebrew_and_git && exit_script ;;
-  4) install_homebrew_bundle && exit_script ;;
-  5) symlink_dotfiles && exit_script ;;
+  4) symlink_dotfiles && exit_script ;;
+  5) install_homebrew_bundle && exit_script ;;
   6) install_tmux_plugin_manager && exit_script ;;
   7) install_n && exit_script ;;
   8) setup_neovim_env && exit_script ;;
