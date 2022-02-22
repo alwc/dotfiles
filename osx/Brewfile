@@ -131,7 +131,6 @@ cask "macfuse"
 cask "postico"
 cask "qbittorrent"
 cask "qq"
-cask "rescuetime"
 cask "skim"
 cask "slack"
 cask "smcfancontrol"
@@ -143,6 +142,5 @@ cask "wechat"
 cask "xquartz"
 cask "zoom"
 cask "zotero"
-mas "GoodNotes", id: 1444383602
 mas "Keynote", id: 409183694
 mas "Xcode", id: 497799835
