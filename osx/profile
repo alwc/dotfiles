@@ -23,9 +23,16 @@ export PATH=/usr/bin:$PATH
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
 
-# Following settings comes from hackercodex.com
 # Set architecture flags
-export ARCHFLAGS="-arch x86_64"
+if [ "$(uname)" == "x86_64" ]; then
+    # Intel
+    # Ref: originall I followed the settings from hackercodex.com
+    export ARCHFLAGS="-arch x86_64"
+elif [ "$(uname)" == "arm64" ]; then
+    # M1
+    # Ref: https://stackoverflow.com/questions/64908116/correct-archflags-value-on-apple-silicon
+    export ARCHFLAGS="-arch $(uname -m)"
+fi
 
 # Locale
 export LC_ALL="en_US.UTF-8"
