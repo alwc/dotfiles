@@ -48,7 +48,4 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # +----------------------------------------------------------------------------
 # According to DOC, it should be placed toward the end of the shell
 # configuration file since it manipulates PATH during the initialization.
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-  eval "$(pyenv virtualenv-init -)"
-fi
+eval "$(pyenv init -)"
