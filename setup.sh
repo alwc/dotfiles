@@ -199,7 +199,6 @@ options=(
   "Install Homebrew bundle"
   "Create symlink to my dotfiles"
   "Install Tmux plugin manager"
-  "Install n (Node version management)"
   "Setup Neovim environment"
   "Setup Zotero storage symlink"
 )
