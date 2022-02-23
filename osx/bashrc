@@ -20,6 +20,10 @@ alias mlnn="cd ~/Google\ Drive/_ml_notes"
 alias clsn="cd ~/Google\ Drive/_class_notes"
 alias codn="cd ~/Google\ Drive/_coding_notes"
 
+# Install another copy of Homebrew for Intel simulated terminal
+# https://laict.medium.com/install-homebrew-on-macos-11-apple-silicon-630f37a74490
+alias ibrew='arch -x86_64 /usr/local/bin/brew'
+
 # +----------------------------------------------------------------------------
 # | Kitty
 # +----------------------------------------------------------------------------

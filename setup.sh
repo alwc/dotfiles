@@ -27,6 +27,8 @@
 # 2. Click on "Mission Control"
 # 3. Tick all "Switch to Desktop {1..N}"
 #
+# >>>>> Setup Karabiner-Elements (keyboard customizer)
+# 1. Open "Karabiner-Elements" and follow the instructions.
 # +---------------------------------------------------------------------------
 # | Setup SSH keys
 # +---------------------------------------------------------------------------
