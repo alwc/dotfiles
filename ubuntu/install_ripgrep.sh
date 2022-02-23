@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #
 # Modified from: https://gist.github.com/demosten/bdbc4f07c2ddbea0b8f0ad50a98ae5ff
 # This is needed because linuxbrew can't install the latest `ripgrep`
