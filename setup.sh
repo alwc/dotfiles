@@ -154,7 +154,7 @@ setup_neovim_env() {
     PYENV_2=2.7.18
     pyenv install $PYENV_2
 
-    PYENV_3=3.7.7
+    PYENV_3=3.9.4
     pyenv install $PYENV_3
     pyenv virtualenv $PYENV_3 neovim3
     pyenv activate neovim3
