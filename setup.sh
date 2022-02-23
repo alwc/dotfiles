@@ -150,12 +150,6 @@ install_tmux_plugin_manager() {
     tmux source ~/.tmux.conf
 }
 
-install_n() {
-    # Install N (Node version management)
-    echo ">>>>> Install N"
-    curl -L https://git.io/n-install | bash -s -- -y
-}
-
 setup_neovim_env() {
     # Note: if build failed, read https://github.com/pyenv/pyenv/wiki/common-build-problems
 
@@ -241,7 +235,6 @@ select opt in "${options[@]}" "QUIT"; do
   4) symlink_dotfiles && exit_script ;;
   5) install_homebrew_bundle && exit_script ;;
   6) install_tmux_plugin_manager && exit_script ;;
-  7) install_n && exit_script ;;
   8) setup_neovim_env && exit_script ;;
   9) setup_zotero_sym_link && exit_script ;;
 
