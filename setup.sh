@@ -12,6 +12,11 @@
 # 1. Open "System Preferences" -> "Keyboard" -> "Keyboard"
 # 2. Slide "Key Repeat" to "Fast" (right-most option)
 # 2. Slide "Delay Until Repeat" to "Short" (right-most option)
+
+# >>>>> Maximize the "Tracking speed"
+# 1. Open "System Preferences" -> "Trackpad"
+# 2. Click on "Point & Click" tab
+# 2. Slide "Tracking speed" to "Fast" (right-most option)
 #
 # >>>>> Minimize the 'Alert volume' in 'Sound'.
 # 1. Open "System Preferences" -> "Sound"
