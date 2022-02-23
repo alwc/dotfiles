@@ -53,7 +53,7 @@ if [ "$(uname)" == "x86_64" ]; then
     source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc'
 elif [ "$(uname)" == "arm64" ]; then
     # M1
-    source ''
+    source '/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc'
 fi
 
 # +----------------------------------------------------------------------------
