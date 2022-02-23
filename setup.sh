@@ -98,15 +98,6 @@ install_homebrew_bundle() {
         . $DOTFILES_DIR/$OS_DIR/install_ripgrep.sh
     fi
     cd $DOTFILES_DIR
-
-    # For enabling zathura-pdf-poppler
-    if [ "$(uname)" == "Darwin" ]; then
-        # To enable this plugin you will need to link it in place.
-        # First create the plugin directory if it does not exist yet
-        mkdir -p $(brew --prefix zathura)/lib/zathura
-        # Then link the .dylib to the directory
-        ln -s $(brew --prefix zathura-pdf-poppler)/libpdf-poppler.dylib $(brew --prefix zathura)/lib/zathura/libpdf-poppler.dylib
-    fi
 }
 
 _setup_osx_default_settings() {
