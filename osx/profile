@@ -24,11 +24,11 @@ export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
 
 # Set architecture flags
-if [ "$(uname)" == "x86_64" ]; then
+if [ "$(uname -m)" == "x86_64" ]; then
     # Intel
     # Ref: originall I followed the settings from hackercodex.com
     export ARCHFLAGS="-arch x86_64"
-elif [ "$(uname)" == "arm64" ]; then
+elif [ "$(uname -m)" == "arm64" ]; then
     # M1
     # Ref: https://stackoverflow.com/questions/64908116/correct-archflags-value-on-apple-silicon
     export ARCHFLAGS="-arch $(uname -m)"
@@ -54,10 +54,10 @@ export CPPFLAGS="-I/usr/local/opt/zlib/include"
 # +----------------------------------------------------------------------------
 # source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc'
 
-if [ "$(uname)" == "x86_64" ]; then
+if [ "$(uname -m)" == "x86_64" ]; then
     # Intel
     source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc'
-elif [ "$(uname)" == "arm64" ]; then
+elif [ "$(uname -m)" == "arm64" ]; then
     # M1
     source '/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc'
 fi
