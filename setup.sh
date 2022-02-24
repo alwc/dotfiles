@@ -228,6 +228,7 @@ options=(
   "Install OSX basics"
   "Clone my dotfiles"
   "Install Homebrew and Git"
+  "Install ctags and gtags (only if homebrew failed installing)"
   "Install Homebrew bundle"
   "Create symlink to my dotfiles"
   "Install Tmux plugin manager"
