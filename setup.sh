@@ -66,7 +66,9 @@ install_homebrew_and_git() {
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
     # Temporarily export the Homebrew path
-    if [ "$(uname)" == "Darwin" ]; then
+    if [ "$(uname -m)" == "x86_64" ]; then
+        export PATH=/usr/local/bin:$PATH
+    elif [ "$(uname -m)" == "arm64" ]; then
         export PATH=/opt/homebrew/bin:$PATH
     else
         export PATH=/home/linuxbrew/.linuxbrew/bin/:$PATH
@@ -82,9 +84,37 @@ clone_dotfiles() {
     cd $DOTFILES_DIR
 }
 
+install_ctags_and_gtags() {
+    # Temporarily export the Homebrew path
+    if [ "$(uname -m)" == "x86_64" ]; then
+        export PATH=/usr/local/bin:$PATH
+    elif [ "$(uname -m)" == "arm64" ]; then
+        export PATH=/opt/homebrew/bin:$PATH
+    else
+        export PATH=/home/linuxbrew/.linuxbrew/bin/:$PATH
+    fi
+
+    # Install universal-ctags
+    # ref: https://gist.github.com/alexshgov/7e5ed7841667c66ef5ca4f31664714a9
+    brew install --HEAD universal-ctags/universal-ctags/universal-ctags
+
+    # Install gtags (GNU Global)
+    # ref: https://www.gnu.org/software/global/download.html
+    GTAGS_VER="6.6.8"
+    GTAGS_URL=https://ftp.gnu.org/pub/gnu/global/global-${GTAGS_VER}.tar.gz
+    wget -c ${GTAGS_URL} -O - | tar -xz
+    pushd global-${GTAGS_VER}
+    ./configure --with-universal-ctags=$(brew --prefix)/bin/ctags
+    make && make install
+    popd
+    which gtags
+}
+
 install_homebrew_bundle() {
     # Temporarily export the Homebrew path
-    if [ "$(uname)" == "Darwin" ]; then
+    if [ "$(uname -m)" == "x86_64" ]; then
+        export PATH=/usr/local/bin:$PATH
+    elif [ "$(uname -m)" == "arm64" ]; then
         export PATH=/opt/homebrew/bin:$PATH
     else
         export PATH=/home/linuxbrew/.linuxbrew/bin/:$PATH
@@ -225,10 +255,11 @@ select opt in "${options[@]}" "QUIT"; do
   2) clone_dotfiles && exit_script ;;
   3) install_homebrew_and_git && exit_script ;;
   4) symlink_dotfiles && exit_script ;;
-  5) install_homebrew_bundle && exit_script ;;
-  6) install_tmux_plugin_manager && exit_script ;;
-  7) setup_neovim_env && exit_script ;;
-  8) setup_zotero_sym_link && exit_script ;;
+  5) install_ctags_and_gtags && exit_script ;;
+  6) install_homebrew_bundle && exit_script ;;
+  7) install_tmux_plugin_manager && exit_script ;;
+  8) setup_neovim_env && exit_script ;;
+  9) setup_zotero_sym_link && exit_script ;;
 
   $((${#options[@]} + 1)))
     echo "Goodbye!"
