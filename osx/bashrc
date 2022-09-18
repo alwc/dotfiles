@@ -4,21 +4,7 @@
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 
 ## Folder direct access
-alias study="cd ~/Google\ Drive/_study_materials"
-alias note="cd ~/Google\ Drive/notes"
-alias note-m="cd ~/Google\ Drive/notes/misc"
-alias note-p="cd ~/Google\ Drive/notes/programming"
-alias mln="cd ~/Google\ Drive/_ml_notes"
-alias sn="cd ~/Google\ Drive/_study_notes"
-alias todo="vim ~/Google\ Drive/notes/todo.md"
-alias roadmap="cd ~/Google\ Drive/_study_materials; vim roadmap.txt"
-alias scratch="cd ~/Google\ Drive/notes/scratch_pad/; vim"
-alias tn="cd ~/Google\ Drive/_latex_notes"
-alias gn="cd ~/Google\ Drive/_goodnotes"
-alias genn="cd ~/Google\ Drive/_general_notes"
-alias mlnn="cd ~/Google\ Drive/_ml_notes"
-alias clsn="cd ~/Google\ Drive/_class_notes"
-alias codn="cd ~/Google\ Drive/_coding_notes"
+alias memex="cd ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/memex"
 
 # Install another copy of Homebrew for Intel simulated terminal
 # https://laict.medium.com/install-homebrew-on-macos-11-apple-silicon-630f37a74490
@@ -29,9 +15,7 @@ alias ibrew='arch -x86_64 /usr/local/bin/brew'
 # +----------------------------------------------------------------------------
 alias icat="kitty +kitten icat"
 
-# BEGIN_KITTY_SHELL_INTEGRATION
-if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; then source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; fi
-# END_KITTY_SHELL_INTEGRATION
+
 
 # Load other bashrc settings that is shared between macOS and Ubuntu
 [ -f "$HOME/.shared_bashrc" ] && source "$HOME/.shared_bashrc"
@@ -40,3 +24,8 @@ if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integr
 # | Pyenv
 # +----------------------------------------------------------------------------
 eval "$(pyenv init -)"
+
+
+# BEGIN_KITTY_SHELL_INTEGRATION
+if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; then source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; fi
+# END_KITTY_SHELL_INTEGRATION
