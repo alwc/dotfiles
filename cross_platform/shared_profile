@@ -10,5 +10,11 @@ export EDITOR=nvim
 # +----------------------------------------------------------------------------
 # Added by n-install (see http://git.io/n-install-repo).
 # export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"
-export N_PREFIX="$HOME/n";
-export PATH="$N_PREFIX/bin:$PATH"
+#export N_PREFIX="$HOME/n";
+#export PATH="$N_PREFIX/bin:$PATH"
+
+# +----------------------------------------------------------------------------
+# | Volta (JavaScript Tool Manager)
+# +----------------------------------------------------------------------------
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
