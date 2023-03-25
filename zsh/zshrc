@@ -10,7 +10,7 @@ export PROMPT='%F{white}%n%f%F{yellow}@%F{red}%m%f%F{white}:%F{green}%~%f%F{blue
 %F{green}%#%f '
 
 # +----------------------------------------------------------------------------
-# | Aliases setup
+# | Aliases setup (System)
 # +----------------------------------------------------------------------------
 ## Editor
 alias vim="nvim"
@@ -41,6 +41,20 @@ alias brew-cask-all="brew cu -a -y --cleanup"
 
 ## Network
 alias lsp="lsof -i -n -P | grep LISTEN"
+
+#------------------------------------------------------------------------------
+# Aliases setup (Others)
+#------------------------------------------------------------------------------
+alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+
+## Folder direct access
+alias memex="cd ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/memex"
+
+# Install another copy of Homebrew for Intel simulated terminal
+# https://laict.medium.com/install-homebrew-on-macos-11-apple-silicon-630f37a74490
+alias ibrew='arch -x86_64 /usr/local/bin/brew'
+
+alias icat="kitty +kitten icat"
 
 # +----------------------------------------------------------------------------
 # | fzf
