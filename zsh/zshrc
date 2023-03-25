@@ -1,1 +1,9 @@
 #[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+parse_git_branch() {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
+setopt PROMPT_SUBST
+export PROMPT='%F{white}%n%f%F{yellow}@%F{red}%m%f%F{white}:%F{green}%~%f%F{blue}$(parse_git_branch)
+%F{green}%#%f '
