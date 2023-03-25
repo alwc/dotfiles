@@ -1,0 +1,7 @@
+{
+    "workbench.colorTheme": "Default Dark+",
+    "terminal.integrated.defaultProfile.osx": "zsh",
+    "[python]": {
+        "editor.formatOnType": true
+    }
+}

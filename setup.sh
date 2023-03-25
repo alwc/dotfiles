@@ -162,6 +162,7 @@ symlink_dotfiles() {
 
     ln -sf $DOTFILES_DIR/zsh/zprofile ~/.zprofile
     ln -sf $DOTFILES_DIR/zsh/zshrc ~/.zshrc
+    ln -sf $DOTFILES_DIR/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
 }
 
 install_tmux_plugin_manager() {
