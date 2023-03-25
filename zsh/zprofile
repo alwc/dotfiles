@@ -29,6 +29,14 @@ export PATH="/opt/homebrew/sbin:$PATH"
 # For Homebrew's openssl
 export PATH="/usr/local/opt/openssl/bin:$PATH"
 
+# zlib (Homebrew's keg)
+# For compilers to find zlib you may need to set:
+export LDFLAGS="-L/usr/local/opt/zlib/lib"
+export CPPFLAGS="-I/usr/local/opt/zlib/include"
+
+# For pkg-config to find zlib you may need ot set:
+export PKG_CONFIG_PATH="/opt/homebrew/opt/zlib/lib/pkgconfig"
+
 # +----------------------------------------------------------------------------
 # | Pyenv
 # +----------------------------------------------------------------------------
