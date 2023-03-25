@@ -159,6 +159,9 @@ symlink_dotfiles() {
     ln -sf $DOTFILES_DIR/tmux/tmux.conf ~/.tmux.conf
     ln -sf $DOTFILES_DIR/gitconfig ~/.gitconfig
     ln -sf $DOTFILES_DIR/ctags.d ~/.ctags.d
+
+    ln -sf $DOTFILES_DIR/zsh/zprofile ~/.zprofile
+    ln -sf $DOTFILES_DIR/zsh/zshrc ~/.zshrc
 }
 
 install_tmux_plugin_manager() {
