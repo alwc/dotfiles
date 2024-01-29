@@ -42,6 +42,9 @@ alias brew-cask-all="brew cu -a -y --cleanup"
 ## Network
 alias lsp="lsof -i -n -P | grep LISTEN"
 
+## youtube-dl https://superuser.com/a/1554749
+unsetopt nomatch
+
 #------------------------------------------------------------------------------
 # Aliases setup (Others)
 #------------------------------------------------------------------------------

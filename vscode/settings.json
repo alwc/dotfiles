@@ -3,5 +3,8 @@
     "terminal.integrated.defaultProfile.osx": "zsh",
     "[python]": {
         "editor.formatOnType": true
-    }
+    },
+    "python.linting.pylintEnabled":true,
+    "python.linting.enabled": true,
+    "editor.inlineSuggest.enabled": true,
 }
