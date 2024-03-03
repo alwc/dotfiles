@@ -9,7 +9,7 @@
 # 3. Change "Caps Lock Key" to "Escape"
 #
 # >>>>> Maximize the "Key repeat" and "Delay Until Repeat" speed
-# 1. Open "System Preferences" -> "Keyboard" -> "Keyboard"
+# 1. Open "System Preferences" -> "Keyboard"
 # 2. Slide "Key Repeat" to "Fast" (right-most option)
 # 2. Slide "Delay Until Repeat" to "Short" (right-most option)
 

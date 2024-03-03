@@ -34,4 +34,5 @@
   "python.linting.pylamaArgs": ["-i", "E501"],
 
   "snippets.userSnippetsDirectory": "~/dotfiles/nvim/snippets",
+  "snippets.ultisnips.pythonPrompt": false,
 }
