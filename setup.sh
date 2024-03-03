@@ -59,6 +59,12 @@ install_osx_basics() {
     echo ">>>>> Setup HostName..."
     USER_HOSTNAME=AlexMBP
     sudo scutil --set HostName ${USER_HOSTNAME}
+
+    echo ">>>>> Install zsh..."
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+    echo ">>>>> Rosetta2..."
+    /usr/sbin/softwareupdate --install-rosetta --agree-to-license
 }
 
 install_homebrew_and_git() {
