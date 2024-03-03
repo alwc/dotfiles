@@ -4,7 +4,7 @@
 # | Things to setup on a new OSX machine
 # +---------------------------------------------------------------------------
 # >>>>> Change "Caps Lock" to "Escape" on OSX
-# 1. Open "System Preferences" -> "Keyboard" -> "Keyboard"
+# 1. Open "System Preferences" -> "Keyboard" -> "Keyboard Shortcuts"
 # 2. Click on "Modifier Keys..."
 # 3. Change "Caps Lock Key" to "Escape"
 #
@@ -63,7 +63,7 @@ install_osx_basics() {
 
 install_homebrew_and_git() {
     echo ">>>>> Install Homebrew..."
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
     # Temporarily export the Homebrew path
     if [ "$(uname -m)" == "x86_64" ]; then
@@ -232,9 +232,9 @@ options=(
   "Install OSX basics"
   "Clone my dotfiles"
   "Install Homebrew and Git"
+  "Create symlink to my dotfiles"
   "Install ctags and gtags (only if homebrew failed installing)"
   "Install Homebrew bundle"
-  "Create symlink to my dotfiles"
   "Install Tmux plugin manager"
   "Setup Neovim environment"
   "Setup Zotero storage symlink"
