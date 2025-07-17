@@ -21,9 +21,10 @@ alias icat="kitty +kitten icat"
 [ -f "$HOME/.shared_bashrc" ] && source "$HOME/.shared_bashrc"
 
 # +----------------------------------------------------------------------------
-# | Pyenv
+# | uv (Python Package Manager)
 # +----------------------------------------------------------------------------
-eval "$(pyenv init -)"
+# uv doesn't require shell initialization like pyenv
+# Python versions and environments are managed via uv commands
 
 
 # BEGIN_KITTY_SHELL_INTEGRATION

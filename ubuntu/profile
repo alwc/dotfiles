@@ -37,10 +37,9 @@ if [ -f '~/google-cloud-sdk/completion.bash.inc' ]; then
     source '/home/alex/google-cloud-sdk/completion.bash.inc';
 fi
 
-# For `gcloud` since it uses python2 Read:
-# - https://github.com/pyenv/pyenv/issues/1159#issuecomment-549235372
-# - https://github.com/pyenv/pyenv-virtualenv/issues/267#issuecomment-395932404
-export CLOUDSDK_PYTHON=~/.pyenv/shims/python2
+# For `gcloud` - uses system Python 3 now
+# Most modern versions of gcloud support Python 3
+export CLOUDSDK_PYTHON=python3
 
 # Load other profile settings that is shared between macOS and Ubuntu
 [ -f "$HOME/.shared_profile" ] && source "$HOME/.shared_profile"
