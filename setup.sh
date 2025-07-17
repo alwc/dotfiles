@@ -178,31 +178,25 @@ install_tmux_plugin_manager() {
 }
 
 setup_neovim_env() {
-    # Note: if build failed, read https://github.com/pyenv/pyenv/wiki/common-build-problems
+    # Using uv for Python environment management
 
     # Automatic exit from bash shell script on error
     set -e
 
-    # - https://github.com/zchee/deoplete-jedi/wiki/Setting-up-Python-for-Neovim
-    # Check the available python version using `pyenv install --list`
-    PYENV_2=2.7.18
-    pyenv install $PYENV_2
+    # Install Python versions using uv
+    uv python install 3.12.6 2.7.18
 
-    PYENV_3=3.9.4
-    pyenv install $PYENV_3
-    pyenv virtualenv $PYENV_3 neovim3
-    pyenv activate neovim3
-    pip install --upgrade pip
-    pip install pynvim
-    pyenv which python
+    # Set the default Python version
+    uv python pin 3.12.6
 
-    # Install Python library for neovim
-    pip install black mypy pylama bandit rope jedi isort
+    # Create a virtual environment for Neovim using Python 3.9.4
+    uv venv neovim3 --python 3.12.6
+    source neovim3/bin/activate
+    
+    # Install Python packages for neovim
+    uv pip install pynvim black mypy pylama bandit rope jedi isort
 
-    source deactivate neovim3
-
-    # Set the system python
-    pyenv global $PYENV_3 $PYENV_2
+    deactivate
 
     # Install Node's neovim plugin
     [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || npm install -g neovim

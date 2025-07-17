@@ -2,11 +2,11 @@ scriptencoding utf-8
 set encoding=utf-8
 
 "-----------------------------------------------------------------------------
-" pyenv
+" uv Python configuration
 "-----------------------------------------------------------------------------
 if has("unix")
-    let g:python_host_prog = $HOME.'/.pyenv/versions/neovim2/bin/python'
-    let g:python3_host_prog = $HOME.'/.pyenv/versions/neovim3/bin/python'
+    let g:python_host_prog = $HOME.'/neovim2/bin/python'
+    let g:python3_host_prog = $HOME.'/neovim3/bin/python'
     let g:python3_host_skip_check=1
 endif
 

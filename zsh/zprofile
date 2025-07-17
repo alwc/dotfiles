@@ -38,11 +38,10 @@ export CPPFLAGS="-I/usr/local/opt/zlib/include"
 export PKG_CONFIG_PATH="/opt/homebrew/opt/zlib/lib/pkgconfig"
 
 # +----------------------------------------------------------------------------
-# | Pyenv
+# | uv (Python Package Manager)
 # +----------------------------------------------------------------------------
-# See https://github.com/pyenv/pyenv#set-up-your-shell-environment-for-pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+# Ensure uv is available in PATH (should be installed via Homebrew)
+export PATH="$HOME/.local/bin:$PATH"
 
 # +----------------------------------------------------------------------------
 # | Volta (JavaScript Tool Manager)

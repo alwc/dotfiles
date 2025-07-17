@@ -73,9 +73,7 @@ export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!{.
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # +----------------------------------------------------------------------------
-# | Pyenv
+# | uv (Python Package Manager)
 # +----------------------------------------------------------------------------
-# See https://github.com/pyenv/pyenv#set-up-your-shell-environment-for-pyenv
-eval "$(pyenv init -)"
-# See https://github.com/pyenv/pyenv-virtualenv#installing-with-homebrew-for-macos-users
-eval "$(pyenv virtualenv-init -)"
+# uv doesn't require shell initialization like pyenv
+# Python versions and environments are managed via uv commands
