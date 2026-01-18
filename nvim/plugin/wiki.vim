@@ -51,9 +51,13 @@ endfunction
 
 " Use `vim-pandoc-syntax` without `vim-pandoc`
 augroup pandoc_syntax
-    au! BufNewFile,BufFilePre,BufRead *.md set filetype=pandoc
+    au!
+    " Default: pandoc for all .md files
+    au BufNewFile,BufFilePre,BufRead *.md set filetype=pandoc
+    " Override: GFM (vim-markdown) for goodnotes folder
+    au BufNewFile,BufFilePre,BufRead ~/Dropbox/memex/goodnotes/*.md set filetype=markdown
 
-    " Modified from: https://github.com/lervag/wiki.vim/issues/46#issuecomment-617158322¬
+    " Modified from: https://github.com/lervag/wiki.vim/issues/46#issuecomment-617158322
     autocmd BufNewFile ~/Dropbox/memex/*.md call SetWikiMarkdownTemplate() | norm G
 augroup END
 

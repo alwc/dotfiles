@@ -23,6 +23,9 @@ endif
 " TODO: Remove after done reading VimL Primer
 set runtimepath+=~/Dropbox/tutorials/vim/benjamin.klein-viml_primer/mpc/
 
+" Disable polyglot's markdown to use vim-markdown instead
+let g:polyglot_disabled = ['markdown']
+
 call plug#begin('~/.config/nvim/plugged')
 
 " tabular must come before vim-markdown
