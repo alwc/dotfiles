@@ -11,8 +11,8 @@
 [push]
     default = simple
 [user]
-	name = Alex L
-	email = alex90@gmail.com
+	name = Alex Lee
+	email = alex@goodnotesapp.com
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
