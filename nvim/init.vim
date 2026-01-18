@@ -25,7 +25,9 @@ set runtimepath+=~/Dropbox/tutorials/vim/benjamin.klein-viml_primer/mpc/
 
 call plug#begin('~/.config/nvim/plugged')
 
-" Plug 'plasticboy/vim-markdown'
+" tabular must come before vim-markdown
+Plug 'godlygeek/tabular'
+Plug 'preservim/vim-markdown'
 " "Plug 'mhinz/vim-startify'
 " "Plug 'vim-pandoc/vim-pandoc', { 'for': [ 'pandoc', 'markdown' ] }
 " "Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': [ 'pandoc', 'markdown' ] }
