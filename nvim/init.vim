@@ -91,6 +91,8 @@ Plug 'liuchengxu/vista.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Preview markdown on your browser with synchronised scrolling
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+" Git diff
+Plug 'kokusenz/deltaview.nvim'
 
 " Check syntax asynchronously and fix files
 " Plug 'dense-analysis/ale'
