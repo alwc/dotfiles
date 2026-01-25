@@ -15,7 +15,6 @@ alias ibrew='arch -x86_64 /usr/local/bin/brew'
 # | Kitty
 # +----------------------------------------------------------------------------
 alias icat="kitty +kitten icat"
-w
 
 # Load other bashrc settings that is shared between macOS and Ubuntu
 [ -f "$HOME/.shared_bashrc" ] && source "$HOME/.shared_bashrc"
