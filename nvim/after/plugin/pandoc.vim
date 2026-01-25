@@ -1,25 +1,6 @@
-let g:wiki_root='~/Dropbox/memex'
-let g:wiki_zotero_root='~/Dropbox/references'
-let g:wiki_template_title_month='# %(year) %(month-name)'
-let g:wiki_template_title_week='# %(year) week %(week)'
-let g:wiki_filetypes=['md']
-let g:wiki_date_exe='gdate'
-let g:wiki_tags_format_pattern='\v%(^|\s)#\zs[^# ]+'
+" Pandoc and memex-related settings (independent of wiki.vim)
 
-let g:wiki_map_link_create = 'LinkNameScheme'
-
-" if executable('fzf')
-"     let g:wiki_tags_scan_num_lines = 99999
-"     nnoremap <silent> <C-g> :WikiFzfTags<CR>
-" end
-
-function LinkNameScheme(text) abort
-  return substitute(tolower(a:text), '\s\+', '_', 'g')
-endfunction
-
-" [Add date]
-" nmap <silent> <leader>date a<C-R>=strftime(" %a %d %b %Y %I:%M:%S %p %Z")<CR><ESC>
-
+" [Auto-update timestamp in memex files]
 " From:
 " - https://www.reddit.com/r/vim/comments/2hxxxy/how_to_autoupdate_time_stamp_field_in_a_file/
 " - https://gist.github.com/jelera/7838011
@@ -57,11 +38,10 @@ augroup pandoc_syntax
     " Override: GFM (vim-markdown) for goodnotes folder
     au BufNewFile,BufFilePre,BufRead ~/Dropbox/memex/goodnotes/*.md set filetype=markdown
 
+    " Create frontmatter template for new memex files
     " Modified from: https://github.com/lervag/wiki.vim/issues/46#issuecomment-617158322
     autocmd BufNewFile ~/Dropbox/memex/*.md call SetWikiMarkdownTemplate() | norm G
 augroup END
-
-" autocmd BufNewFile ~/Dropbox/memex/*.md call SetWikiMarkdownTemplate() | norm G
 
 func SetWikiMarkdownTemplate()
     if expand("%:e") == 'md'

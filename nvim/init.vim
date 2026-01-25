@@ -41,8 +41,6 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'kshenoy/vim-signature'
 
 if has('mac')
-    " A lightweight version of vimwiki
-    Plug 'lervag/wiki.vim'
     " Manage text based lists
     Plug 'lervag/lists.vim'
 
@@ -60,6 +58,9 @@ endif
 Plug 'junegunn/fzf.vim'
 " Adds file type icons to Vim plugins
 Plug 'ryanoasis/vim-devicons'
+" File tree explorer
+Plug 'nvim-tree/nvim-tree.lua'
+Plug 'nvim-tree/nvim-web-devicons'
 " A light and configurable statusline/tabline plugin
 Plug 'itchyny/lightline.vim'
 " Few utilities for pretty tabs

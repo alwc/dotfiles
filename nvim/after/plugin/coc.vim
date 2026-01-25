@@ -1,6 +1,5 @@
 let g:coc_global_extensions = [
   \ 'coc-git',
-  \ 'coc-explorer',
   \ 'coc-tsserver',
   \ 'coc-prettier',
   \ 'coc-eslint',
@@ -163,11 +162,6 @@ call SetupCommandAbbrs('V', 'e ~/dotfiles/nvim/init.vim')
 
 " Use I to call isort for Python files
 call SetupCommandAbbrs('I', 'CocCommand python.sortImports')
-
-" ['weirongxu/coc-explorer'] =================================================
-"
-" Open coc-explorer
-:nmap <leader>w :CocCommand explorer<CR>
 
 " ['neoclide/coc-git'] ==================================================
 "
