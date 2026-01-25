@@ -57,6 +57,7 @@ alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 
 ## Folder direct access
 alias memex="cd ~/Dropbox/memex"
+alias dot="cd ~/dotfiles"
 
 # Install another copy of Homebrew for Intel simulated terminal
 # https://laict.medium.com/install-homebrew-on-macos-11-apple-silicon-630f37a74490
