@@ -6,12 +6,6 @@
   "diagnostic.errorSign": "",
   "diagnostic.infoSign": "",
 
-  "git.changedSign.text": "",
-  "git.addedSign.text": "",
-  "git.removedSign.text": "",
-  "git.topRemovedSign.text": "ﬢ",
-  "git.changeRemovedSign.text": "≃",
-
   "tsserver.npm": "~/n/bin/npm",
   "tsserver.trace.server": "verbose",
   "tsserver.log": "verbose",

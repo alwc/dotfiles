@@ -1,5 +1,4 @@
 let g:coc_global_extensions = [
-  \ 'coc-git',
   \ 'coc-tsserver',
   \ 'coc-prettier',
   \ 'coc-eslint',
@@ -163,8 +162,3 @@ call SetupCommandAbbrs('V', 'e ~/dotfiles/nvim/init.vim')
 " Use I to call isort for Python files
 call SetupCommandAbbrs('I', 'CocCommand python.sortImports')
 
-" ['neoclide/coc-git'] ==================================================
-"
-" navigate chunks of current buffer
-nmap <silent> [c <Plug>(coc-git-prevchunk)
-nmap <silent> ]c <Plug>(coc-git-nextchunk)
