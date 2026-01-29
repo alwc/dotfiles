@@ -21,3 +21,6 @@ let g:vim_markdown_folding_disabled = 1
 
 " Enable YAML front matter
 let g:vim_markdown_frontmatter = 1
+
+" Open URL under cursor with double Enter
+autocmd FileType markdown,pandoc lua vim.keymap.set('n', '<CR><CR>', function() local word = vim.fn.expand('<cWORD>') local url = word:match('https?://[^%s%>%## %)%]]*') if url then vim.ui.open(url) end end, { buffer = true, desc = 'Open URL under cursor' })
