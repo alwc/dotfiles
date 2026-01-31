@@ -1,6 +1,10 @@
 scriptencoding utf-8
 set encoding=utf-8
 
+" Disable netrw for nvim-tree
+let g:loaded_netrw = 1
+let g:loaded_netrwPlugin = 1
+
 "-----------------------------------------------------------------------------
 " uv Python configuration
 "-----------------------------------------------------------------------------
@@ -290,6 +294,9 @@ augroup END
 
 " ['kshenoy/vim-signature'] ==================================================
 nmap <silent> <leader>m :SignatureToggle<CR>
+
+" [nvim-tree/nvim-tree.lua] ==================================================
+lua require('plugins.nvim-tree')
 
 " [skywind3000/asyncrun.vim] =================================================
 " Give async capabilities to vim-fugitive
