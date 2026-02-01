@@ -80,3 +80,9 @@ else
 
     hi pandocOperator guifg=#af3a03 ctermfg=124
 endif
+
+" Disable LaTeX math syntax (prevents $0, $1 etc from being parsed as math)
+syntax clear pandocLaTeXInlineMath
+syntax clear pandocLaTeXMathBlock
+syntax clear pandocLaTeXCommand
+syntax clear pandocLaTeXRegion
