@@ -293,7 +293,7 @@ augroup END
 " let g:AutoPairsMapCR=0
 
 " ['kshenoy/vim-signature'] ==================================================
-nmap <silent> <leader>m :SignatureToggle<CR>
+lua require('plugins.signature')
 
 " [nvim-tree/nvim-tree.lua] ==================================================
 lua require('plugins.nvim-tree')
