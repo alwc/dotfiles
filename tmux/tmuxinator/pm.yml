@@ -1,0 +1,19 @@
+name: pm
+root: ~/goodnotes/work_repos/goodnotes-wiki
+
+windows:
+  - Todo:
+      layout: even-horizontal
+      panes:
+        - cd timeline
+        - cd timeline
+  - Notes:
+      layout: even-horizontal
+      panes:
+        - cd notes
+        - cd notes
+  - Jira:
+      layout: even-horizontal
+      panes:
+        - cd tickets
+        - cd tickets
