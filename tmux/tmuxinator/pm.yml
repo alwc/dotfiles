@@ -17,3 +17,15 @@ windows:
       panes:
         - cd tickets
         - cd tickets
+  - Facts:
+      layout: even-horizontal
+      panes:
+        - cd facts
+        - cd facts
+  - X-teams:
+      layout: even-horizontal
+      panes:
+        - cd xteams
+        - cd xteams
+  - Bookmarks:
+      layout: even-horizontal
