@@ -2,3 +2,13 @@
 # | Claude env vars, aliases and scripts
 # +----------------------------------------------------------------------------
 
+# Create a git worktree for Claude Code to work in isolation
+# Usage: cw [name] [base-branch]
+# Example: cw fix-auth main -> creates ../repo-fix-auth on claude/fix-auth branch
+cw() {
+  local name="${1:-$(date +%Y%m%d)-$(grep -E '^[a-z]{4,8}$' /usr/share/dict/words | awk 'BEGIN{srand()} rand() < 1/NR {w=$0} END{print w}')}"
+  local base="${2:-main}"
+  git worktree add "../$(basename $(pwd))-${name}" -b "claude/${name}" "${base}"
+  cd "../$(basename $(pwd))-${name}"
+}
+
