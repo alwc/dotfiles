@@ -21,6 +21,36 @@ alias pw="git worktree prune"
 # Claude Code (Agent Teams)
 export CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS="1"
 
+# Pick/move to a git worktree by name (tab-completable)
+# Note: must be run from the main worktree folder
+# Usage: mw           -> lists all worktrees
+#        mw <name>    -> cd into the first worktree matching <name>
+mw() {
+  if [ -z "$1" ]; then
+    git worktree list
+    return
+  fi
+  local dir
+  dir=$(git worktree list --porcelain | grep '^worktree ' | sed 's/^worktree //' | grep -i "$1" | head -1)
+  if [ -n "$dir" ]; then
+    cd "$dir"
+  else
+    echo "No worktree matching '$1'"
+    return 1
+  fi
+}
+
+_mw_completions() {
+  local worktrees
+  worktrees=($(git worktree list --porcelain 2>/dev/null | grep '^worktree ' | sed 's/^worktree //' | while read -r d; do basename "$d"; done))
+  _describe 'worktree' worktrees
+}
+if type compdef &>/dev/null; then
+  compdef _mw_completions mw
+else
+  autoload -Uz compinit && compinit && compdef _mw_completions mw
+fi
+
 # Claude Code shortcuts
 alias ccd="claude --dangerously-skip-permissions"
 alias ccp="cd ~/.claude/plans"
