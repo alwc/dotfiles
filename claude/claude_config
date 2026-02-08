@@ -41,8 +41,9 @@ mw() {
 }
 
 _mw_completions() {
-  local worktrees
-  worktrees=($(git worktree list --porcelain 2>/dev/null | grep '^worktree ' | sed 's/^worktree //' | while read -r d; do basename "$d"; done))
+  local main_name worktrees
+  main_name=$(basename "$(git worktree list --porcelain 2>/dev/null | grep '^worktree ' | head -1 | sed 's/^worktree //')")
+  worktrees=($(git worktree list --porcelain 2>/dev/null | grep '^worktree ' | sed 's/^worktree //' | while read -r d; do basename "$d" | sed "s/^${main_name}-//"; done))
   _describe 'worktree' worktrees
 }
 if type compdef &>/dev/null; then
