@@ -18,3 +18,6 @@ alias lw="git worktree list"
 # Prune stale git worktree references
 alias pw="git worktree prune"
 
+alias ccd="claude --dangerously-skip-permissions"
+alias ccp="cd ~/.claude/plans"
+
