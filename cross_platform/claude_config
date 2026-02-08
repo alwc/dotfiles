@@ -15,3 +15,6 @@ cw() {
 # List all git worktrees
 alias lw="git worktree list"
 
+# Prune stale git worktree references
+alias pw="git worktree prune"
+
