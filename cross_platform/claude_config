@@ -12,3 +12,6 @@ cw() {
   cd "../$(basename $(pwd))-${name}"
 }
 
+# List all git worktrees
+alias lw="git worktree list"
+
