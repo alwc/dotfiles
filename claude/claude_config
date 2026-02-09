@@ -2,6 +2,17 @@
 # | Claude env vars, aliases and scripts
 # +----------------------------------------------------------------------------
 
+# Claude Code (Agent Teams)
+export CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS="1"
+
+# Claude Code shortcuts
+alias ccd="claude --dangerously-skip-permissions"
+alias ccp="cd ~/.claude/plans"
+
+# +----------------------------------------------------------------------------
+# | Git Worktree aliases and scripts
+# +----------------------------------------------------------------------------
+
 # Create a git worktree for Claude Code to work in isolation
 # Usage: cw [new project name] [base-branch]
 # Example: cw fix-auth main -> creates ../repo-fix-auth on claude/fix-auth branch
@@ -17,9 +28,6 @@ alias lw="git worktree list"
 
 # Prune stale git worktree references
 alias pw="git worktree prune"
-
-# Claude Code (Agent Teams)
-export CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS="1"
 
 # Pick/move to a git worktree by name (tab-completable)
 # Note: must be run from the main worktree folder
@@ -51,8 +59,4 @@ if type compdef &>/dev/null; then
 else
   autoload -Uz compinit && compinit && compdef _mw_completions mw
 fi
-
-# Claude Code shortcuts
-alias ccd="claude --dangerously-skip-permissions"
-alias ccp="cd ~/.claude/plans"
 
