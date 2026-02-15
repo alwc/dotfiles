@@ -103,3 +103,10 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # +----------------------------------------------------------------------------
 # uv doesn't require shell initialization like pyenv
 # Python versions and environments are managed via uv commands
+
+# +----------------------------------------------------------------------------
+# | Bun (JavaScript Runtime)
+# +----------------------------------------------------------------------------
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+[ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"
