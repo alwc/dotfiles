@@ -1,15 +1,15 @@
 # Tmux Notes
 
-## Tmuxinator
+## Smug
 
 Start a saved layout:
 ```bash
-mux pm
+smug start pm
 ```
 
 Other commands:
-- `tmuxinator list` - list all projects
-- `tmuxinator edit pm` - edit a project
-- `tmuxinator stop pm` - stop a session
+- `smug stop pm` - stop a session
+- `smug edit pm` - edit a project config
+- `smug list` - list all projects
 
-Config location: `~/.config/tmuxinator/` (symlinked from `~/dotfiles/tmux/tmuxinator/`)
+Config location: `~/.config/smug/` (symlinked from `~/dotfiles_private/smug/`)
