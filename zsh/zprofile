@@ -43,11 +43,6 @@ export PKG_CONFIG_PATH="/opt/homebrew/opt/zlib/lib/pkgconfig"
 # Ensure uv is available in PATH (should be installed via Homebrew)
 export PATH="$HOME/.local/bin:$PATH"
 
-# +----------------------------------------------------------------------------
-# | Volta (JavaScript Tool Manager)
-# +----------------------------------------------------------------------------
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
 
 # +----------------------------------------------------------------------------
 # | Obsidian
