@@ -9,54 +9,5 @@ export CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS="1"
 alias ccd="claude --dangerously-skip-permissions"
 alias ccp="cd ~/.claude/plans"
 
-# +----------------------------------------------------------------------------
-# | Git Worktree aliases and scripts
-# +----------------------------------------------------------------------------
-
-# Create a git worktree for Claude Code to work in isolation
-# Usage: cw [new project name] [base-branch]
-# Example: cw fix-auth main -> creates ../repo-fix-auth on claude/fix-auth branch
-cw() {
-  local name="${1:-$(date +%Y%m%d)-$(grep -E '^[a-z]{4,8}$' /usr/share/dict/words | awk 'BEGIN{srand()} rand() < 1/NR {w=$0} END{print w}')}"
-  local base="${2:-main}"
-  git worktree add "../$(basename $(pwd))-${name}" -b "cc/${name}" "${base}"
-  cd "../$(basename $(pwd))-${name}"
-}
-
-# List all git worktrees
-alias lw="git worktree list"
-
-# Prune stale git worktree references
-alias pw="git worktree prune"
-
-# Pick/move to a git worktree by name (tab-completable)
-# Note: must be run from the main worktree folder
-# Usage: mw           -> lists all worktrees
-#        mw <name>    -> cd into the first worktree matching <name>
-mw() {
-  if [ -z "$1" ]; then
-    git worktree list
-    return
-  fi
-  local dir
-  dir=$(git worktree list --porcelain | grep '^worktree ' | sed 's/^worktree //' | grep -i "$1" | head -1)
-  if [ -n "$dir" ]; then
-    cd "$dir"
-  else
-    echo "No worktree matching '$1'"
-    return 1
-  fi
-}
-
-_mw_completions() {
-  local main_name worktrees
-  main_name=$(basename "$(git worktree list --porcelain 2>/dev/null | grep '^worktree ' | head -1 | sed 's/^worktree //')")
-  worktrees=($(git worktree list --porcelain 2>/dev/null | grep '^worktree ' | sed 's/^worktree //' | while read -r d; do basename "$d" | sed "s/^${main_name}-//"; done))
-  _describe 'worktree' worktrees
-}
-if type compdef &>/dev/null; then
-  compdef _mw_completions mw
-else
-  autoload -Uz compinit && compinit && compdef _mw_completions mw
-fi
-
+# Git worktree helpers (symlinked from dotfiles_private)
+source ~/.config/worktrees/worktrees.sh
