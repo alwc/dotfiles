@@ -152,8 +152,8 @@ symlink_dotfiles() {
     mkdir -p $CONFIG_DIR
 
     if [ "$(uname)" == "Darwin" ]; then
-        ln -sf $DOTFILES_DIR/karabiner $CONFIG_DIR/karabiner
-        ln -sf $DOTFILES_DIR/kitty $CONFIG_DIR/kitty
+        ln -sfn $DOTFILES_DIR/karabiner $CONFIG_DIR/karabiner
+        ln -sfn $DOTFILES_DIR/kitty $CONFIG_DIR/kitty
         ln -sf $DOTFILES_DIR/latexmkrc ~/.latexmkrc
 
         # Setup OSX default settings
@@ -164,11 +164,11 @@ symlink_dotfiles() {
     ln -sf $DOTFILES_DIR/cross_platform/bash_profile ~/.bash_profile
     ln -sf $DOTFILES_DIR/$OS_DIR/bashrc ~/.bashrc
     ln -sf $DOTFILES_DIR/$OS_DIR/profile ~/.profile
-    ln -sf $DOTFILES_DIR/nvim $CONFIG_DIR/nvim
+    ln -sfn $DOTFILES_DIR/nvim $CONFIG_DIR/nvim
     ln -sf $DOTFILES_DIR/nvim/coc/coc-settings-${OS_DIR}.json $CONFIG_DIR/nvim/coc-settings.json
     ln -sf $DOTFILES_DIR/tmux/tmux.conf ~/.tmux.conf
     ln -sf $DOTFILES_DIR/gitconfig ~/.gitconfig
-    ln -sf $DOTFILES_DIR/ctags.d ~/.ctags.d
+    ln -sfn $DOTFILES_DIR/ctags.d ~/.ctags.d
 
     ln -sf $DOTFILES_DIR/zsh/zprofile ~/.zprofile
     ln -sf $DOTFILES_DIR/zsh/zshrc ~/.zshrc
