@@ -104,6 +104,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Preview markdown on your browser with synchronised scrolling
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 " Git diff
+Plug 'kokusenz/delta.lua'
 Plug 'kokusenz/deltaview.nvim'
 
 " Check syntax asynchronously and fix files
