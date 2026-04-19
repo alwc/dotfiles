@@ -2,6 +2,7 @@
 # | Secrets (not in version control)
 # +----------------------------------------------------------------------------
 [ -f ~/.secrets ] && source ~/.secrets
+[ -f ~/.oc_secrets ] && source ~/.oc_secrets
 
 # +----------------------------------------------------------------------------
 # | SSH palette — repaint the local terminal with a Nord-ish scheme via OSC
