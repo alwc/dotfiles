@@ -130,7 +130,7 @@ install_homebrew_bundle() {
         export PATH=/home/linuxbrew/.linuxbrew/bin/:$PATH
     fi
 
-    brew bundle --file=$DOTFILES_DIR/$OS_DIR/Brewfile
+    brew bundle --jobs=auto --file=$DOTFILES_DIR/$OS_DIR/Brewfile
 
     # To install useful FZF key bindings and fuzzy completion:
     $(brew --prefix)/opt/fzf/install
