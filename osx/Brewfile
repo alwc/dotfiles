@@ -57,6 +57,7 @@ brew "librsvg"
 brew "mpc"
 brew "mpd", restart_service: :changed
 brew "navi"
+brew "mise"
 brew "neovim"
 brew "openjdk"
 brew "openjdk@17"
