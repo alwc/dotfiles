@@ -40,11 +40,20 @@
 # - https://docs.gitlab.com/ee/ssh/
 
 DOTFILES_DIR=~/dotfiles
-if [ "$(uname)" == "Darwin" ]; then
-    OS_DIR=osx
-elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-    OS_DIR=ubuntu
-fi
+case "$(uname -s)" in
+    Darwin) OS_DIR=osx ;;
+    Linux*) OS_DIR=ubuntu ;;
+    *) echo "Unsupported OS: $(uname -s)"; exit 1 ;;
+esac
+
+# Resolve the Homebrew prefix for the current OS/arch.
+_brew_prefix() {
+    case "$(uname -s)-$(uname -m)" in
+        Darwin-arm64)  echo /opt/homebrew ;;
+        Darwin-x86_64) echo /usr/local ;;
+        Linux-*)       echo /home/linuxbrew/.linuxbrew ;;
+    esac
+}
 
 # Exit script without exiting shell. This is like press `Ctrl-C`
 # Read: https://stackoverflow.com/a/17153661
@@ -74,13 +83,7 @@ install_homebrew_and_git() {
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
     # Temporarily export the Homebrew path
-    if [ "$(uname -m)" == "x86_64" ]; then
-        export PATH=/usr/local/bin:$PATH
-    elif [ "$(uname -m)" == "arm64" ]; then
-        export PATH=/opt/homebrew/bin:$PATH
-    else
-        export PATH=/home/linuxbrew/.linuxbrew/bin/:$PATH
-    fi
+    export PATH="$(_brew_prefix)/bin:$PATH"
 
     brew update && brew upgrade
 }
@@ -96,13 +99,7 @@ clone_dotfiles() {
 
 install_ctags_and_gtags() {
     # Temporarily export the Homebrew path
-    if [ "$(uname -m)" == "x86_64" ]; then
-        export PATH=/usr/local/bin:$PATH
-    elif [ "$(uname -m)" == "arm64" ]; then
-        export PATH=/opt/homebrew/bin:$PATH
-    else
-        export PATH=/home/linuxbrew/.linuxbrew/bin/:$PATH
-    fi
+    export PATH="$(_brew_prefix)/bin:$PATH"
 
     # Install universal-ctags
     # ref: https://gist.github.com/alexshgov/7e5ed7841667c66ef5ca4f31664714a9
@@ -122,21 +119,20 @@ install_ctags_and_gtags() {
 
 install_homebrew_bundle() {
     # Temporarily export the Homebrew path
-    if [ "$(uname -m)" == "x86_64" ]; then
-        export PATH=/usr/local/bin:$PATH
-    elif [ "$(uname -m)" == "arm64" ]; then
-        export PATH=/opt/homebrew/bin:$PATH
-    else
-        export PATH=/home/linuxbrew/.linuxbrew/bin/:$PATH
-    fi
+    export PATH="$(_brew_prefix)/bin:$PATH"
 
     brew bundle --jobs=auto --file=$DOTFILES_DIR/$OS_DIR/Brewfile
 
     # To install useful FZF key bindings and fuzzy completion:
-    $(brew --prefix)/opt/fzf/install
+    FZF_INSTALL="$(brew --prefix)/opt/fzf/install"
+    if [ -x "$FZF_INSTALL" ]; then
+        "$FZF_INSTALL"
+    else
+        echo ">>>>> Skipping fzf install script (not found at $FZF_INSTALL)"
+    fi
 
     # TEMP fix for ripgrep on Ubuntu
-    if [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+    if [ "$OS_DIR" = "ubuntu" ]; then
         . $DOTFILES_DIR/$OS_DIR/install_ripgrep.sh
     fi
     cd $DOTFILES_DIR
