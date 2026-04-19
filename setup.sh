@@ -208,6 +208,14 @@ setup_neovim_env() {
     # Automatic exit from bash shell script on error
     set -e
 
+    # Temporarily export the Homebrew path
+    export PATH="$(_brew_prefix)/bin:$PATH"
+
+    if ! command -v uv >/dev/null 2>&1; then
+        echo ">>>>> Install uv via Homebrew..."
+        brew install uv
+    fi
+
     # Install Python versions using uv
     uv python install 3.12.6
 
