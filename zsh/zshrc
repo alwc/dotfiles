@@ -4,6 +4,38 @@
 [ -f ~/.secrets ] && source ~/.secrets
 
 # +----------------------------------------------------------------------------
+# | SSH palette — repaint the local terminal with a Nord-ish scheme via OSC
+# | escapes when this shell is running over SSH, so remote sessions are
+# | visually distinct from local ones. Reset on exit so colors don't linger.
+# +----------------------------------------------------------------------------
+if [[ -n "$SSH_CONNECTION" ]] && [[ -t 1 ]]; then
+  _ssh_osc() { printf '\033]%s\007' "$1"; }
+  _ssh_osc "10;#d8dee9"   # foreground
+  _ssh_osc "11;#2e3440"   # background
+  _ssh_osc "12;#d8dee9"   # cursor
+  _ssh_osc "4;0;#3b4252"
+  _ssh_osc "4;1;#bf616a"
+  _ssh_osc "4;2;#a3be8c"
+  _ssh_osc "4;3;#ebcb8b"
+  _ssh_osc "4;4;#81a1c1"
+  _ssh_osc "4;5;#b48ead"
+  _ssh_osc "4;6;#88c0d0"
+  _ssh_osc "4;7;#e5e9f0"
+  _ssh_osc "4;8;#4c566a"
+  _ssh_osc "4;9;#bf616a"
+  _ssh_osc "4;10;#a3be8c"
+  _ssh_osc "4;11;#ebcb8b"
+  _ssh_osc "4;12;#81a1c1"
+  _ssh_osc "4;13;#b48ead"
+  _ssh_osc "4;14;#8fbcbb"
+  _ssh_osc "4;15;#eceff4"
+  unset -f _ssh_osc
+  zshexit() {
+    printf '\033]110\007\033]111\007\033]112\007\033]104\007'
+  }
+fi
+
+# +----------------------------------------------------------------------------
 # | Pretty prompt
 # +----------------------------------------------------------------------------
 parse_git_branch() {
