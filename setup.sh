@@ -86,6 +86,11 @@ install_homebrew_and_git() {
     export PATH="$(_brew_prefix)/bin:$PATH"
 
     brew update && brew upgrade
+
+    if [ "$OS_DIR" = "osx" ]; then
+        brew install --cask 1password
+        brew install 1password-cli
+    fi
 }
 
 clone_dotfiles() {
