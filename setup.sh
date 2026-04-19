@@ -57,14 +57,16 @@ install_osx_basics() {
     xcode-select --install
 
     echo ">>>>> Setup HostName..."
-    USER_HOSTNAME=AlexMBP
-    sudo scutil --set HostName ${USER_HOSTNAME}
+    read -p "Enter hostname for this machine: " USER_HOSTNAME
+    sudo scutil --set HostName "${USER_HOSTNAME}"
 
     echo ">>>>> Install zsh..."
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-    echo ">>>>> Rosetta2..."
-    /usr/sbin/softwareupdate --install-rosetta --agree-to-license
+    if [ "$(uname -m)" == "arm64" ]; then
+        echo ">>>>> Rosetta2..."
+        /usr/sbin/softwareupdate --install-rosetta --agree-to-license
+    fi
 }
 
 install_homebrew_and_git() {
@@ -80,13 +82,15 @@ install_homebrew_and_git() {
         export PATH=/home/linuxbrew/.linuxbrew/bin/:$PATH
     fi
 
-    echo ">>>>> Install git"
     brew update && brew upgrade
-    brew install git
 }
 
 clone_dotfiles() {
-    git clone git@github.com:alwc/dotfiles.git $DOTFILES_DIR
+    if [ -d "$DOTFILES_DIR" ]; then
+        echo ">>>>> $DOTFILES_DIR already exists, skipping clone."
+    else
+        git clone git@github.com:alwc/dotfiles.git $DOTFILES_DIR
+    fi
     cd $DOTFILES_DIR
 }
 
@@ -168,13 +172,16 @@ symlink_dotfiles() {
 
     ln -sf $DOTFILES_DIR/zsh/zprofile ~/.zprofile
     ln -sf $DOTFILES_DIR/zsh/zshrc ~/.zshrc
-    ln -sf $DOTFILES_DIR/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
 }
 
 install_tmux_plugin_manager() {
     echo ">>>>> Install Tmux Plugin Manager (TPM)..."
     # https://github.com/tmux-plugins/tpm#installing-plugins
-    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    if [ -d ~/.tmux/plugins/tpm ]; then
+        echo ">>>>> ~/.tmux/plugins/tpm already exists, skipping clone."
+    else
+        git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    fi
 
     # Note: if you are getting "open terminal failed: missing or unsuitable
     # terminal: xterm-kitty". You need to ssh in using the following command first
@@ -190,7 +197,7 @@ setup_neovim_env() {
     set -e
 
     # Install Python versions using uv
-    uv python install 3.12.6 2.7.18
+    uv python install 3.12.6
 
     # Set the default Python version
     uv python pin 3.12.6
