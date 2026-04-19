@@ -138,6 +138,17 @@ install_homebrew_bundle() {
     cd $DOTFILES_DIR
 }
 
+install_mise_and_node() {
+    # Temporarily export the Homebrew path
+    export PATH="$(_brew_prefix)/bin:$PATH"
+
+    echo ">>>>> Install mise..."
+    brew install mise
+
+    echo ">>>>> Install Node.js via mise..."
+    mise use -g node@latest
+}
+
 _setup_osx_default_settings() {
     echo ">>>>> Setup OSX default settings..."
     source $DOTFILES_DIR/osx/settings.sh
@@ -211,16 +222,6 @@ setup_neovim_env() {
     [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || npm install -g neovim
 }
 
-setup_zotero_sym_link() {
-    local ZOTERO_PATH=~/Zotero
-    local ATTACHMENT_PATH=~/Dropbox/references/attachments
-
-    # Alex: For some reasons it doesn't work in bash script, but it works
-    # when I run `ln -sf` command in shell.
-    [ -d "`eval echo ${ZOTERO_PATH}`" ] && [ -d "`eval echo ${ATTACHMENT_PATH}`" ] && \
-        ln -sf ${ATTACHMENT_PATH} ${ZOTERO_PATH}/storage
-}
-
 # install_latex_misc_tools() {
 #     echo ">>>>> Install latex misc tool"
 #     # Read
@@ -238,9 +239,9 @@ options=(
   "Create symlink to my dotfiles"
   "Install ctags and gtags (only if homebrew failed installing)"
   "Install Homebrew bundle"
+  "Install mise and Node.js"
   "Install Tmux plugin manager"
   "Setup Neovim environment"
-  "Setup Zotero storage symlink"
 )
 
 # Make each menu selections in 1 line instead of multiple selections in 1 line
@@ -265,9 +266,9 @@ select opt in "${options[@]}" "QUIT"; do
   4) symlink_dotfiles && exit_script ;;
   5) install_ctags_and_gtags && exit_script ;;
   6) install_homebrew_bundle && exit_script ;;
-  7) install_tmux_plugin_manager && exit_script ;;
-  8) setup_neovim_env && exit_script ;;
-  9) setup_zotero_sym_link && exit_script ;;
+  7) install_mise_and_node && exit_script ;;
+  8) install_tmux_plugin_manager && exit_script ;;
+  9) setup_neovim_env && exit_script ;;
 
   $((${#options[@]} + 1)))
     echo "Goodbye!"
