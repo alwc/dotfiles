@@ -33,7 +33,9 @@ alias lsp="lsof -i -n -P | grep LISTEN"
 # +----------------------------------------------------------------------------
 # | fzf
 # +----------------------------------------------------------------------------
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+# Shell integration (key bindings + fuzzy completion) — requires fzf >= 0.48.0.
+# https://github.com/junegunn/fzf#setting-up-shell-integration
+command -v fzf >/dev/null && eval "$(fzf --bash)"
 
 # --files: List files that would be searched but do not search
 # --no-ignore: Do not respect .gitignore, etc...

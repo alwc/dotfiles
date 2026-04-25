@@ -122,19 +122,41 @@ install_ctags_and_gtags() {
     which gtags
 }
 
+install_homebrew_basic() {
+    # Temporarily export the Homebrew path
+    export PATH="$(_brew_prefix)/bin:$PATH"
+
+    brew install \
+        tmux \
+        fzf \
+        claude-code \
+        uv \
+        neovim \
+        ripgrep \
+        ripgrep-all \
+        fd \
+        tree \
+        smug \
+        codex
+
+    if [ "$OS_DIR" = "osx" ]; then
+        brew install --cask \
+            kitty \
+            obsidian \
+            google-chrome
+    fi
+}
+
 install_homebrew_bundle() {
     # Temporarily export the Homebrew path
     export PATH="$(_brew_prefix)/bin:$PATH"
 
     brew bundle --jobs=auto --file=$DOTFILES_DIR/$OS_DIR/Brewfile
 
-    # To install useful FZF key bindings and fuzzy completion:
-    FZF_INSTALL="$(brew --prefix)/opt/fzf/install"
-    if [ -x "$FZF_INSTALL" ]; then
-        "$FZF_INSTALL"
-    else
-        echo ">>>>> Skipping fzf install script (not found at $FZF_INSTALL)"
-    fi
+    # fzf shell integration (key bindings + fuzzy completion) is set up in
+    # the shell rc files via `eval "$(fzf --bash)"` / `source <(fzf --zsh)`,
+    # per https://github.com/junegunn/fzf#setting-up-shell-integration. No
+    # install script needed — brew provides the `fzf` binary.
 
     # TEMP fix for ripgrep on Ubuntu
     if [ "$OS_DIR" = "ubuntu" ]; then
@@ -251,6 +273,7 @@ options=(
   "Install Homebrew and Git"
   "Create symlink to my dotfiles"
   "Install ctags and gtags (only if homebrew failed installing)"
+  "Install Homebrew basic packages"
   "Install Homebrew bundle"
   "Install mise and Node.js"
   "Install Tmux plugin manager"
@@ -278,10 +301,11 @@ select opt in "${options[@]}" "QUIT"; do
   3) install_homebrew_and_git && exit_script ;;
   4) symlink_dotfiles && exit_script ;;
   5) install_ctags_and_gtags && exit_script ;;
-  6) install_homebrew_bundle && exit_script ;;
-  7) install_mise_and_node && exit_script ;;
-  8) install_tmux_plugin_manager && exit_script ;;
-  9) setup_neovim_env && exit_script ;;
+  6) install_homebrew_basic && exit_script ;;
+  7) install_homebrew_bundle && exit_script ;;
+  8) install_mise_and_node && exit_script ;;
+  9) install_tmux_plugin_manager && exit_script ;;
+  10) setup_neovim_env && exit_script ;;
 
   $((${#options[@]} + 1)))
     echo "Goodbye!"
