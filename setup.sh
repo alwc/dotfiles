@@ -217,11 +217,20 @@ install_tmux_plugin_manager() {
         git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
     fi
 
+    # Reload config only if a tmux server is already running. On a fresh
+    # machine there's no server yet — the conf will be picked up the first
+    # time the user starts tmux.
+    #
     # Note: if you are getting "open terminal failed: missing or unsuitable
     # terminal: xterm-kitty". You need to ssh in using the following command first
     # `$ kitty +kitten ssh myserver`
     # Read: https://github.com/kovidgoyal/kitty/issues/320
-    tmux source ~/.tmux.conf
+    if tmux info >/dev/null 2>&1; then
+        tmux source ~/.tmux.conf
+    else
+        echo ">>>>> No tmux server running — skipping config reload."
+        echo "      Start tmux and press prefix + I to install TPM plugins."
+    fi
 }
 
 setup_neovim_env() {
