@@ -147,6 +147,59 @@ install_homebrew_basic() {
     fi
 }
 
+install_kitty_terminfo() {
+    # Ship the host's xterm-kitty terminfo to a remote machine so keys like
+    # Delete, arrows, Home, and End behave correctly when ssh'ing into it.
+    #
+    # Why this is needed:
+    #   - tmux (see tmux/tmux.conf) sets default-terminal=xterm-kitty on macOS,
+    #     so $TERM inside tmux is "xterm-kitty".
+    #   - When you ssh into a remote VM from inside tmux, that $TERM travels
+    #     with the session.
+    #   - Most fresh VMs don't have an xterm-kitty terminfo entry (only
+    #     machines that have kitty installed do), so the remote shell's line
+    #     editor can't decode the escape sequences your keys emit. Symptom:
+    #     Delete moves the cursor forward instead of erasing, arrow keys
+    #     insert garbage, etc.
+    #   - `kitty +kitten ssh` would normally install terminfo automatically,
+    #     but it can't pass its keyboard protocol through tmux, so we copy
+    #     the entry by hand.
+    #
+    # Run once per fresh VM. Compiles into ~/.terminfo on the remote (no sudo).
+    #
+    # NOTE: don't rely on `set -e` here — this function is invoked as
+    # `install_kitty_terminfo && exit_script`, and bash disables errexit
+    # inside any command whose exit status is being inspected by &&/||/if.
+    # Check pipeline status explicitly with `pipefail`.
+
+    if ! command -v infocmp >/dev/null 2>&1; then
+        echo ">>>>> 'infocmp' not found on host — install ncurses first."
+        return 1
+    fi
+
+    if ! infocmp -a xterm-kitty >/dev/null 2>&1; then
+        echo ">>>>> No xterm-kitty terminfo on host. Install kitty first."
+        return 1
+    fi
+
+    read -p "Remote target (user@host): " REMOTE
+    if [ -z "$REMOTE" ]; then
+        echo ">>>>> No remote provided, aborting."
+        return 1
+    fi
+
+    (
+        set -o pipefail
+        infocmp -a xterm-kitty | ssh "$REMOTE" 'tic -x -o ~/.terminfo /dev/stdin'
+    )
+    local rc=$?
+    if [ $rc -ne 0 ]; then
+        echo ">>>>> Failed to install xterm-kitty terminfo on $REMOTE (exit $rc)"
+        return $rc
+    fi
+    echo ">>>>> Installed xterm-kitty terminfo on $REMOTE"
+}
+
 install_homebrew_bundle() {
     # Temporarily export the Homebrew path
     export PATH="$(_brew_prefix)/bin:$PATH"
@@ -287,6 +340,7 @@ options=(
   "Install mise and Node.js"
   "Install Tmux plugin manager"
   "Setup Neovim environment"
+  "Install xterm-kitty terminfo on a remote VM"
 )
 
 # Make each menu selections in 1 line instead of multiple selections in 1 line
@@ -315,6 +369,7 @@ select opt in "${options[@]}" "QUIT"; do
   8) install_mise_and_node && exit_script ;;
   9) install_tmux_plugin_manager && exit_script ;;
   10) setup_neovim_env && exit_script ;;
+  11) install_kitty_terminfo && exit_script ;;
 
   $((${#options[@]} + 1)))
     echo "Goodbye!"
