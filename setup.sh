@@ -97,7 +97,7 @@ clone_dotfiles() {
     if [ -d "$DOTFILES_DIR" ]; then
         echo ">>>>> $DOTFILES_DIR already exists, skipping clone."
     else
-        git clone git@github.com:alwc/dotfiles.git $DOTFILES_DIR
+        git clone https://github.com/alwc/dotfiles.git $DOTFILES_DIR
     fi
     cd $DOTFILES_DIR
 }
