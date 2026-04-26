@@ -155,3 +155,12 @@ esac
 # | mise (Dev Tool Manager)
 # +----------------------------------------------------------------------------
 eval "$(mise activate zsh)"
+
+# +----------------------------------------------------------------------------
+# | User-local binaries (~/.local/bin)
+# +----------------------------------------------------------------------------
+# XDG-conventional install dir for per-user tools not managed by Homebrew or
+# mise. Currently holds: lume / lume-update (trycua macOS VM manager) and
+# onecli. Installer scripts (curl | sh, pipx, pip install --user) drop binaries
+# here by default, so this needs to be on PATH for them to be invokable.
+export PATH="$HOME/.local/bin:$PATH"

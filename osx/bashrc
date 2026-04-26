@@ -32,3 +32,9 @@ if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integr
 # END_KITTY_SHELL_INTEGRATION
 
 command -v fzf >/dev/null && eval "$(fzf --bash)"
+
+# User-local binaries (~/.local/bin): XDG-conventional install dir for per-user
+# tools not managed by Homebrew or mise. Currently holds lume / lume-update
+# (trycua macOS VM manager) and onecli. Installer scripts (curl | sh, pipx,
+# pip install --user) drop binaries here by default.
+export PATH="$HOME/.local/bin:$PATH"
