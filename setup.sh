@@ -136,14 +136,15 @@ install_homebrew_basic() {
         ripgrep-all \
         fd \
         tree \
-        smug \
-        codex
+        smug
 
     if [ "$OS_DIR" = "osx" ]; then
         brew install --cask \
             kitty \
             obsidian \
-            google-chrome
+            google-chrome \
+            codex \
+            codex-app
     fi
 }
 
