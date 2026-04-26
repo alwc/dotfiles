@@ -126,6 +126,9 @@ install_homebrew_basic() {
     # Temporarily export the Homebrew path
     export PATH="$(_brew_prefix)/bin:$PATH"
 
+    # bun is distributed via a custom tap (https://github.com/oven-sh/homebrew-bun)
+    brew tap oven-sh/bun
+
     brew install \
         tmux \
         fzf \
@@ -136,7 +139,8 @@ install_homebrew_basic() {
         ripgrep-all \
         fd \
         tree \
-        smug
+        smug \
+        bun
 
     if [ "$OS_DIR" = "osx" ]; then
         brew install --cask \
