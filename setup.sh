@@ -140,7 +140,8 @@ install_homebrew_basic() {
         fd \
         tree \
         smug \
-        bun
+        bun \
+        googleworkspace-cli
 
     if [ "$OS_DIR" = "osx" ]; then
         brew install --cask \
@@ -148,7 +149,8 @@ install_homebrew_basic() {
             obsidian \
             google-chrome \
             codex \
-            codex-app
+            codex-app \
+            gcloud-cli
     fi
 }
 
