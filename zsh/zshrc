@@ -2,7 +2,7 @@
 # | Secrets (not in version control)
 # +----------------------------------------------------------------------------
 [ -f ~/.secrets ] && source ~/.secrets
-[ -f ~/.oc_secrets ] && source ~/.oc_secrets
+[ -f ~/.config/last30days/.env ] && source ~/.config/last30days/.env
 
 # +----------------------------------------------------------------------------
 # | SSH palette — repaint the local terminal with a Nord-ish scheme via OSC
