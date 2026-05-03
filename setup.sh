@@ -260,6 +260,8 @@ symlink_dotfiles() {
     ln -sf $DOTFILES_DIR/$OS_DIR/profile ~/.profile
     ln -sfn $DOTFILES_DIR/nvim $CONFIG_DIR/nvim
     ln -sf $DOTFILES_DIR/nvim/coc/coc-settings-${OS_DIR}.json $CONFIG_DIR/nvim/coc-settings.json
+    mkdir -p $CONFIG_DIR/mise
+    ln -sf $DOTFILES_DIR/mise/config.toml $CONFIG_DIR/mise/config.toml
     ln -sf $DOTFILES_DIR/tmux/tmux.conf ~/.tmux.conf
     ln -sf $DOTFILES_DIR/gitconfig ~/.gitconfig
     ln -sfn $DOTFILES_DIR/ctags.d ~/.ctags.d
