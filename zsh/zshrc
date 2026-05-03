@@ -164,3 +164,5 @@ eval "$(mise activate zsh)"
 # onecli. Installer scripts (curl | sh, pipx, pip install --user) drop binaries
 # here by default, so this needs to be on PATH for them to be invokable.
 export PATH="$HOME/.local/bin:$PATH"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

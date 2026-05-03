@@ -38,3 +38,5 @@ command -v fzf >/dev/null && eval "$(fzf --bash)"
 # (trycua macOS VM manager) and onecli. Installer scripts (curl | sh, pipx,
 # pip install --user) drop binaries here by default.
 export PATH="$HOME/.local/bin:$PATH"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
